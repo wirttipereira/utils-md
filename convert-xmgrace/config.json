@@ -1,0 +1,12 @@
+{
+	"titulo": "Potential Drop - 0\\xm\\f{}C.cm\\S-2",
+	"folha": "A4",
+	"rotulo_y": "Potential (V)",
+	"rotulo_x": "z-box / nm",
+	"linhas":1,
+	"colunas":2,
+	"curvas_por_quadro":[5,5],
+	"arquivos": ["f1-potential.da", "f2-potential.da","f3-potential.da","f4-potential.da","f5-potential.da","f1-potential.da","f2-potential.da","f3-potential.da","f4-potential.da","f5-potential.da"],
+	"tamanho_x": 1,
+	"tamanho_y": 1.4
+}
