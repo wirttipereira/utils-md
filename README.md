@@ -1,7 +1,5 @@
-# web-utils-md
-Web utils for molecular dynamics
-Rafael Guimarães - 26.4.19
+# utils-md
 
-Intended to create web tools in order to generate automaticaly scripts and configuration files to work along with molecular dynamics software tools like Gromacs.
+Disponibilizamos algumas ferramentas desenvolvidas para uso em simulações computacionais, notadamente para o interessado em Gromacs, Lammps, VMD, xmgrace e outras tecnologias afins.
 
-**mensagem** oi nova mensagem
+---FIM---
