@@ -1,0 +1,9 @@
+400                   N, number of ions (ordem: emim-19, bf4-5, ntf2-15)
+3                     nspec, number of species
+200                   esp1-emim19, n moleculas 
+19                    esp1-emim19, n at
+150                   exp2-bf4-5, n moléculas
+5                     exp2-bf4-5, n at
+50                    esp3-ntf2-15, n moleculas
+15                    esp3-ntf2-15, n at
+45.5               box 

@@ -1,0 +1,7 @@
+12500001               nstep, numero de linhas do arquivo "pressure.dat"
+4.0E-15                dt (s)
+10000                  isave, write out each isave
+100                    iaver, perform averages each iaver
+1                      iacf, acf and g(r) each iacf
+100000                 nacf, data in acf
+50                     nc, molecules for acf calculation
