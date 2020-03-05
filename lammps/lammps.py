@@ -2,7 +2,7 @@
 
 '''
 -------------------------------------
-Rafael Guimaraes Pereira - 4.Fev.2020
+Rafael ~ Guimaraes Pereira - 4.Fev.2020
 -------------------------------------
 
 Algoritmo:
