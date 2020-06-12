@@ -1,7 +1,7 @@
 #!/bin/sh
-#PBS -N 13.4
-#PBS -e 13.4.err
-#PBS -o 13.4.o
+#PBS -N gr-x75
+#PBS -e gr.err
+#PBS -o gr.o
 #PBS -q workq
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=48:00:00
@@ -24,4 +24,8 @@ cd $PBS_O_WORKDIR
 
 
 #/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx grompp -f nvt.mdp -c confout.gro -p field.top
-/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun 
+/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx rdf -nice 0 -s topol.tpr -b 20000 -selrpos mol_com -seltype mol_com -o gr -f traj_comp.xtc -cn<<+
+4
+2
+3
++

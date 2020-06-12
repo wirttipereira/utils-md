@@ -1,9 +1,10 @@
 #!/bin/sh
-#PBS -N GPU-allc
-#PBS -e GPU-ALLc.err
-#PBS -o GPU-ALLc.o
+#PBS -N GPU-rt1
+#PBS -e GPU-rt1.err
+#PBS -o GPU-rt1.o
 #PBS -q gpuq
-#PBS -l select=1:ncpus=16:mpiprocs=8:ompthreads=2:ngpus=1
+#  PBS -l select=1:ncpus=16:mpiprocs=8:ompthreads=2:ngpus=1
+#PBS -l select=1:ncpus=8:mpiprocs=4:ompthreads=2:ngpus=1
 #PBS -l walltime=48:00:00
 
 
@@ -20,4 +21,5 @@ source  /dados/softwares/gromacs-gpu/bin/GMXRC.bash
 
 cd $PBS_O_WORKDIR
 
-mpirun -machinefile $PBS_NODEFILE -n 8  gmx_mpi mdrun -ntomp 2
+#mpirun -machinefile $PBS_NODEFILE -n 8  gmx_mpi mdrun -ntomp 2
+/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun
