@@ -1,0 +1,10 @@
+Oi, Rafa.
+
+ Seguem os arquivos.
+ Veja que ao criar o electrode.ff, será necessário adicionar uma linha no começo do arquivo.
+
+ Além disso, no dump, tem alguns átomos definidos como W que precisam ser removidos antes de rodar o programa, já que estes são as paredes do eletrodo e não precisam mais ser utilizadas na simulação com CO2.
+
+  Para este líquido iônico com estes eletrodos com fendas diferentes, eu não tenho simulações em 0V. Apenas em 0 carga. Possivelmente será necessário rodar uma simulação para esse sistema em 0V.
+
+Abraço.

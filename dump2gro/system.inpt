@@ -1,0 +1,15 @@
+802          ! N - numero total de moleculas
+4            ! nspec - Numero de especies
+400           ! isp(1) - Numero de moleculas da especie 1
+23           ! nsr(1) - Numero de atomos da especie 1
+s12g1          ! typ(1) - tipo de molecula da especie 1    
+400           ! isp(2) - Numero de moleculas da especie 2
+15            ! nsr(2) - Numero de atomos da especie 2
+ntf2          ! typ(2) - tipo de molecula da especie 2
+1           ! isp(3) - Numero de moleculas da especie 3
+1724            ! nsr(3) - Numero de atomos da especie 3
+elef          ! typ(3) - tipo de molecula da especie 3    
+1           ! isp(3) - Numero de moleculas da especie 3
+1724            ! nsr(3) - Numero de atomos da especie 3
+erig          ! typ(3) - tipo de molecula da especie 3 
+51.           ! box - Dimensão do lado da caixa
