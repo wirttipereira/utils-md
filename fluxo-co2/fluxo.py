@@ -45,6 +45,8 @@ import sys #para usar o argumento de entrada na linha de comando
 arquivo = sys.argv[1]
 #print arquivo
 
+#print "gas esq=0 || 1 / 2 / 3 / 4 || bulk=5 || 6 / 7 / 8 / 9 || gas dir=10"
+
 file = open('output.txt','w')
 
 contador = array([0,0,0,0,0,0,0,0,0,0,0])
@@ -98,16 +100,12 @@ with open(arquivo) as f:  #'teste.gro'
             if(y >= 3.75): 
                 contador[6] = contador [6] + 1
 
-
-
-
-
         #file2.writelines(gravar)
 
-    print "gas esq=0 || 1 / 2 / 3 / 4 || bulk=5 || 6 / 7 / 8 / 9 || gas dir=10"
+    #print "gas esq=0 || 1 / 2 / 3 / 4 || bulk=5 || 6 / 7 / 8 / 9 || gas dir=10"
     contador = contador / 3
     print contador
-    print ('soma',sum(contador))
+    #print ('soma',sum(contador))
     
     file.writelines(str(contador))
     file.writelines(str(sum(contador)))

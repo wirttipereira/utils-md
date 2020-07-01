@@ -1,0 +1,12 @@
+1.7.2020 - RGP
+
+DENSITY WATERFAL
+
+- Este programa tem a finalidade de gerar um gráfico 3D contendo diversas fatias de perfis de densidade, cada uma em tempo diferente
+
+- Procedimento
+-- Executar o 'density-waterfal.sh'. Ele vai gerar perfis de densidade com espaçamento temporal definido, por exemplo, a cada 1ns. Para mudar o intervalo, editar o arquivo '.sh'.
+-- Quando dentro de cluster, executar o job 'density-waterfal.pbs' para entrar no sistema de filas.
+-- Executar o 'density-waterfal.p' no gnuplot para gerar o gráfico desejado.
+
+---FIM---
