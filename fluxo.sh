@@ -7,7 +7,7 @@
 
 # geracao das configuracoes .gro 
 #for i in {100..30000..100}
-for i in {48000..80000..100}
+for i in {27000..48000..100}
 do 
 /home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../traj_comp.xtc -b $i -e $i -o ns$i.gro  -s ../topol.tpr<<+
 9
@@ -20,13 +20,13 @@ COMENTARIO
 > data.temp2
 
 # cria copia do .gro para .txt e retira as 2 primeiras e a ultima linha
-for i in {100..80000..100}
+for i in {100..48000..100}
 do
-# cp ns$i.gro ns$i.txt
+ cp ns$i.gro ns$i.txt
  # tirar as 2 primeiras linhas e 1 linha do final
-# tail -n +3 ns$i.txt | head -n -1 > file.new && mv file.new ns$i.txt
+ tail -n +3 ns$i.txt | head -n -1 > file.new && mv file.new ns$i.txt
  # adicionar ; nas colunas
-# sed -i 's/./&;/36;s/./&;/28;s/./&;/20;s/./&;/15;s/./&;/8' ns$i.txt
+ sed -i 's/./&;/36;s/./&;/28;s/./&;/20;s/./&;/15;s/./&;/8' ns$i.txt
  # roda o script python e adiciona o resultado, linha por linha, no data.temp 
  python fluxo.py ns$i.txt >> data.temp
 done
@@ -34,7 +34,7 @@ done
 sed -i '1,$s/\]//g' data.temp
 sed -i '1,$s/\[//g' data.temp
 
-COMENTARIO
+#COMENTARIO
 
 # adiciona a numeracao de tempo na primeira coluna do arquivo consolidado data.temp e grava no 'data.temp2'
 j=100
@@ -46,7 +46,7 @@ done < data.temp
 
 #COMENTARIO
 
-<<'COMMENT2'
+#<<'COMMENT2'
 #https://unix.stackexchange.com/questions/34440/automate-gnuplot-plotting-with-bash
 
 #for FILE in *; do
@@ -59,5 +59,5 @@ plot 'data.temp2' u 1:7  title 'bulk'
 EOF
 #done
 
-COMMENT2
+#COMMENT2
 

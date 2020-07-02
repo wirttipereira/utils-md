@@ -50,13 +50,12 @@ arquivo = sys.argv[1]
 file = open('output.txt','w')
 
 contador = array([0,0,0,0,0,0,0,0,0,0,0])
-aux = 0
 
 with open(arquivo) as f:  #'teste.gro'
     data = f.readlines()
     #print data
     for line in data:
-        aux = aux + 1
+
         #line = line.replace(' ',";")
         line = line.replace('\t',";")
         line = line.replace('\n'," ")
@@ -90,7 +89,6 @@ with open(arquivo) as f:  #'teste.gro'
                 contador[2] = contador [2] + 1
             if(y >= 3.75): 
                 contador[1] = contador [1] + 1
-		#print ('fenda 1: '+str(aux))
         #eletrodo direito
         if((z >= 30) and (z < 32)):
             if((y >= 0) and (y < 1.5)): 
