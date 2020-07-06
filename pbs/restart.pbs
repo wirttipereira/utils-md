@@ -24,4 +24,4 @@ cd $PBS_O_WORKDIR
 
 
 #/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx grompp -f nvt.mdp -c confout.gro -p field.top
-/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -s topol.tpr -cpi state.cpt 
+/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -s topol.tpr -cpi state.cpt -nt 20
