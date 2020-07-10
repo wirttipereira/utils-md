@@ -1,0 +1,23 @@
+9.JUL.2020 - RAFAEL GUIMARAES PEREIRA
+
+INSTRUCTIONS
+------------
+
+This program calculates de density of CO2 in the bulk, or can be easily modified to calculate density in other slices of 'z' coordinate or even of another molecules, it's just a matter of choose the proper parameters.
+
+First you have to check if those parameters are well configurated.
+
+This pack is composed by 3 files as follows;
+1. density-region.py: calculates de average density among a range of 'z' coordinate
+2. varios.sh: bash file to input several calculations at once
+3. plot.p: gnuplot script to plot after generate the density calculations
+
+
+a) First check into .py file if the right column is selected. Look up for the line containing 'y = float(parts[6])' and replace this 6 for the coluns where the species of interest is (say CO2, in this case)
+
+b) Opens .sh file and check 3 things. 
+  b1. if the range of files are correct  (line: for i in {1..80})
+  b2. if the range of 'z' is correct ( the end of: ...ns$(($i)).xvg 19 30)
+  b3. again the range of files. This routine is going to write the time column (j=1 ... $j+1...  Replace the '1'by the correct number, if otherwise)
+
+c) open .p file 

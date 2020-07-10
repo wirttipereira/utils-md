@@ -1,0 +1,23 @@
+8.7.2020 Rafael Guimaraes Pereira
+
+Before the job time is gone you can schedure a restart for your process automatically. 
+
+1) configure your restart.pbs as usually
+
+2) calculate what is the time/hour the job will be stopped. We will give two examples
+
+- Ex1: Now is 9:22, the jobs will stopped when complete 48h and thus it will finished on 12:34. You can give some minutes only (just in case) and schedule the restart as follows: 
+
+bash> at 12:40
+at>qsub restart.pbs
+control-D
+
+- Ex2: the time will be elapsed tomorrow at 6h02 in the morning. You can proceed as in the previous example just changing the command as follows:
+
+bash> at 6:02 tomorrow
+at>qsub restart.pbs
+control-D
+
+More 'at' commands are possible, we've consulted this reference: https://www.computerhope.com/unix/uat.htm 
+
+-- FIM --
