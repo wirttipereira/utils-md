@@ -1,7 +1,7 @@
 #!/bin/sh
-#PBS -N 9.4
-#PBS -e 9.4.err
-#PBS -o 9.4.o
+#PBS -N rdAS2DB80 
+#PBS -e rdAS2DB80.err
+#PBS -o rdAS2DB80.o
 #PBS -q workq 
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=48:00:00
@@ -24,5 +24,5 @@ cd $PBS_O_WORKDIR
 
 
 #/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx grompp -f nvt.mdp -c confout.gro -p field.top
-/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -nt 20
-#/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -s topol.tpr -cpi state.cpt -nt 20
+#/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -nt 20
+sh gr1.sh

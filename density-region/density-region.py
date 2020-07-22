@@ -32,7 +32,7 @@ def media_z1z2(arq,z1,z2):
 				parts = line.split(" ") # split line into parts
 				#print parts[0]
 				z = float(parts[0])
-				y = float(parts[6])
+				y = float(parts[5])
 				if (z>=z1 and z<z2):
 					sum_y = sum_y + y
 					contador = contador + 1
@@ -40,7 +40,7 @@ def media_z1z2(arq,z1,z2):
 	#print contador
 
 	if (contador>0):
-		return sum_y/contador
+		return sum_y#/contador #nao dividir pelo contator pois ficaria ymedmed, a media das medias do slice. Melhor o somatorio das medias que da o numero de co2 dentro do intervalo setado (bulk)
 	else:
 		return 0.
 
