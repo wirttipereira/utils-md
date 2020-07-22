@@ -1,3 +1,6 @@
+#set terminal png size 1000, 1000
+#set output 'Dens-media-co2-bulk.png'
+#set title 'Densidade média de CO2 no bulk'
 set xlabel "time / ns"
 set ylabel "CO_2 average density / Kg.m^{-3} "
 p 'plot.data' u 1:2 w p title "gas bulk" lw 3 lc rgb "black"
