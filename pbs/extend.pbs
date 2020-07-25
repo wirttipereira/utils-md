@@ -1,0 +1,32 @@
+#!/bin/sh
+#PBS -N AS2DB80 
+#PBS -e co2-500un-0mq-50tma-3d.err
+#PBS -o co2-500un-0mq-50tma-3d.o
+#PBS -q workq 
+#PBS -l nodes=1:ppn=20
+#PBS -l walltime=48:00:00
+
+
+export I_MPI_FABRICS=shm
+export OMP_NUM_THREADS=1
+
+source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
+source /opt/intel/impi/2019.6.166/intel64/bin/mpivars.sh
+source /opt/intel/mkl/bin/mklvars.sh intel64
+
+source /dados/softwares/gromacs-2018-3-source-mpi-mkl/bin/GMXRC.bash
+
+
+cd $PBS_O_WORKDIR
+#gmx_mpi grompp -f nvt.mdp -c confout.gro -p field.top
+
+#mpirun -machinefile $PBS_NODEFILE -n 1  gmx_mpi grompp -f nvt.mdp -c confout.gro -p field.top
+
+
+#/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx grompp -f nvt.mdp -c confout.gro -p field.top
+#/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -nt 20
+
+#gmx convert-tpr -s topol.tpr -extend 20000 -o md_80_100.tpr
+
+/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx mdrun -deffnm md_80_100 -cpi state.cpt -nt 20 -noappend
+

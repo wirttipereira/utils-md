@@ -1,9 +1,14 @@
 > data.temp
 > data.temp2
 
-for i in {1..80}
+# distancias no bulk
+# caixa sulfonio 19.8 28.24
+# caixa N1114 20.15 27.85
+
+
+for i in {1..62}
 do
-python density-region.py  ../density-waterfal/ns$(($i)).xvg 19.8 28.24 >> data.temp
+python density-region.py  ../density-waterfal/ns$(($i)).xvg 20.15 27.85 >> data.temp
 done
 
 
