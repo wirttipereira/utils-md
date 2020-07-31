@@ -7,7 +7,7 @@
 #tail -n 15 md_80_100.part0007.log | grep -A 2 Time
 
 echo AS2QB80
-cd /home/rafagp/Github/S12g1/padua/x50/250-co2/2V-from-lammps/80ns-350K
+cd /home/rafagp/Github/S12g1/2V/Q-250-co2/B-350K
 tail -n 15 md.log | grep -A 2 Time #head -n 3
 
 #echo AN2DB80
