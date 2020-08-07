@@ -80,14 +80,18 @@ def conta(arq_in,v1):
 	  	  	if(v1[aux]=='2'):
 	  	  		cont_dir = cont_dir + 1 #eletrodo dir
 	  	  aux = aux + 1
-	return cont_esq, cont_dir
+	return cont_esq/3, cont_dir/3
 
 
 ns = [] #cria lista para armazenar vetores
 ns.append(escreve_labels('ns0.gro','out.txt'))
 #print ns[0][0:10]
 
+<<<<<<< HEAD
 for i in range(1,5): # ---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
+=======
+for i in range(1,100): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
+>>>>>>> e05c8cc3ec1352dc3d50d0030c8301a8d00bbc71
 	arq='ns'+str(i)+'.gro'
 	#print arq
 	ns.append(escreve_labels(arq,'out.txt'))
@@ -100,39 +104,3 @@ for i in range(1,5): # ---> AJUSTAR AQUI <---- de acordo com o numero de arquivo
 #print ns[0][0:10]
 #print ns[1][0:10]
 
-
-
-
-
-
-'''
-ns0= escreve_labels('ns0.gro','out.txt')
-
-ns1= escreve_labels('ns1.gro','out.txt')
-ns1, e, d= ajusta(ns0, ns1)
-
-ns2= escreve_labels('ns2.gro','out.txt')
-ns2, e, d= ajusta(ns1, ns2)
-
-ns3= escreve_labels('ns3.gro','out.txt')
-ns3, e, d= ajusta(ns2, ns3)
-
-print ns0[0:10]
-print ns1[0:10]
-print ns2[0:10]
-print ns3[0:10]
-'''
-
-'''
-    if ((z>zr[2]) and (z<zr[3])):	#bulk
-    	if(anterior[1]==1):
-    		total_esq = total_esq + 1
-    		label = 1
-    	if(anterior[1]==2):
-    		total_dir = total_dir + 1
-    		label = 2
-    	#temp=0
-'''
-#debug
-#print anterior
-#print len(anterior)
