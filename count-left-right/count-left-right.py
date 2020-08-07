@@ -2,7 +2,8 @@
 import sys #para usar o argumento de entrada na linha de comando
 from numpy import array
 #--- configurar ---
-zr=[0,16.7,19.8,28.24,31.34,48.5]
+#zr=[0,16.70,19.80,28.24,31.34,48.5] #sulfonio
+zr=[0,17.04,20.15,27.85,30.95,48.5] #amonio, fosfonio
 # ---> ajustar mais no final o range dos arquivos em ns
 
 
@@ -87,7 +88,7 @@ ns = [] #cria lista para armazenar vetores
 ns.append(escreve_labels('ns0.gro','out.txt'))
 #print ns[0][0:10]
 
-for i in range(1,100): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
+for i in range(1,54): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
 	arq='ns'+str(i)+'.gro'
 	#print arq
 	ns.append(escreve_labels(arq,'out.txt'))
@@ -96,7 +97,3 @@ for i in range(1,100): #---> AJUSTAR AQUI <---- de acordo com o numero de arquiv
 	#print ns[i][0:10]
 	e,d=conta(arq,ns[i])
 	print e, d
-
-#print ns[0][0:10]
-#print ns[1][0:10]
-
