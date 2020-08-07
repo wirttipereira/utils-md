@@ -1,13 +1,8 @@
-#Rafael Guimaraes Pereira - 7.Aug.2020
-#wirttipereira@hotmail.com
-#####################################
-
+#from numpy import array
 import sys #para usar o argumento de entrada na linha de comando
 from numpy import array
 #--- configurar ---
-# numero de configuracos .gro, ajustar no final deste arquivo
-#zr=[0,16.70,19.80,28.24,31.34,48.5] #sulfonio
-zr=[0,17.04,20.15,27.85,30.95,48.5] #amonio, fosfonio
+zr=[0,16.7,19.8,28.24,31.34,48.5]
 # ---> ajustar mais no final o range dos arquivos em ns
 
 
@@ -36,9 +31,11 @@ def escreve_labels(arq_in, arq_out): #retorna um vetor
 	fo.writelines('RGP - count-left-right.py\n')
 	fo.writelines('3328'+'\n')
 	with open(arq_in) as f:  
+		#zr=[0,16.7,19.8,28.24,31.34,48.5]
 		data = f.readlines()
 	  	for line in data[2:len(data)-1]:	#faz skip das primeiras 2 linhas e da ultima
 	  	  aux = aux + 1
+	  	  #print aux
 	  	  z = float(line[37:44])
 	  	  if ((z<zr[1]) or (z>zr[4])):
 	  	  	label = "0"
@@ -49,8 +46,8 @@ def escreve_labels(arq_in, arq_out): #retorna um vetor
 		  fo.writelines('{:>10}{:>5}{:>5}{:>8}{:>8}{:8.3f}{:>5}\n'.format(line[0:10],line[10:15],line[16:20],line[21:28],line[29:36],z,label))
 		  v.append(label)
 
-    	#fo.writelines(ultima_linha)
-    	#fo.close()
+    #fo.writelines(ultima_linha)
+    #fo.close()
 	return v    
 
 def ajusta(v0,v1):
@@ -60,8 +57,12 @@ def ajusta(v0,v1):
 	for i in v1:
 		if(i==''): #se estiver no bulk
 			v1[aux]=v0[aux]
+		#if(i=='1'):#eletrodo esq
+		#	cont_esq = cont_esq + 1
+		#if(i=='2'):#eletrodo dir
+		#	cont_dir = cont_dir + 1
 		aux = aux + 1
-	return v1
+	return v1#, cont_esq, cont_dir
 
 
 def conta(arq_in,v1):
@@ -71,6 +72,7 @@ def conta(arq_in,v1):
 	  	cont_esq=0
 	  	cont_dir=0
 	  	for line in data[2:len(data)-1]:	#faz skip das primeiras 2 linhas e da ultima
+	  	  #print aux
 	  	  z = float(line[37:44])
 	  	  if ((z>zr[2]) and (z<zr[3])):	#bulk
 	  	  	if(v1[aux]=='1'):
@@ -81,35 +83,24 @@ def conta(arq_in,v1):
 	return cont_esq/3, cont_dir/3
 
 
-def salva(v_left,v_right):
-	with open ('data.bulk','w') as f:
-		f.writelines('left right\n')
-		cont=0
-		for i in range(len(v_left)):
-			f.writelines(str(cont)+' '+str(v_left[cont])+' '+str(v_right[cont])+'\n')
-			cont=cont+1
-	f.close()
-
 ns = [] #cria lista para armazenar vetores
 ns.append(escreve_labels('ns0.gro','out.txt'))
-v_left=[] #vetor resposta esquerda
-v_right=[] #vetor resposta direita
+#print ns[0][0:10]
 
-<<<<<<< HEAD
 <<<<<<< HEAD
 for i in range(1,5): # ---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
 =======
 for i in range(1,100): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
 >>>>>>> e05c8cc3ec1352dc3d50d0030c8301a8d00bbc71
-=======
-for i in range(1,101): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
->>>>>>> 71c08bd4ebb61cd463b92c941a34cdafe1257ccd
 	arq='ns'+str(i)+'.gro'
+	#print arq
 	ns.append(escreve_labels(arq,'out.txt'))
+	#ns[i],e,d=ajusta(ns[i-1],ns[i])
 	ns[i]=ajusta(ns[i-1],ns[i])
+	#print ns[i][0:10]
 	e,d=conta(arq,ns[i])
-	v_left.append(e)
-	v_right.append(d)
+	print e, d
 
-salva(v_left,v_right)
+#print ns[0][0:10]
+#print ns[1][0:10]
 
