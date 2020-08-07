@@ -87,7 +87,7 @@ ns = [] #cria lista para armazenar vetores
 ns.append(escreve_labels('ns0.gro','out.txt'))
 #print ns[0][0:10]
 
-for i in range(1,5): #---> AJUSTAR AQUI <---- de acordo com o número de arquivos
+for i in range(1,5): # ---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
 	arq='ns'+str(i)+'.gro'
 	#print arq
 	ns.append(escreve_labels(arq,'out.txt'))
