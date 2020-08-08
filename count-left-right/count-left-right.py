@@ -86,7 +86,11 @@ def salva(v_left,v_right):
 		f.writelines('left right\n')
 		cont=0
 		for i in range(len(v_left)):
-			f.writelines(str(cont)+' '+str(v_left[cont])+' '+str(v_right[cont])+'\n')
+			c=str(cont)
+			l=str(v_left[cont])
+			r=str(v_right[cont])
+			lr=str(v_left[cont]+v_right[cont])
+			f.writelines(c+' '+l+' '+r+' '+lr+'\n')
 			cont=cont+1
 	f.close()
 
@@ -95,15 +99,7 @@ ns.append(escreve_labels('ns0.gro','out.txt'))
 v_left=[] #vetor resposta esquerda
 v_right=[] #vetor resposta direita
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-for i in range(1,5): # ---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
-=======
-for i in range(1,100): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
->>>>>>> e05c8cc3ec1352dc3d50d0030c8301a8d00bbc71
-=======
 for i in range(1,101): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
->>>>>>> 71c08bd4ebb61cd463b92c941a34cdafe1257ccd
 	arq='ns'+str(i)+'.gro'
 	ns.append(escreve_labels(arq,'out.txt'))
 	ns[i]=ajusta(ns[i-1],ns[i])

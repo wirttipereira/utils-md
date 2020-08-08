@@ -2,19 +2,24 @@
 
 
 # geracao das configuracoes .gro 
-#for i in {1..53..1}
-#do 
-#/home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../traj_comp.xtc -b $(($i*1000)) -e $(($i*1000)) -o ns$i.gro  -s ../topol.tpr<<+
-#5
-#+
-#done
 
-#for i in {54..72..1}
-#do 
-#/home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../traj_comp.part0004.xtc -b $(($i*1000)) -e $(($i*1000)) -o ns$i.gro  -s ../topol.tpr<<+
-#5
-#+
-#done
+/home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../traj_comp.xtc -s ../topol.tpr -b 1 -e 1 -o ns0.gro<<+
+6
++ 
+
+for i in {1..80..1}
+do 
+/home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../traj_comp.xtc -b $(($i*1000)) -e $(($i*1000)) -o ns$i.gro  -s ../topol.tpr<<+
+6
++
+done
+
+for i in {81..98..1}
+do 
+/home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../md_80_100.part0007.xtc -b $(($i*1000)) -e $(($i*1000)) -o ns$i.gro  -s ../md_80_100.tpr<<+
+6
++
+done
 
 #for i in {73..80..1}
 #do 
@@ -22,10 +27,3 @@
 #5
 #+
 #done
-
-for i in {1..20..1}
-do 
-/home/rafagp/exe/gromacs-5.1.4/build/bin/./gmx trjconv -nice 0 -f ../2/traj_comp.xtc -b $(($i*1000)) -e $(($i*1000)) -o ns$(($i+80)).gro  -s ../2/topol.tpr<<+
-5
-+
-done
