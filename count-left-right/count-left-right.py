@@ -95,13 +95,13 @@ def salva(v_left,v_right):
 	f.close()
 
 ns = [] #cria lista para armazenar vetores
-ns.append(escreve_labels('ns0.gro','out.txt'))
+ns.append(escreve_labels('ns0.gro','out0.txt'))
 v_left=[] #vetor resposta esquerda
 v_right=[] #vetor resposta direita
 
 for i in range(1,101): #---> AJUSTAR AQUI <---- de acordo com o numero de arquivos
 	arq='ns'+str(i)+'.gro'
-	ns.append(escreve_labels(arq,'out.txt'))
+	ns.append(escreve_labels(arq,'out'+str(i)+'.txt'))
 	ns[i]=ajusta(ns[i-1],ns[i])
 	e,d=conta(arq,ns[i])
 	v_left.append(e)
