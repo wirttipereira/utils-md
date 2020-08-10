@@ -31,7 +31,7 @@ tail -n 15 md.log | grep -A 2 Time #head -n 3
 #tail -n 15 md.part0004.log | grep -A 2 Time #head -n 3
 echo AP2QB80
 cd /home/rafagp/Github/P2O1/2.5V/Q-250-co2/B-350K
-tail -n 15 md.log | grep -A 2 Time
+tail -n 15 md.part0003.log | grep -A 2 Time
 
 echo AP2DB80
 cd /home/rafagp/Github/P2O1/2.5V/D-500-co2/B-350K
