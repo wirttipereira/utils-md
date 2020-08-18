@@ -6,10 +6,17 @@
 
 #--- configurar ---
 # numero de configuracos .gro, ajustar no final deste arquivo
-#zr=[0,16.70,19.80,28.24,31.34,48.5] #sulfonio
-zr=[0,17.04,20.15,27.85,30.95,48.5] #amonio, fosfonio
+#zr=[0,16.62,19.94,28.18,31.49,48.5] #sulfonio
+#zr=[0,17.23,20.52,28.00,31.28,48.5] #amonio
+zr=[0, 16.06, 19.37, 29.07, 32.35, 48.5] #fosfonio
+caixa_dx=3.42
+caixa_dy=4.50
+cx_vol_bulk= caixa_dx * caixa_dy * (zr[3]-zr[2])
+#print(cx_vol_bulk)
+print ('tempo left right left+right gas total')
 ultima_linha="   3.42600   4.50000  48.50000"
 # ---> ajustar mais no final o range dos arquivos em ns
+
 
 import numpy as np
 
@@ -37,7 +44,7 @@ def build_raw_matrix(arq_in):
 
 def correct_matrix(rawM):
 	linhas,colunas=rawM.shape
-	print linhas, colunas
+	#print linhas, colunas
 	
 	for i in range(linhas):
 		left=0
@@ -52,12 +59,15 @@ def correct_matrix(rawM):
 					right = right + 1
 				elif(rawM[i-1,j]==0):
 					gas = gas + 1
-		print i, left, right, left+right, gas, left+right+gas
+		#i*100 pois esta na escala de ps
+		#print i*100, left, right, left+right, gas, left+right+gas
+		print i, left/cx_vol_bulk/3, right/cx_vol_bulk/3, (left+right)/cx_vol_bulk/3, gas/cx_vol_bulk/3, (left+right+gas)/cx_vol_bulk/3
+
 	return rawM
 
 v=[]
-for i in range(0,101):
-	arq='ns'+str(i)+'.gro'
+for i in range(0,63):
+	arq='ns'+str(i)+'.gro' #i*100 quando esta na escala de ps
 	v.append(build_raw_matrix(arq))
 V=np.array(v)
 CM =correct_matrix(V)
