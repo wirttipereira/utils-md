@@ -1,1 +1,46 @@
-g
+# Arquivos grandes não serão sincronizados
+
+#adicionar 'ignore' no final do arquivo que quiser garantir que nao seja sincronizado
+*ignore
+
+#geral
+*eps*
+*zip*
+*tar*
+*tar.gz*
+*.pyg*
+*.mpg*
+
+#eniac
+core*
+*.err
+*.o
+
+#gromacs
+*#*
+*.trr
+*.xtc
+*.edr
+*log
+*xvg
+*tpr
+*conf*cpt*
+*.pdb*
+*.gro
+
+#calc viscosidade
+*.dat*
+
+#travis
+*cube*
+*plt*
+*.out*
+
+
+
+#muitos arquivos gerados no umbrella sampling
+*gro
+*xvg
+
+
+
