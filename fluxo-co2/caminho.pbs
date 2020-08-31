@@ -1,0 +1,46 @@
+#!/bin/sh
+#PBS -N cam.x50m500
+#PBS -e caminho.x50.maginn.500co2.err
+#PBS -o caminho.x50.maginn.500co2.o
+#PBS -q workq 
+#PBS -l nodes=1:ppn=20
+#PBS -l walltime=48:00:00
+
+
+export I_MPI_FABRICS=shm
+export OMP_NUM_THREADS=1
+
+source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
+source /opt/intel/impi/2019.6.166/intel64/bin/mpivars.sh
+source /opt/intel/mkl/bin/mklvars.sh intel64
+
+source /dados/softwares/gromacs-2018-3-source-mpi-mkl/bin/GMXRC.bash
+
+
+cd $PBS_O_WORKDIR
+#gmx_mpi grompp -f nvt.mdp -c confout.gro -p field.top
+
+#mpirun -machinefile $PBS_NODEFILE -n 1  gmx_mpi grompp -f nvt.mdp -c confout.gro -p field.top
+
+#o segundo argumento eh o numero do atomo de co2
+
+sh caminho.sh 19
+gnuplot -e "nome=19" caminho.p
+sh caminho.sh 169
+gnuplot -e "nome=169" caminho.p
+sh caminho.sh 214
+gnuplot -e "nome=214" caminho.p
+sh caminho.sh 304
+gnuplot -e "nome=304" caminho.p
+sh caminho.sh 418
+gnuplot -e "nome=418" caminho.p
+sh caminho.sh 517
+gnuplot -e "nome=517" caminho.p
+sh caminho.sh 616
+gnuplot -e "nome=616" caminho.p
+sh caminho.sh 697
+gnuplot -e "nome=697" caminho.p
+sh caminho.sh 814
+gnuplot -e "nome=814" caminho.p
+sh caminho.sh 976
+gnuplot -e "nome=976" caminho.p

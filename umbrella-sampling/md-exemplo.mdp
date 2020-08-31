@@ -1,0 +1,259 @@
+;
+;	File 'mdout.mdp' was generated
+;	By user: spoel (291)
+;	On host: chagall
+;	At date: Mon Dec 15 13:13:06 2003
+;
+
+; VARIOUS PREPROCESSING OPTIONS
+title                    = Yo
+cpp                      = /usr/bin/cpp
+include                  = 
+define                   = 
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+; Start time and timestep in ps
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 5000000
+; For exact run continuation or redoing part of a run
+init_step                = 0
+; mode for center of mass motion removal
+comm-mode                = Linear
+; number of steps for center of mass motion removal
+nstcomm                  = 1
+; group(s) for center of mass motion removal
+comm-grps                = 
+freezegrps = elef erig 
+freezedim  = Y Y Y  Y Y Y
+
+; OUTPUT CONTROL OPTIONS
+; Output frequency for coords (x), velocities (v) and forces (f)
+nstxout                  = 0 
+nstvout                  = 0
+nstfout                  = 0
+; Checkpointing helps you continue after crashes
+nstcheckpoint            = 1000
+; Output frequency for energies to log file and energy file
+nstlog                   = 100 
+nstenergy                = 100
+; Output frequency and precision for xtc file
+nstxtcout                = 100 
+xtc-precision            = 1000
+; This selects the subset of atoms for the xtc file. You can
+; select multiple groups. By default all atoms will be written.
+xtc-grps                 = 
+; Selection of energy groups
+energygrps               = s12g1 ntf2 elef erig 
+
+; NEIGHBORSEARCHING PARAMETERS
+; nblist update frequency
+nstlist                  = 5
+; ns algorithm (simple or grid)
+ns_type                  = grid
+; Periodic boundary conditions: xyz (default), no (vacuum)
+; or full (infinite systems only)
+pbc                      = xyz
+; nblist cut-off        
+rlist                    = 1.5 
+domain-decomposition     = no
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = PME
+rcoulomb-switch          = 0
+rcoulomb                 = 1.5
+; Dielectric constant (DC) for cut-off or DC of reaction field
+epsilon-r                = 1
+; Method for doing Van der Waals
+vdw-type                 = cut-off 
+; cut-off lengths       
+rvdw-switch              = 0.0 
+rvdw                     = 1.5
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = no 
+; Extension of the potential lookup tables beyond the cut-off
+table-extension          = 1
+; Spacing for the PME/PPPM FFT grid
+fourierspacing           = 0.08
+; FFT grid size, when a value is 0 fourierspacing will be used
+fourier_nx               = 0
+fourier_ny               = 0
+fourier_nz               = 0
+; EWALD/PME/PPPM parameters
+pme_order                = 6
+ewald_rtol               = 1e-05
+ewald_geometry           = 3d;3dc
+epsilon_surface          = 0
+optimize_fft             = no
+
+; GENERALIZED BORN ELECTROSTATICS
+; Algorithm for calculating Born radii
+gb_algorithm             = Still
+; Frequency of calculating the Born radii inside rlist
+nstgbradii               = 1
+; Cutoff for Born radii calculation; the contribution from atoms
+; between rlist and rgbradii is updated every nstlist steps
+rgbradii                 = 2
+; Salt concentration in M for Generalized Born models
+gb_saltconc              = 0
+
+; IMPLICIT SOLVENT (for use with Generalized Born electrostatics)
+implicit_solvent         = No
+
+; OPTIONS FOR WEAK COUPLING ALGORITHMS
+; Temperature coupling  
+Tcoupl                   = V-rescale 
+; Groups to couple separately
+tc-grps                  = s12g1 ntf2 elef erig 
+; Time constant (ps) and reference temperature (K)
+tau_t                    = .10 .10 1.0 1.0
+ref_t                    = 350. 350. 350. 350.
+; Pressure coupling     
+Pcoupl                   = no 
+Pcoupltype               = isotropic
+; Time constant (ps), compressibility (1/bar) and reference P (bar)
+tau_p                    = 1.5
+compressibility          = 4.5e-5
+ref_p                    = 1.0
+; Random seed for Andersen thermostat
+andersen_seed            = 815131
+
+; SIMULATED ANNEALING  
+; Type of annealing for each temperature group (no/single/periodic)
+annealing                = no
+; Number of time points to use for specifying annealing in each group
+annealing_npoints        = 
+; List of times at the annealing points for each group
+annealing_time           = 
+; Temp. at each annealing point, for each group.
+annealing_temp           = 
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = yes 
+gen_temp                 = 350. ;350 
+gen_seed                 = 1993
+
+; OPTIONS FOR BONDS    
+constraints              =  h-bonds 
+; Type of constraint algorithm
+constraint-algorithm     = Lincs
+; Do not constrain the start configuration
+unconstrained-start      = no
+; Use successive overrelaxation to reduce the number of shake iterations
+Shake-SOR                = no
+; Relative tolerance of shake
+shake-tol                = 1e-04
+; Highest order in the expansion of the constraint coupling matrix
+lincs-order              = 4
+; Number of iterations in the final step of LINCS. 1 is fine for
+; normal simulations, but use 2 to conserve energy in NVE runs.
+; For energy minimization with constraints it should be 4 to 8.
+lincs-iter               = 1
+; Lincs will write a warning to the stderr if in one step a bond
+; rotates over more degrees than
+lincs-warnangle          = 30
+; Convert harmonic bonds to morse potentials
+morse                    = no
+
+; ENERGY GROUP EXCLUSIONS
+; Pairs of energy groups for which all non-bonded interactions are excluded
+
+;energygrp_excl           = elef elef  erig erig ;RAFAEL: no gromacs 5.1.4 da erro no grompp pois este parametro nao eh suportado para Verlet
+
+; NMR refinement stuff 
+; Distance restraints type: No, Simple or Ensemble
+disre                    = No
+; Force weighting of pairs in one distance restraint: Conservative or Equal
+disre-weighting          = Conservative
+; Use sqrt of the time averaged times the instantaneous violation
+disre-mixed              = no
+disre-fc                 = 1000
+disre-tau                = 0
+; Output frequency for pair distances to energy file
+nstdisreout              = 100
+; Orientation restraints: No or Yes
+orire                    = no
+; Orientation restraints force constant and tau for time averaging
+orire-fc                 = 0
+orire-tau                = 0
+orire-fitgrp             = 
+; Output frequency for trace(SD) to energy file
+nstorireout              = 100
+; Dihedral angle restraints: No, Simple or Ensemble
+dihre                    = No
+dihre-fc                 = 1000
+dihre-tau                = 0
+; Output frequency for dihedral values to energy file
+nstdihreout              = 100
+
+; Free energy control stuff
+free-energy              = no
+init-lambda              = 0
+delta-lambda             = 0
+sc-alpha                 = 0
+sc-sigma                 = 0.3
+
+; Non-equilibrium MD stuff
+acc-grps                 = 
+accelerate               = 
+freezegrps               = 
+freezedim                = 
+cos-acceleration         = 0
+
+; Electric fields      
+; Format is number of terms (int) and for all terms an amplitude (real)
+; and a phase angle (real)
+E-x                      = 
+E-xt                     = 
+E-y                      = 
+E-yt                     = 
+E-z                      = 
+E-zt                     = 
+
+; User defined thingies
+user1-grps               = 
+user2-grps               = 
+userint1                 = 0
+userint2                 = 0
+userint3                 = 0
+userint4                 = 0
+userreal1                = 0
+userreal2                = 0
+userreal3                = 0
+userreal4                = 0
+
+; COM PULLING
+pull                     = yes
+; Cylinder radius for dynamic reaction force groups (nm)
+pull-cylinder-r          = 1.5
+pull-constr-tol          = 1e-06
+pull-print-com1          = no
+pull-print-com2          = no
+pull-print-ref-value     = no
+pull-print-components    = no
+pull-nstxout             = 50
+pull-nstfout             = 50
+; Number of pull groups
+pull_ngroups             = 2
+; Number of pull coordinates
+pull_ncoords             = 1
+; Group name, weight (default all 1), vector, init, rate (nm/ps), kJ/(mol*nm^2)
+pull_group1_name         = DUM
+pull-group1-weights      =
+pull-group1-pbcatom      = 0
+pull_group2_name         = co2x
+pull-group2-weights      =
+pull-group2-pbcatom      = 0
+pull_coord1_type         = umbrella
+pull_coord1_geometry     = direction; direction (usa vetor); distance
+pull_coord1_groups       = 1  2
+pull_coord1_dim          = N N Y
+pull-coord1-origin       = 0.0 0.0 0.0
+pull-coord1-vec          = 0.0 0.0 1.0 ; mudei aqui
+pull_coord1_start        = yes
+pull-coord1-init         = 0
+pull_coord1_rate         = 0.0008; 0.0008nm/ps * 10000ps = 8nm (percurso, 34.5 a 26.5nm)
+pull-coord1-k            = 1000
+pull-coord1-kB           = 1000
