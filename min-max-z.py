@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 #RGP - 20.8.2020
 
 import sys
