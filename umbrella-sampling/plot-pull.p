@@ -1,5 +1,5 @@
 #set term png size 1200,600
-#set output 'combinado-exp5-AN2B-2ns.eq-10ns.pull.esq.dir.png'
+#set output 'pullx.pullf-expXX-AN0B-2ns.eq-10ns.pull.esqXX.dirXX.png'
 
 set multiplot layout 1,2
 
