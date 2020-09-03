@@ -1,14 +1,23 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[10]:
 
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import math
 
 
-# In[2]:
+# In[11]:
+
+
+def truncate(n, decimals=0):
+    multiplier = 10 ** decimals
+    return int(n * multiplier) / multiplier
+
+
+# In[12]:
 
 
 perfil200=pd.read_csv("profile-200.xvg", skiprows=(16), delimiter="\t",names=["x","y"])
@@ -16,7 +25,7 @@ perfil200=pd.read_csv("profile-200.xvg", skiprows=(16), delimiter="\t",names=["x
 
 # Verifica as primeiras linhas, se importou direito
 
-# In[3]:
+# In[13]:
 
 
 print (perfil200.head())
@@ -24,7 +33,7 @@ print (perfil200.head())
 
 # Inverte o sinal de x
 
-# In[4]:
+# In[14]:
 
 
 perfil200["x"]=perfil200["x"]*-1
@@ -32,19 +41,19 @@ perfil200["x"]=perfil200["x"]*-1
 
 # Imprime o máximo e o mínimo da curva
 
-# In[5]:
+# In[15]:
 
 
 #perfil200.min()
-y_min=perfil200["y"].min()
-y_max=perfil200["y"].max()
-delta=y_max - y_min
+y_min=truncate(perfil200["y"].min(),2)
+y_max=truncate(perfil200["y"].max(),2)
+delta=truncate((y_max - y_min),2)
 print('min:',y_min, 'max:',y_max,'delta:',delta)
 
 
 # gera o gráfico
 
-# In[6]:
+# In[16]:
 
 
 p = perfil200.plot.line(x="x",y="y", grid=True, legend=False,figsize=(15,10))
@@ -60,7 +69,7 @@ plt.show()
 
 # Salva o plot em arquivo
 
-# In[7]:
+# In[17]:
 
 
 p.get_figure().savefig("pmfEXP7.20200901.png")
