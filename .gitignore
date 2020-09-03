@@ -16,6 +16,9 @@ core*
 *.err
 *.o
 
+#LNCC
+nohup.out #backup
+
 #gromacs
 *#*
 *.trr
