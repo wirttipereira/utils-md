@@ -1,0 +1,95 @@
+import "force-field-gui.lt"
+
+ntf2 inherits ffGuiGO {
+
+  write("Data Atoms") {
+    $atom:C_1 $mol:. @atom:C_anion  0.23905 4.710  8.060 27.660
+    $atom:S_1 $mol:. @atom:S_anion  0.38760 4.440  9.870 28.000
+    $atom:N   $mol:. @atom:N_anion -0.34064 5.380 10.680 27.060
+    $atom:S_2 $mol:. @atom:S_anion  0.38760 5.300 12.170 26.710
+    $atom:C_2 $mol:. @atom:C_anion  0.23905 5.160 12.160 24.900
+    $atom:O_1 $mol:. @atom:O_anion -0.28704 3.060 10.120 27.580
+    $atom:O_2 $mol:. @atom:O_anion -0.28704 4.680  9.850 29.410
+    $atom:O_3 $mol:. @atom:O_anion -0.28704 4.040 12.770 27.120
+    $atom:O_4 $mol:. @atom:O_anion -0.28704 6.580 12.860 26.900
+    $atom:F_1 $mol:. @atom:F_anion -0.09408 4.060  7.240 28.530
+    $atom:F_2 $mol:. @atom:F_anion -0.09408 4.240  7.670 26.510
+    $atom:F_3 $mol:. @atom:F_anion -0.09408 5.960  7.720 27.670
+    $atom:F_4 $mol:. @atom:F_anion -0.09408 3.840 11.870 24.550
+    $atom:F_5 $mol:. @atom:F_anion -0.09408 5.810 11.040 24.400
+    $atom:F_6 $mol:. @atom:F_anion -0.09408 5.600 13.220 24.350
+  }
+
+  write("Data Bonds") {
+    $bond:b1  @bond:C-S $atom:C_1 $atom:S_1
+    $bond:b2  @bond:C-F $atom:C_1 $atom:F_1
+    $bond:b3  @bond:C-F $atom:C_1 $atom:F_2
+    $bond:b4  @bond:C-F $atom:C_1 $atom:F_3
+    $bond:b5  @bond:S-N $atom:S_1 $atom:N
+    $bond:b6  @bond:S-O $atom:S_1 $atom:O_1
+    $bond:b7  @bond:S-O $atom:S_1 $atom:O_2
+    $bond:b8  @bond:S-N $atom:N   $atom:S_2
+    $bond:b9  @bond:C-S $atom:S_2 $atom:C_2
+    $bond:b10 @bond:S-O $atom:S_2 $atom:O_3
+    $bond:b11 @bond:S-O $atom:S_2 $atom:O_4
+    $bond:b12 @bond:C-F $atom:C_2 $atom:F_4
+    $bond:b13 @bond:C-F $atom:C_2 $atom:F_5
+    $bond:b14 @bond:C-F $atom:C_2 $atom:F_6
+  }
+
+  write("Data Angles") {
+    $angle:a1  @angle:C-S-N  $atom:C_1 $atom:S_1 $atom:N
+    $angle:a2  @angle:C-S-O  $atom:C_1 $atom:S_1 $atom:O_1
+    $angle:a3  @angle:C-S-O  $atom:C_1 $atom:S_1 $atom:O_2
+    $angle:a4  @angle:S-N-S  $atom:S_1 $atom:N   $atom:S_2
+    $angle:a5  @angle:S-C-F  $atom:S_1 $atom:C_1 $atom:F_1
+    $angle:a6  @angle:S-C-F  $atom:S_1 $atom:C_1 $atom:F_2
+    $angle:a7  @angle:S-C-F  $atom:S_1 $atom:C_1 $atom:F_3
+    $angle:a8  @angle:C-S-N  $atom:N   $atom:S_2 $atom:C_2
+    $angle:a9  @angle:N-S-O  $atom:N   $atom:S_1 $atom:O_1
+    $angle:a10 @angle:N-S-O  $atom:N   $atom:S_1 $atom:O_2
+    $angle:a11 @angle:N-S-O  $atom:N   $atom:S_2 $atom:O_3
+    $angle:a12 @angle:N-S-O  $atom:N   $atom:S_2 $atom:O_4
+    $angle:a13 @angle:S-C-F  $atom:S_2 $atom:C_2 $atom:F_4
+    $angle:a14 @angle:S-C-F  $atom:S_2 $atom:C_2 $atom:F_5
+    $angle:a15 @angle:S-C-F  $atom:S_2 $atom:C_2 $atom:F_6
+    $angle:a16 @angle:C-S-O  $atom:C_2 $atom:S_2 $atom:O_3
+    $angle:a17 @angle:C-S-O  $atom:C_2 $atom:S_2 $atom:O_4
+    $angle:a18 @angle:O-S-O  $atom:O_1 $atom:S_1 $atom:O_2
+    $angle:a19 @angle:O-S-O  $atom:O_3 $atom:S_2 $atom:O_4
+    $angle:a20 @angle:F-C-F  $atom:F_1 $atom:C_1 $atom:F_2
+    $angle:a21 @angle:F-C-F  $atom:F_1 $atom:C_1 $atom:F_3
+    $angle:a22 @angle:F-C-F  $atom:F_2 $atom:C_1 $atom:F_3
+    $angle:a23 @angle:F-C-F  $atom:F_4 $atom:C_2 $atom:F_5
+    $angle:a24 @angle:F-C-F  $atom:F_4 $atom:C_2 $atom:F_6
+    $angle:a25 @angle:F-C-F  $atom:F_5 $atom:C_2 $atom:F_6
+  }
+
+  write("Data Dihedrals") {
+    $dihedral:d1  @dihedral:C-S-N-S $atom:C_1 $atom:S_1 $atom:N   $atom:S_2
+    $dihedral:d2  @dihedral:C-S-N-S $atom:S_1 $atom:N   $atom:S_2 $atom:C_2
+    $dihedral:d3  @dihedral:S-N-S-O $atom:S_1 $atom:N   $atom:S_2 $atom:O_3
+    $dihedral:d4  @dihedral:S-N-S-O $atom:S_1 $atom:N   $atom:S_2 $atom:O_4
+    $dihedral:d5  @dihedral:N-S-C-F $atom:N   $atom:S_1 $atom:C_1 $atom:F_1
+    $dihedral:d6  @dihedral:N-S-C-F $atom:N   $atom:S_1 $atom:C_1 $atom:F_2
+    $dihedral:d7  @dihedral:N-S-C-F $atom:N   $atom:S_1 $atom:C_1 $atom:F_3
+    $dihedral:d8  @dihedral:N-S-C-F $atom:N   $atom:S_2 $atom:C_2 $atom:F_4
+    $dihedral:d9  @dihedral:N-S-C-F $atom:N   $atom:S_2 $atom:C_2 $atom:F_5
+    $dihedral:d10 @dihedral:N-S-C-F $atom:N   $atom:S_2 $atom:C_2 $atom:F_6
+    $dihedral:d11 @dihedral:S-N-S-O $atom:S_2 $atom:N   $atom:S_1 $atom:O_1
+    $dihedral:d12 @dihedral:S-N-S-O $atom:S_2 $atom:N   $atom:S_1 $atom:O_2
+    $dihedral:d13 @dihedral:O-S-C-F $atom:O_1 $atom:S_1 $atom:C_1 $atom:F_1
+    $dihedral:d14 @dihedral:O-S-C-F $atom:O_1 $atom:S_1 $atom:C_1 $atom:F_2
+    $dihedral:d15 @dihedral:O-S-C-F $atom:O_1 $atom:S_1 $atom:C_1 $atom:F_3
+    $dihedral:d16 @dihedral:O-S-C-F $atom:O_2 $atom:S_1 $atom:C_1 $atom:F_1
+    $dihedral:d17 @dihedral:O-S-C-F $atom:O_2 $atom:S_1 $atom:C_1 $atom:F_2
+    $dihedral:d18 @dihedral:O-S-C-F $atom:O_2 $atom:S_1 $atom:C_1 $atom:F_3
+    $dihedral:d19 @dihedral:O-S-C-F $atom:O_3 $atom:S_2 $atom:C_2 $atom:F_4
+    $dihedral:d20 @dihedral:O-S-C-F $atom:O_3 $atom:S_2 $atom:C_2 $atom:F_5
+    $dihedral:d21 @dihedral:O-S-C-F $atom:O_3 $atom:S_2 $atom:C_2 $atom:F_6
+    $dihedral:d22 @dihedral:O-S-C-F $atom:O_4 $atom:S_2 $atom:C_2 $atom:F_4
+    $dihedral:d23 @dihedral:O-S-C-F $atom:O_4 $atom:S_2 $atom:C_2 $atom:F_5
+    $dihedral:d24 @dihedral:O-S-C-F $atom:O_4 $atom:S_2 $atom:C_2 $atom:F_6
+  }
+
+} # end of ntf2 definition

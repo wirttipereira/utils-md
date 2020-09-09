@@ -1,0 +1,89 @@
+
+# ----------------- Atom Definition Section -----------------
+
+read_data "system.data"
+
+# ----------------- Settings Section -----------------
+
+include "system.in.settings"
+
+
+
+units               real
+boundary            p p f
+atom_style          full
+bond_style          harmonic
+angle_style         harmonic
+dihedral_style      opls
+newton              off
+
+special_bonds lj/coul 0.0 0.0 0.5
+
+pair_style lj/cut/coul/long 12.0 12.0
+kspace_style pppm 1.0e-5
+kspace_modify slab 2.0
+
+#read_restart restart.lmp
+read_data    data.txt
+include      force-field-go.ff
+
+group cation type 1:4
+group anion type 5:9
+group sol type 1:9
+group ele type 10:15
+
+variable nsteps equal 1000000
+variable nprint equal 100
+variable ndump  equal 100
+variable nwrite equal 100000
+
+neighbor 2.0 bin
+timestep 2.0
+
+thermo_style custom etotal ke temp pe ebond eangle edihed eimp evdwl ecoul elong press density vol v_nsteps cpuremain
+thermo_modify flush yes line multi
+#thermo ${nprint}
+
+velocity all create 300.0 32156
+
+fix 0 ele setforce 0.0 0.0 0.0
+fix 1 sol nvt temp 400.0 400.0 100.0
+fix 2 all conp 1 1.015 601 602 603 -0.0 0.0 inv electrode.txt
+
+minimize 1.0e-4 1.0e-6 1000 1000
+
+#dump 1 all custom ${ndump} dump-new.xyz id element x y z q
+dump_modify 1 element P C C O C S N O F Cc Ce Co Oe Oh H sort id
+
+#restart ${nwrite} restart.lmp
+#run ${nsteps}
+write_restart restart.*.lmp
+write_dat data.*.lmp
+
+
+# ----------------- Run Section -----------------
+
+# The lines above define the system you want to simulate.
+# What you do next is up to you.
+# Typically a user would minimize and equilibrate
+# the system using commands similar to the following:
+#  ----   examples   ----
+#
+#  -- minimize --
+# minimize 1.0e-5 1.0e-7 1000 10000
+# (Note: Some fixes, for example "shake", interfere with the minimize command,
+#        You can use the "unfix" command to disable them before minimization.)
+#  -- declare time step for normal MD --
+# timestep 1.0
+#  -- run at constant pressure (Nose-Hoover)--
+# fix   fxnpt all npt temp 300.0 300.0 100.0 iso 1.0 1.0 1000.0 drag 1.0
+#  -- ALTERNATELY, run at constant volume (Nose-Hoover) --
+# fix   fxnvt all nvt temp 300.0 300.0 500.0 tchain 1
+#  -- ALTERNATELY, run at constant volume using Langevin dynamics. --
+#  -- (This is good for sparse CG polymers in implicit solvent.)   --
+# fix fxLAN all langevin 300.0 300.0 5000 48279
+# fix fxNVE all nve  #(<--needed by fix langevin)
+#  -- Now, finally run the simulation --
+# run   50000
+#  ---- (end of examples) ----
+

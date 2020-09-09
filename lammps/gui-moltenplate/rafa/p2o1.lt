@@ -1,0 +1,64 @@
+import "force-field-gui.lt"
+
+p2o1 inherits ffGuiGO {
+
+  write("Data Atoms") {
+    $atom:P1    $mol:.  @atom:P_cation     0.19600  30.890  5.300  -19.550
+    $atom:C2    $mol:.  @atom:CH2_cation   0.08720  31.080  3.490  -19.040
+    $atom:C3    $mol:.  @atom:CH3_cation   0.06560  32.620  3.050  -19.080
+    $atom:C4    $mol:.  @atom:CH2_cation   0.08720  31.440  5.560  -21.350
+    $atom:C5    $mol:.  @atom:CH3_cation   0.06560  33.000  5.240  -21.500
+    $atom:C6    $mol:.  @atom:CH2_cation   0.08720  31.920  6.400  -18.400
+    $atom:C7    $mol:.  @atom:CH3_cation   0.06560  31.730  7.940  -18.800
+    $atom:C8    $mol:.  @atom:CH2_cation   0.10880  29.060  5.790  -19.400
+    $atom:C9    $mol:.  @atom:CH2_cation   0.14240  28.590  5.640  -17.870
+    $atom:O10   $mol:.  @atom:O_cation    -0.30560  27.170  6.050  -17.760
+    $atom:C11   $mol:.  @atom:CH3_cation   0.20000  26.750  5.990  -16.330
+  }
+
+  write("Data Bonds") {
+    $bond:b1  @bond:P-C $atom:P1  $atom:C2
+    $bond:b2  @bond:P-C $atom:P1  $atom:C4
+    $bond:b3  @bond:P-C $atom:P1  $atom:C6
+    $bond:b4  @bond:P-C $atom:P1  $atom:C8
+    $bond:b5  @bond:C-C $atom:C2  $atom:C3
+    $bond:b6  @bond:C-C $atom:C4  $atom:C5
+    $bond:b7  @bond:C-C $atom:C6  $atom:C7
+    $bond:b8  @bond:C-C $atom:C8  $atom:C9
+    $bond:b9  @bond:C-O $atom:C9  $atom:O10
+    $bond:b10 @bond:C-O $atom:O10 $atom:C11
+  }
+
+  write("Data Angles") {
+    $angle:a1  @angle:C-P-C  $atom:C2 $atom:P1  $atom:C4
+    $angle:a2  @angle:C-P-C  $atom:C2 $atom:P1  $atom:C6
+    $angle:a3  @angle:C-P-C  $atom:C2 $atom:P1  $atom:C8
+    $angle:a4  @angle:C-P-C  $atom:C4 $atom:P1  $atom:C6
+    $angle:a5  @angle:C-P-C  $atom:C4 $atom:P1  $atom:C8
+    $angle:a6  @angle:C-P-C  $atom:C6 $atom:P1  $atom:C8
+    $angle:a7  @angle:P-C-C  $atom:P1 $atom:C2  $atom:C3
+    $angle:a8  @angle:P-C-C  $atom:P1 $atom:C4  $atom:C5
+    $angle:a9  @angle:P-C-C  $atom:P1 $atom:C6  $atom:C7
+    $angle:a10 @angle:P-C-C  $atom:P1 $atom:C8  $atom:C9
+    $angle:a11 @angle:C-C-O  $atom:C8 $atom:C9  $atom:O10
+    $angle:a12 @angle:C-O-C  $atom:C9 $atom:O10 $atom:C11
+  }
+
+  write("Data Dihedrals") {
+    $dihedral:d1  @dihedral:C-P-C-C $atom:C2 $atom:P1 $atom:C4  $atom:C5
+    $dihedral:d2  @dihedral:C-P-C-C $atom:C2 $atom:P1 $atom:C6  $atom:C7
+    $dihedral:d3  @dihedral:C-P-C-C $atom:C2 $atom:P1 $atom:C8  $atom:C9
+    $dihedral:d4  @dihedral:C-P-C-C $atom:C3 $atom:C2 $atom:P1  $atom:C4
+    $dihedral:d5  @dihedral:C-P-C-C $atom:C3 $atom:C2 $atom:P1  $atom:C6
+    $dihedral:d6  @dihedral:C-P-C-C $atom:C3 $atom:C2 $atom:P1  $atom:C8
+    $dihedral:d7  @dihedral:C-P-C-C $atom:C4 $atom:P1 $atom:C6  $atom:C7
+    $dihedral:d8  @dihedral:C-P-C-C $atom:C4 $atom:P1 $atom:C8  $atom:C9
+    $dihedral:d9  @dihedral:C-P-C-C $atom:C5 $atom:C4 $atom:P1  $atom:C6
+    $dihedral:d10 @dihedral:C-P-C-C $atom:C5 $atom:C4 $atom:P1  $atom:C8
+    $dihedral:d11 @dihedral:C-P-C-C $atom:C6 $atom:P1 $atom:C8  $atom:C9
+    $dihedral:d12 @dihedral:C-P-C-C $atom:C7 $atom:C6 $atom:P1  $atom:C8
+    $dihedral:d13 @dihedral:P-C-C-O $atom:P1 $atom:C8 $atom:C9  $atom:O10
+    $dihedral:d14 @dihedral:C-C-O-C $atom:C8 $atom:C9 $atom:O10 $atom:C11
+  }
+
+} # end of p2o1 definition

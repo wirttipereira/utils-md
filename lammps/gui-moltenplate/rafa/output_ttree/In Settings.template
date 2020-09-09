@@ -1,0 +1,97 @@
+#
+    pair_coeff @/atom:P_cation   @/atom:P_cation   0.2000  3.7418 # P_cation
+    pair_coeff @/atom:ffGuiGO/CH2_cation @/atom:ffGuiGO/CH2_cation 0.1181  3.9050 # CH2_cation
+    pair_coeff @/atom:ffGuiGO/CH3_cation @/atom:ffGuiGO/CH3_cation 0.2071  3.7750 # CH3_cation
+    pair_coeff @/atom:O_cation   @/atom:O_cation   0.1700  3.0000 # O_cation
+    pair_coeff @/atom:C_anion    @/atom:C_anion    0.0489  3.5660 # C_anion
+    pair_coeff @/atom:ffGuiGO/S_anion    @/atom:ffGuiGO/S_anion    0.1929  3.4200 # S_anion
+    pair_coeff @/atom:ffGuiGO/N_anion    @/atom:ffGuiGO/N_anion    0.1526  3.0660 # N_anion
+    pair_coeff @/atom:ffGuiGO/O_anion    @/atom:ffGuiGO/O_anion    0.0907  3.0820 # O_anion
+    pair_coeff @/atom:F_anion    @/atom:F_anion    0.0533  2.9100 # F_anion
+    pair_coeff @/atom:C_c_ele    @/atom:C_c_ele    0.0000  0.0000 # C_c_ele
+    pair_coeff @/atom:ffGuiGO/C_e_ele    @/atom:ffGuiGO/C_e_ele    0.0000  0.0000 # C_e_ele
+    pair_coeff @/atom:ffGuiGO/C_o_ele    @/atom:ffGuiGO/C_o_ele    0.0000  0.0000 # C_o_ele
+    pair_coeff @/atom:ffGuiGO/O_e_ele    @/atom:ffGuiGO/O_e_ele    0.0000  0.0000 # O_e_ele
+    pair_coeff @/atom:ffGuiGO/O_h_ele    @/atom:ffGuiGO/O_h_ele    0.0000  0.0000 # O_h_ele
+    pair_coeff @/atom:H_h_ele    @/atom:H_h_ele    0.0000  0.0000 # H_h_ele
+    pair_coeff @/atom:ffGuiGO/W_ele      @/atom:ffGuiGO/W_ele      0.0000  0.0000 # W_ele
+    pair_coeff @/atom:ffGuiGO/C1_emim          @/atom:ffGuiGO/C1_emim        0.3500  0.27614  
+    pair_coeff @/atom:ffGuiGO/CE_emim          @/atom:ffGuiGO/CE_emim        0.3500  0.27614  
+    pair_coeff @/atom:ffGuiGO/CR_emim          @/atom:ffGuiGO/CR_emim        0.3550  0.29288  
+    pair_coeff @/atom:ffGuiGO/CW_emim          @/atom:ffGuiGO/CW_emim        0.3550  0.29288  
+    pair_coeff @/atom:ffGuiGO/HA_emim          @/atom:ffGuiGO/HA_emim        0.2420  0.12552  
+    pair_coeff @/atom:ffGuiGO/HC_emim          @/atom:ffGuiGO/HC_emim        0.2500  0.12552  
+    pair_coeff @/atom:ffGuiGO/H1_emim          @/atom:ffGuiGO/H1_emim        0.2500  0.12552  
+    pair_coeff @/atom:ffGuiGO/NA_emim          @/atom:ffGuiGO/NA_emim        0.3250  0.71128  
+
+#
+    bond_coeff @/bond:ffGuiGO/P-C  210.00 1.836 # P-C
+    bond_coeff @/bond:ffGuiGO/C-C  310.00 1.538 # C-C
+    bond_coeff @/bond:ffGuiGO/C-O  320.00 1.416 # C-O
+    bond_coeff @/bond:ffGuiGO/S-N  744.02 1.570 # S-N
+    bond_coeff @/bond:ffGuiGO/C-S  470.84 1.818 # C-S
+    bond_coeff @/bond:ffGuiGO/C-F  883.60 1.323 # C-F
+    bond_coeff @/bond:ffGuiGO/S-O 1274.14 1.442 # S-O
+    bond_coeff @/bond:ffGuiGO/NA-CR  0.1315   399200 # NA CR
+    bond_coeff @/bond:ffGuiGO/NA-CW  0.1378   357400 # NA CW
+    bond_coeff @/bond:ffGuiGO/NA-C1  0.1466   282000 # NA C1
+    bond_coeff @/bond:ffGuiGO/CR-HA  0.1080   284500 # CR HA
+    bond_coeff @/bond:ffGuiGO/CW-HA  0.1080   284500 # CW HA
+    bond_coeff @/bond:ffGuiGO/CW-CW  0.1341   435200 # CW CW
+    bond_coeff @/bond:ffGuiGO/C1-H1  0.1090   284500 # C1 H1
+    bond_coeff @/bond:ffGuiGO/C1-CE  0.1529   224200 # C1 CE
+    bond_coeff @/bond:ffGuiGO/CE-HC  0.1090   284500 # CE HC
+#
+    angle_coeff @/angle:ffGuiGO/C-P-C  50.00 109.46 # C-P-C
+    angle_coeff @/angle:ffGuiGO/P-C-C  75.00 115.92 # P-C-C
+    angle_coeff @/angle:ffGuiGO/C-C-O  50.00 105.42 # C-C-O
+    angle_coeff @/angle:ffGuiGO/C-O-C  60.00 113.59 # C-O-C
+    angle_coeff @/angle:ffGuiGO/S-C-F 165.87 111.80 # S-C-F
+    angle_coeff @/angle:ffGuiGO/C-S-N 195.03 100.20 # C-S-N
+    angle_coeff @/angle:ffGuiGO/S-N-S 160.37 125.60 # S-N-S
+    angle_coeff @/angle:ffGuiGO/F-C-F 165.87 111.80 # F-C-F
+    angle_coeff @/angle:ffGuiGO/C-S-O 207.93 102.60 # C-S-O
+    angle_coeff @/angle:ffGuiGO/N-S-O 188.58 113.60 # N-S-O
+    angle_coeff @/angle:ffGuiGO/O-S-O 207.93 102.60 # O-S-O
+    angle_coeff @/angle:ffGuiGO/NA-CR-NA  109.8    585.8 # NA CR NA
+    angle_coeff @/angle:ffGuiGO/NA-CR-HA  125.1    292.9 # NA CR HA
+    angle_coeff @/angle:ffGuiGO/NA-CW-HA  122.0    292.9 # NA CW HA
+    angle_coeff @/angle:ffGuiGO/NA-CW-CW  107.1    585.8 # NA CW CW
+    angle_coeff @/angle:ffGuiGO/NA-C1-H1  110.7    313.8 # NA C1 H1
+    angle_coeff @/angle:ffGuiGO/NA-C1-CE  112.7    488.3 # NA C1 CE
+    angle_coeff @/angle:ffGuiGO/NA-C1-H1  110.7    313.8 # NA C1 H1
+    angle_coeff @/angle:ffGuiGO/CW-NA-CR  108.0    585.8 # CW NA CR
+    angle_coeff @/angle:ffGuiGO/CW-CW-HA  130.9    292.9 # CW CW HA
+    angle_coeff @/angle:ffGuiGO/C1-NA-CR  126.4    585.8 # C1 NA CR
+    angle_coeff @/angle:ffGuiGO/H1-C1-H1  107.8    276.1 # H1 C1 H1
+    angle_coeff @/angle:ffGuiGO/C1-NA-CR  126.4    585.8 # C1 NA CR
+    angle_coeff @/angle:ffGuiGO/C1-NA-CW  125.6    585.8 # C1 NA CW
+    angle_coeff @/angle:ffGuiGO/C1-CE-HC  110.7    313.8 # C1 CE HC
+    angle_coeff @/angle:ffGuiGO/H1-C1-H1  107.8    276.1 # H1 C1 H1
+    angle_coeff @/angle:ffGuiGO/CE-C1-H1  110.7    313.8 # CE C1 H1
+    angle_coeff @/angle:ffGuiGO/HC-CE-HC  107.8    276.1 # HC CE HC
+#
+    dihedral_coeff @/dihedral:ffGuiGO/C-P-C-C  0.0000  0.0000  0.2708  0.0000 # C-P-C-C
+    dihedral_coeff @/dihedral:ffGuiGO/P-C-C-O -0.7763  0.2361 -0.1709  0.0000 # P-C-C-O
+    dihedral_coeff @/dihedral:ffGuiGO/C-C-O-C  0.6500 -0.2500  0.6700  0.0000 # C-C-O-C
+    dihedral_coeff @/dihedral:ffGuiGO/N-S-C-F  0.0000  0.0000  0.3160  0.0000 # N-S-C-F
+    dihedral_coeff @/dihedral:ffGuiGO/C-S-N-S  7.8329 -2.4904 -0.7636  0.0000 # C-S-N-S
+    dihedral_coeff @/dihedral:ffGuiGO/O-S-C-F  0.0000  0.0000  0.3468  0.0000 # O-S-C-F
+    dihedral_coeff @/dihedral:ffGuiGO/S-N-S-O  0.0000  0.0000 -0.0036  0.0000 # S-N-S-O
+    dihedral_coeff @/dihedral:ffGuiGO/NA-CW-CW-NA   0.000  44.980  0.000  0.000 # NA CW CW NA
+    dihedral_coeff @/dihedral:ffGuiGO/NA-C1-CE-HC   0.000   0.000  0.367  0.000 # NA C1 CE HC
+    dihedral_coeff @/dihedral:ffGuiGO/CR-NA-CW-HA   0.000  12.552  0.000  0.000 # CR NA CW HA
+    dihedral_coeff @/dihedral:ffGuiGO/CR-NA-CW-CW   0.000  12.552  0.000  0.000 # CR NA CW CW
+    dihedral_coeff @/dihedral:ffGuiGO/CR-NA-C1-H1   0.000   0.000  0.000  0.000 # CR NA C1 H1
+    dihedral_coeff @/dihedral:ffGuiGO/CR-NA-C1-CE  -5.2691  0.000  0.000  0.000 # CR NA C1 CE
+    dihedral_coeff @/dihedral:ffGuiGO/CW-NA-CR-NA   0.000  19.460  0.000  0.000 # CW NA CR NA
+    dihedral_coeff @/dihedral:ffGuiGO/CW-NA-CR-HA   0.000  19.460  0.000  0.000 # CW NA CR HA
+    dihedral_coeff @/dihedral:ffGuiGO/CW-NA-C1-H1   0.000   0.000  0.519  0.000 # CW NA C1 H1
+    dihedral_coeff @/dihedral:ffGuiGO/CW-NA-C1-CE  -7.1535  6.1064 0.7939 0.000 # CW NA C1 CE
+    dihedral_coeff @/dihedral:ffGuiGO/HA-CW-CW-NA   0.000  44.980  0.000  0.000 # HA CW CW NA
+    dihedral_coeff @/dihedral:ffGuiGO/HA-CW-CW-HA   0.000  44.980  0.000  0.000 # HA CW CW HA
+    dihedral_coeff @/dihedral:ffGuiGO/C1-NA-CR-NA   0.000  19.460  0.000  0.000 # C1 NA CR NA
+    dihedral_coeff @/dihedral:ffGuiGO/C1-NA-CR-HA   0.000  19.460  0.000  0.000 # C1 NA CR HA
+    dihedral_coeff @/dihedral:ffGuiGO/C1-NA-CW-CW   0.000  12.552  0.000  0.000 # C1 NA CW CW
+    dihedral_coeff @/dihedral:ffGuiGO/C1-NA-CW-HA   0.000  12.552  0.000  0.000 # C1 NA CW HA
+    dihedral_coeff @/dihedral:ffGuiGO/H1-C1-CE-HC   0.000   0.000  1.2552 0.000 # H1 C1 CE HC

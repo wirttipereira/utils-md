@@ -1,0 +1,129 @@
+import "force-field-gui.lt"
+
+emim inherits ffGuiGO {
+
+  write("Data Atoms"){
+     $atom:NA_1  $mol:.  @atom:NA_emim   0.120  -0.320000       -0.810000       -0.100000
+     $atom:NA_2  $mol:.  @atom:NA_emim   0.120  -1.390000       -1.460000       -1.870000
+     $atom:CR_3  $mol:.  @atom:CR_emim  -0.088  -0.400000       -0.700000       -1.430000
+     $atom:HA_4  $mol:.  @atom:HA_emim   0.168   0.150000       -0.170000       -1.960000
+     $atom:CW_5  $mol:.  @atom:CW_emim  -0.104  -1.310000       -1.680000        0.320000
+     $atom:HA_6  $mol:.  @atom:HA_emim   0.168  -1.490000       -1.930000        1.200000
+     $atom:CW_7  $mol:.  @atom:CW_emim  -0.104  -1.970000       -2.080000       -0.790000
+     $atom:HA_8  $mol:.  @atom:HA_emim   0.168  -2.680000       -2.680000       -0.820000
+     $atom:C1_9  $mol:.  @atom:C1_emim  -0.136  -1.810000       -1.590000       -3.270000
+     $atom:H1_10 $mol:.  @atom:H1_emim   0.104  -2.180000       -0.760000       -3.570000
+     $atom:H1_11 $mol:.  @atom:H1_emim   0.104  -2.470000       -2.280000       -3.340000
+     $atom:H1_12 $mol:.  @atom:H1_emim   0.104  -1.050000       -1.820000       -3.810000
+     $atom:C1_13 $mol:.  @atom:C1_emim  -0.136   0.640000       -0.110000        0.780000
+     $atom:H1_14 $mol:.  @atom:H1_emim   0.104   1.510000       -0.110000        0.360000
+     $atom:H1_15 $mol:.  @atom:H1_emim   0.104   0.710000       -0.590000        1.620000
+     $atom:CE_16 $mol:.  @atom:CE_emim  -0.04    0.220000        1.310000        1.060000
+     $atom:HC_17 $mol:.  @atom:HC_emim   0.048  -0.728000        1.310000        1.556000
+     $atom:HC_18 $mol:.  @atom:HC_emim   0.048   0.140000        1.847000        0.138000
+     $atom:HC_19 $mol:.  @atom:HC_emim   0.048   0.950000        1.781000        1.685000 
+   }
+
+  write("Data Bonds") {
+ $bond:b1   @bond:NA-CR $atom:NA_1  $atom:CR_3  
+ $bond:b2   @bond:NA-CW $atom:NA_1  $atom:CW_5  
+ $bond:b3   @bond:NA-C1 $atom:NA_1  $atom:C1_13 
+ $bond:b4   @bond:NA-CR $atom:NA_2  $atom:CR_3  
+ $bond:b5   @bond:NA-CW $atom:NA_2  $atom:CW_7  
+ $bond:b6   @bond:NA-C1 $atom:NA_2  $atom:C1_9  
+ $bond:b7   @bond:CR-HA $atom:CR_3  $atom:HA_4  
+ $bond:b8   @bond:CW-HA $atom:CW_5  $atom:HA_6  
+ $bond:b9   @bond:CW-CW $atom:CW_5  $atom:CW_7  
+ $bond:b10  @bond:CW-HA $atom:CW_7  $atom:HA_8  
+ $bond:b11  @bond:C1-H1 $atom:C1_9  $atom:H1_10 
+ $bond:b12  @bond:C1-H1 $atom:C1_9  $atom:H1_11 
+ $bond:b13  @bond:C1-H1 $atom:C1_9  $atom:H1_12 
+ $bond:b14  @bond:C1-H1 $atom:C1_13 $atom:H1_14 
+ $bond:b15  @bond:C1-H1 $atom:C1_13 $atom:H1_15 
+ $bond:b16  @bond:C1-CE $atom:C1_13 $atom:CE_16 
+ $bond:b17  @bond:CE-HC $atom:CE_16 $atom:HC_17 
+ $bond:b18  @bond:CE-HC $atom:CE_16 $atom:HC_18 
+ $bond:b19  @bond:CE-HC $atom:CE_16 $atom:HC_19 
+  }
+
+  write("Data Angles") {
+  $angle:a1   @angle:NA-CR-NA $atom:NA_1  $atom:CR_3  $atom:NA_2 
+  $angle:a2   @angle:NA-CR-HA $atom:NA_1  $atom:CR_3  $atom:HA_4 
+  $angle:a3   @angle:NA-CW-HA $atom:NA_1  $atom:CW_5  $atom:HA_6 
+  $angle:a4   @angle:NA-CW-CW $atom:NA_1  $atom:CW_5  $atom:CW_7 
+  $angle:a5   @angle:NA-C1-H1 $atom:NA_1  $atom:C1_13 $atom:H1_14
+  $angle:a6   @angle:NA-C1-H1 $atom:NA_1  $atom:C1_13 $atom:H1_15
+  $angle:a7   @angle:NA-C1-CE $atom:NA_1  $atom:C1_13 $atom:CE_16
+  $angle:a8   @angle:NA-CR-HA $atom:NA_2  $atom:CR_3  $atom:HA_4 
+  $angle:a9   @angle:NA-CW-CW $atom:NA_2  $atom:CW_7  $atom:CW_5 
+  $angle:a10  @angle:NA-CW-HA $atom:NA_2  $atom:CW_7  $atom:HA_8 
+  $angle:a11  @angle:NA-C1-H1 $atom:NA_2  $atom:C1_9  $atom:H1_10
+  $angle:a12  @angle:NA-C1-H1 $atom:NA_2  $atom:C1_9  $atom:H1_11
+  $angle:a13  @angle:NA-C1-H1 $atom:NA_2  $atom:C1_9  $atom:H1_12
+  $angle:a14  @angle:CW-NA-CR $atom:CW_5  $atom:NA_1  $atom:CR_3 
+  $angle:a15  @angle:CW-CW-HA $atom:CW_5  $atom:CW_7  $atom:HA_8 
+  $angle:a16  @angle:CW-NA-CR $atom:CW_7  $atom:NA_2  $atom:CR_3 
+  $angle:a17  @angle:CW-CW-HA $atom:CW_7  $atom:CW_5  $atom:HA_6 
+  $angle:a18  @angle:C1-NA-CR $atom:C1_9  $atom:NA_2  $atom:CR_3 
+  $angle:a19  @angle:C1-NA-CW $atom:C1_9  $atom:NA_2  $atom:CW_7 
+  $angle:a20  @angle:H1-C1-H1 $atom:H1_11 $atom:C1_9  $atom:H1_10
+  $angle:a21  @angle:H1-C1-H1 $atom:H1_12 $atom:C1_9  $atom:H1_10
+  $angle:a22  @angle:H1-C1-H1 $atom:H1_12 $atom:C1_9  $atom:H1_11
+  $angle:a23  @angle:C1-NA-CR $atom:C1_13 $atom:NA_1  $atom:CR_3 
+  $angle:a24  @angle:C1-NA-CW $atom:C1_13 $atom:NA_1  $atom:CW_5 
+  $angle:a25  @angle:C1-CE-HC $atom:C1_13 $atom:CE_16 $atom:HC_17
+  $angle:a26  @angle:C1-CE-HC $atom:C1_13 $atom:CE_16 $atom:HC_18
+  $angle:a27  @angle:C1-CE-HC $atom:C1_13 $atom:CE_16 $atom:HC_19
+  $angle:a28  @angle:H1-C1-H1 $atom:H1_15 $atom:C1_13 $atom:H1_14
+  $angle:a29  @angle:CE-C1-H1 $atom:CE_16 $atom:C1_13 $atom:H1_14
+  $angle:a30  @angle:CE-C1-H1 $atom:CE_16 $atom:C1_13 $atom:H1_15
+  $angle:a31  @angle:HC-CE-HC $atom:HC_18 $atom:CE_16 $atom:HC_17
+  $angle:a32  @angle:HC-CE-HC $atom:HC_19 $atom:CE_16 $atom:HC_17
+  $angle:a33  @angle:HC-CE-HC $atom:HC_19 $atom:CE_16 $atom:HC_18
+   }
+
+
+  write("Data Dihedrals") {
+  $dihedral:d1   @dihedral:NA-CW-CW-NA $atom:NA_1  $atom:CW_5  $atom:CW_7  $atom:NA_2 
+  $dihedral:d2   @dihedral:NA-CW-CW-NA $atom:NA_1  $atom:CW_5  $atom:CW_7  $atom:HA_8 
+  $dihedral:d3   @dihedral:NA-C1-CE-HC $atom:NA_1  $atom:C1_13 $atom:CE_16 $atom:HC_17
+  $dihedral:d4   @dihedral:NA-C1-CE-HC $atom:NA_1  $atom:C1_13 $atom:CE_16 $atom:HC_18
+  $dihedral:d5   @dihedral:NA-C1-CE-HC $atom:NA_1  $atom:C1_13 $atom:CE_16 $atom:HC_19
+  $dihedral:d6   @dihedral:CR-NA-CW-HA $atom:CR_3  $atom:NA_1  $atom:CW_5  $atom:HA_6 
+  $dihedral:d7   @dihedral:CR-NA-CW-CW $atom:CR_3  $atom:NA_1  $atom:CW_5  $atom:CW_7 
+  $dihedral:d8   @dihedral:CR-NA-C1-H1 $atom:CR_3  $atom:NA_1  $atom:C1_13 $atom:H1_14
+  $dihedral:d9   @dihedral:CR-NA-C1-H1 $atom:CR_3  $atom:NA_1  $atom:C1_13 $atom:H1_15
+  $dihedral:d10  @dihedral:CR-NA-C1-CE $atom:CR_3  $atom:NA_1  $atom:C1_13 $atom:CE_16
+  $dihedral:d11  @dihedral:CR-NA-CW-CW $atom:CR_3  $atom:NA_2  $atom:CW_7  $atom:CW_5 
+  $dihedral:d12  @dihedral:CR-NA-CW-HA $atom:CR_3  $atom:NA_2  $atom:CW_7  $atom:HA_8 
+  $dihedral:d13  @dihedral:CR-NA-C1-H1 $atom:CR_3  $atom:NA_2  $atom:C1_9  $atom:H1_10
+  $dihedral:d14  @dihedral:CR-NA-C1-H1 $atom:CR_3  $atom:NA_2  $atom:C1_9  $atom:H1_11
+  $dihedral:d15  @dihedral:CR-NA-C1-H1 $atom:CR_3  $atom:NA_2  $atom:C1_9  $atom:H1_12
+  $dihedral:d16  @dihedral:CW-NA-CR-NA $atom:CW_5  $atom:NA_1  $atom:CR_3  $atom:NA_2 
+  $dihedral:d17  @dihedral:CW-NA-CR-HA $atom:CW_5  $atom:NA_1  $atom:CR_3  $atom:HA_4 
+  $dihedral:d18  @dihedral:CW-NA-C1-H1 $atom:CW_5  $atom:NA_1  $atom:C1_13 $atom:H1_14
+  $dihedral:d19  @dihedral:CW-NA-C1-H1 $atom:CW_5  $atom:NA_1  $atom:C1_13 $atom:H1_15
+  $dihedral:d20  @dihedral:CW-NA-C1-CE $atom:CW_5  $atom:NA_1  $atom:C1_13 $atom:CE_16
+  $dihedral:d21  @dihedral:HA-CW-CW-NA $atom:HA_6  $atom:CW_5  $atom:CW_7  $atom:NA_2 
+  $dihedral:d22  @dihedral:HA-CW-CW-HA $atom:HA_6  $atom:CW_5  $atom:CW_7  $atom:HA_8 
+  $dihedral:d23  @dihedral:CW-NA-CR-NA $atom:CW_7  $atom:NA_2  $atom:CR_3  $atom:NA_1 
+  $dihedral:d24  @dihedral:CW-NA-CR-HA $atom:CW_7  $atom:NA_2  $atom:CR_3  $atom:HA_4 
+  $dihedral:d25  @dihedral:CW-NA-C1-H1 $atom:CW_7  $atom:NA_2  $atom:C1_9  $atom:H1_10
+  $dihedral:d26  @dihedral:CW-NA-C1-H1 $atom:CW_7  $atom:NA_2  $atom:C1_9  $atom:H1_11
+  $dihedral:d27  @dihedral:CW-NA-C1-H1 $atom:CW_7  $atom:NA_2  $atom:C1_9  $atom:H1_12
+  $dihedral:d28  @dihedral:C1-NA-CR-NA $atom:C1_9  $atom:NA_2  $atom:CR_3  $atom:NA_1 
+  $dihedral:d29  @dihedral:C1-NA-CR-HA $atom:C1_9  $atom:NA_2  $atom:CR_3  $atom:HA_4 
+  $dihedral:d30  @dihedral:C1-NA-CW-CW $atom:C1_9  $atom:NA_2  $atom:CW_7  $atom:CW_5 
+  $dihedral:d31  @dihedral:C1-NA-CW-HA $atom:C1_9  $atom:NA_2  $atom:CW_7  $atom:HA_8 
+  $dihedral:d32  @dihedral:C1-NA-CR-NA $atom:C1_13 $atom:NA_1  $atom:CR_3  $atom:NA_2 
+  $dihedral:d33  @dihedral:C1-NA-CR-HA $atom:C1_13 $atom:NA_1  $atom:CR_3  $atom:HA_4 
+  $dihedral:d34  @dihedral:C1-NA-CW-HA $atom:C1_13 $atom:NA_1  $atom:CW_5  $atom:HA_6 
+  $dihedral:d35  @dihedral:C1-NA-CW-CW $atom:C1_13 $atom:NA_1  $atom:CW_5  $atom:CW_7 
+  $dihedral:d36  @dihedral:H1-C1-CE-HC $atom:H1_14 $atom:C1_13 $atom:CE_16 $atom:HC_17
+  $dihedral:d37  @dihedral:H1-C1-CE-HC $atom:H1_14 $atom:C1_13 $atom:CE_16 $atom:HC_18
+  $dihedral:d38  @dihedral:H1-C1-CE-HC $atom:H1_14 $atom:C1_13 $atom:CE_16 $atom:HC_19
+  $dihedral:d39  @dihedral:H1-C1-CE-HC $atom:H1_15 $atom:C1_13 $atom:CE_16 $atom:HC_17
+  $dihedral:d40  @dihedral:H1-C1-CE-HC $atom:H1_15 $atom:C1_13 $atom:CE_16 $atom:HC_18
+  $dihedral:d41  @dihedral:H1-C1-CE-HC $atom:H1_15 $atom:C1_13 $atom:CE_16 $atom:HC_19
+  }                                              
+}

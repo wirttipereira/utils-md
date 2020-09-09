@@ -1,0 +1,165 @@
+#
+ pair_coeff           1           1  0.200000003       3.74180007 # P_cation-P_cation
+ pair_coeff           1           2  0.153687999       3.82340002 # P_cation-CH2_cation
+ pair_coeff           1           3  0.203519046       3.75839996 # P_cation-CH3_cation
+ pair_coeff           1           4  0.184390888       3.37090015 # P_cation-O_cation
+ pair_coeff           1           5   9.88938808E-02   3.65390015 # P_cation-C_anion
+ pair_coeff           1           6  0.196417928       3.58090019 # P_cation-S_anion
+ pair_coeff           1           7  0.174699754       3.40390015 # P_cation-N_anion
+ pair_coeff           1           8  0.134684816       3.41190004 # P_cation-O_anion
+ pair_coeff           1           9  0.103247277       3.32590008 # P_cation-F_anion
+ pair_coeff           1          10  0.118237048       3.64590001 # P_cation-C_c_ele
+ pair_coeff           1          11   7.99999982E-02   3.65269518 # P_cation-C_e_ele
+ pair_coeff           1          12   7.99999982E-02   3.65269518 # P_cation-C_o_ele
+ pair_coeff           1          13  0.141421363       3.34087992 # P_cation-O_e_ele
+ pair_coeff           1          14  0.154983863       3.38542509 # P_cation-O_h_ele
+ pair_coeff           1          15   9.59166288E-02   2.07090497 # P_cation-H_h_ele
+ pair_coeff           1          16  0.118237048       3.64590001 # P_cation-W_ele
+ pair_coeff           2           2  0.118100002       3.90499997 # CH2_cation-CH2_cation
+ pair_coeff           2           3  0.156392172       3.84000015 # CH2_cation-CH3_cation
+ pair_coeff           2           4  0.141693339       3.45249987 # CH2_cation-O_cation
+ pair_coeff           2           5   7.59940147E-02   3.73549986 # CH2_cation-C_anion
+ pair_coeff           2           6  0.150935382       3.66249990 # CH2_cation-S_anion
+ pair_coeff           2           7  0.134246275       3.48549986 # CH2_cation-N_anion
+ pair_coeff           2           8  0.103497200       3.49349999 # CH2_cation-O_anion
+ pair_coeff           2           9   7.93393329E-02   3.40750003 # CH2_cation-F_anion
+ pair_coeff           2          10   9.08580795E-02   3.72749996 # CH2_cation-C_c_ele
+ pair_coeff           2          11   6.14752024E-02   3.73429489 # CH2_cation-C_e_ele
+ pair_coeff           2          12   6.14752024E-02   3.73429489 # CH2_cation-C_o_ele
+ pair_coeff           2          13  0.108673826       3.42248011 # CH2_cation-O_e_ele
+ pair_coeff           2          14  0.119095802       3.46702504 # CH2_cation-O_h_ele
+ pair_coeff           2          15   7.37061724E-02   2.15250492 # CH2_cation-H_h_ele
+ pair_coeff           2          16   9.08580795E-02   3.72749996 # CH2_cation-W_ele
+ pair_coeff           3           3  0.207100004       3.77500010 # CH3_cation-CH3_cation
+ pair_coeff           3           4  0.187635288       3.38750005 # CH3_cation-O_cation
+ pair_coeff           3           5  0.100633942       3.67050004 # CH3_cation-C_anion
+ pair_coeff           3           6  0.199873939       3.59750009 # CH3_cation-S_anion
+ pair_coeff           3           7  0.177773625       3.42050004 # CH3_cation-N_anion
+ pair_coeff           3           8  0.137054622       3.42850018 # CH3_cation-O_anion
+ pair_coeff           3           9  0.105063930       3.34250021 # CH3_cation-F_anion
+ pair_coeff           3          10  0.120317452       3.66249990 # CH3_cation-C_c_ele
+ pair_coeff           3          11   8.14076215E-02   3.66929507 # CH3_cation-C_e_ele
+ pair_coeff           3          12   8.14076215E-02   3.66929507 # CH3_cation-C_o_ele
+ pair_coeff           3          13  0.143909693       3.35748005 # CH3_cation-O_e_ele
+ pair_coeff           3          14  0.157710850       3.40202522 # CH3_cation-O_h_ele
+ pair_coeff           3          15   9.76043046E-02   2.08750510 # CH3_cation-H_h_ele
+ pair_coeff           3          16  0.120317452       3.66249990 # CH3_cation-W_ele
+ pair_coeff           4           4  0.170000002       3.00000000 # O_cation-O_cation
+ pair_coeff           4           5   9.11756530E-02   3.28299999 # O_cation-C_anion
+ pair_coeff           4           6  0.181088373       3.21000004 # O_cation-S_anion
+ pair_coeff           4           7  0.161065206       3.03299999 # O_cation-N_anion
+ pair_coeff           4           8  0.124173269       3.04099989 # O_cation-O_anion
+ pair_coeff           4           9   9.51892883E-02   2.95499992 # O_cation-F_anion
+ pair_coeff           4          10  0.109009176       3.27500010 # O_cation-C_c_ele
+ pair_coeff           4          11   7.37563595E-02   3.28179502 # O_cation-C_e_ele
+ pair_coeff           4          12   7.37563595E-02   3.28179502 # O_cation-C_o_ele
+ pair_coeff           4          13  0.130384058       2.96998000 # O_cation-O_e_ele
+ pair_coeff           4          14  0.142888069       3.01452494 # O_cation-O_h_ele
+ pair_coeff           4          15   8.84307623E-02   1.70000505 # O_cation-H_h_ele
+ pair_coeff           4          16  0.109009176       3.27500010 # O_cation-W_ele
+ pair_coeff           5           5   4.89000008E-02   3.56599998 # C_anion-C_anion
+ pair_coeff           5           6   9.71226543E-02   3.49300003 # C_anion-S_anion
+ pair_coeff           5           7   8.63836780E-02   3.31599998 # C_anion-N_anion
+ pair_coeff           5           8   6.65975213E-02   3.32399988 # C_anion-O_anion
+ pair_coeff           5           9   5.10526188E-02   3.23799992 # C_anion-F_anion
+ pair_coeff           5          10   5.84646054E-02   3.55800009 # C_anion-C_c_ele
+ pair_coeff           5          11   3.95575538E-02   3.56479502 # C_anion-C_e_ele
+ pair_coeff           5          12   3.95575538E-02   3.56479502 # C_anion-C_o_ele
+ pair_coeff           5          13   6.99285343E-02   3.25297999 # C_anion-O_e_ele
+ pair_coeff           5          14   7.66347796E-02   3.29752493 # C_anion-O_h_ele
+ pair_coeff           5          15   4.74278405E-02   1.98300505 # C_anion-H_h_ele
+ pair_coeff           5          16   5.84646054E-02   3.55800009 # C_anion-W_ele
+ pair_coeff           6           6  0.192900002       3.42000008 # S_anion-S_anion
+ pair_coeff           6           7  0.171570808       3.24300003 # S_anion-N_anion
+ pair_coeff           6           8  0.132272556       3.25099993 # S_anion-O_anion
+ pair_coeff           6           9  0.101398081       3.16499996 # S_anion-F_anion
+ pair_coeff           6          10  0.116119377       3.48500013 # S_anion-C_c_ele
+ pair_coeff           6          11   7.85671696E-02   3.49179506 # S_anion-C_e_ele
+ pair_coeff           6          12   7.85671696E-02   3.49179506 # S_anion-C_o_ele
+ pair_coeff           6          13  0.138888448       3.17998004 # S_anion-O_e_ele
+ pair_coeff           6          14  0.152208045       3.22452497 # S_anion-O_h_ele
+ pair_coeff           6          15   9.41987261E-02   1.91000509 # S_anion-H_h_ele
+ pair_coeff           6          16  0.116119377       3.48500013 # S_anion-W_ele
+ pair_coeff           7           7  0.152600005       3.06599998 # N_anion-N_anion
+ pair_coeff           7           8  0.117647015       3.07399988 # N_anion-O_anion
+ pair_coeff           7           9   9.01863649E-02   2.98799992 # N_anion-F_anion
+ pair_coeff           7          10  0.103279911       3.30800009 # N_anion-C_c_ele
+ pair_coeff           7          11   6.98798969E-02   3.31479502 # N_anion-C_e_ele
+ pair_coeff           7          12   6.98798969E-02   3.31479502 # N_anion-C_o_ele
+ pair_coeff           7          13  0.123531379       3.00297999 # N_anion-O_e_ele
+ pair_coeff           7          14  0.135378212       3.04752493 # N_anion-O_h_ele
+ pair_coeff           7          15   8.37830529E-02   1.73300505 # N_anion-H_h_ele
+ pair_coeff           7          16  0.103279911       3.30800009 # N_anion-W_ele
+ pair_coeff           8           8   9.07000005E-02   3.08200002 # O_anion-O_anion
+ pair_coeff           8           9   6.95292056E-02   2.99600005 # O_anion-F_anion
+ pair_coeff           8          10   7.96236768E-02   3.31599998 # O_anion-C_c_ele
+ pair_coeff           8          11   5.38739301E-02   3.32279491 # O_anion-C_e_ele
+ pair_coeff           8          12   5.38739301E-02   3.32279491 # O_anion-C_o_ele
+ pair_coeff           8          13   9.52365473E-02   3.01098013 # O_anion-O_e_ele
+ pair_coeff           8          14  0.104369871       3.05552506 # O_anion-O_h_ele
+ pair_coeff           8          15   6.45925701E-02   1.74100494 # O_anion-H_h_ele
+ pair_coeff           8          16   7.96236768E-02   3.31599998 # O_anion-W_ele
+ pair_coeff           9           9   5.33000007E-02   2.91000009 # F_anion-F_anion
+ pair_coeff           9          10   6.10382669E-02   3.23000002 # F_anion-C_c_ele
+ pair_coeff           9          11   4.12989110E-02   3.23679495 # F_anion-C_e_ele
+ pair_coeff           9          12   4.12989110E-02   3.23679495 # F_anion-C_o_ele
+ pair_coeff           9          13   7.30068460E-02   2.92498016 # F_anion-O_e_ele
+ pair_coeff           9          14   8.00083131E-02   2.96952510 # F_anion-O_h_ele
+ pair_coeff           9          15   4.95156534E-02   1.65500498 # F_anion-H_h_ele
+ pair_coeff           9          10   6.10382669E-02   3.23000002 # F_anion-W_ele
+ pair_coeff          10          10   0.00000000       0.00000000 # C_c_ele-C_c_ele
+ pair_coeff          10          11   0.00000000       0.00000000 # C_c_ele-C_e_ele
+ pair_coeff          10          12   0.00000000       0.00000000 # C_c_ele-C_o_ele
+ pair_coeff          10          13   0.00000000       0.00000000 # C_c_ele-O_e_ele
+ pair_coeff          10          14   0.00000000       0.00000000 # C_c_ele-O_h_ele
+ pair_coeff          10          15   0.00000000       0.00000000 # C_c_ele-H_h_ele
+ pair_coeff          10          16   0.00000000       0.00000000 # C_c_ele-W_ele
+ pair_coeff          11          11   0.00000000       0.00000000 # C_e_ele-C_e_ele
+ pair_coeff          11          12   0.00000000       0.00000000 # C_e_ele-C_o_ele
+ pair_coeff          11          13   0.00000000       0.00000000 # C_e_ele-O_e_ele
+ pair_coeff          11          14   0.00000000       0.00000000 # C_e_ele-O_h_ele
+ pair_coeff          11          15   0.00000000       0.00000000 # C_e_ele-H_h_ele
+ pair_coeff          11          16   0.00000000       0.00000000 # C_e_ele-W_ele
+ pair_coeff          12          12   0.00000000       0.00000000 # C_o_ele-C_o_ele
+ pair_coeff          12          13   0.00000000       0.00000000 # C_o_ele-O_e_ele
+ pair_coeff          12          14   0.00000000       0.00000000 # C_o_ele-O_h_ele
+ pair_coeff          12          15   0.00000000       0.00000000 # C_o_ele-H_h_ele
+ pair_coeff          12          16   0.00000000       0.00000000 # C_o_ele-W_ele
+ pair_coeff          13          13   0.00000000       0.00000000 # O_e_ele-O_e_ele
+ pair_coeff          13          14   0.00000000       0.00000000 # O_e_ele-O_h_ele
+ pair_coeff          13          15   0.00000000       0.00000000 # O_e_ele-H_h_ele
+ pair_coeff          13          16   0.00000000       0.00000000 # O_e_ele-W_ele
+ pair_coeff          14          14   0.00000000       0.00000000 # O_h_ele-O_h_ele
+ pair_coeff          14          15   0.00000000       0.00000000 # O_h_ele-H_h_ele
+ pair_coeff          14          16   0.00000000       0.00000000 # O_h_ele-W_ele
+ pair_coeff          15          15   0.00000000       0.00000000 # H_h_ele-H_h_ele
+ pair_coeff          15          16   0.00000000       0.00000000 # H_h_ele-W_ele
+ pair_coeff          16          16   0.00000000       0.00000000 # W_ele-W_ele
+#
+ bond_coeff 1  210.00 1.836 # P-C
+ bond_coeff 2  310.00 1.538 # C-C
+ bond_coeff 3  320.00 1.416 # C-O
+ bond_coeff 4  744.02 1.570 # S-N
+ bond_coeff 5  470.84 1.818 # C-S
+ bond_coeff 6  883.60 1.323 # C-F
+ bond_coeff 7 1274.14 1.442 # S-O
+#
+ angle_coeff 1   50.00 109.46 # C-P-C
+ angle_coeff 2   75.00 115.92 # P-C-C
+ angle_coeff 3   50.00 105.42 # C-C-O
+ angle_coeff 4   60.00 113.59 # C-O-C
+ angle_coeff 5  165.87 111.80 # S-C-F
+ angle_coeff 6  195.03 100.20 # C-S-N
+ angle_coeff 7  160.37 125.60 # S-N-S
+ angle_coeff 8  165.87 111.80 # F-C-F
+ angle_coeff 9  207.93 102.60 # C-S-O
+ angle_coeff 10 188.58 113.60 # N-S-O
+ angle_coeff 11 207.93 102.60 # O-S-O
+#
+ dihedral_coeff 1  0.0000  0.0000  0.2708  0.0000 # C-P-C-C
+ dihedral_coeff 2 -0.7763  0.2361 -0.1709  0.0000 # P-C-C-O
+ dihedral_coeff 3  0.6500 -0.2500  0.6700  0.0000 # C-C-O-C
+ dihedral_coeff 4  0.0000  0.0000  0.3160  0.0000 # N-S-C-F
+ dihedral_coeff 5  7.8329 -2.4904 -0.7636  0.0000 # C-S-N-S
+ dihedral_coeff 6  0.0000  0.0000  0.3468  0.0000 # O-S-C-F
+ dihedral_coeff 7  0.0000  0.0000 -0.0036  0.0000 # S-N-S-O

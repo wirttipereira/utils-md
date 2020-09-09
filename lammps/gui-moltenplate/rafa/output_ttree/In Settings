@@ -1,0 +1,97 @@
+#
+    pair_coeff 1   1   0.2000  3.7418 # P_cation
+    pair_coeff 2 2 0.1181  3.9050 # CH2_cation
+    pair_coeff 3 3 0.2071  3.7750 # CH3_cation
+    pair_coeff 4   4   0.1700  3.0000 # O_cation
+    pair_coeff 5    5    0.0489  3.5660 # C_anion
+    pair_coeff 6    6    0.1929  3.4200 # S_anion
+    pair_coeff 7    7    0.1526  3.0660 # N_anion
+    pair_coeff 8    8    0.0907  3.0820 # O_anion
+    pair_coeff 9    9    0.0533  2.9100 # F_anion
+    pair_coeff 10    10    0.0000  0.0000 # C_c_ele
+    pair_coeff 11    11    0.0000  0.0000 # C_e_ele
+    pair_coeff 12    12    0.0000  0.0000 # C_o_ele
+    pair_coeff 13    13    0.0000  0.0000 # O_e_ele
+    pair_coeff 14    14    0.0000  0.0000 # O_h_ele
+    pair_coeff 15    15    0.0000  0.0000 # H_h_ele
+    pair_coeff 16      16      0.0000  0.0000 # W_ele
+    pair_coeff 17          17        0.3500  0.27614  
+    pair_coeff 18          18        0.3500  0.27614  
+    pair_coeff 19          19        0.3550  0.29288  
+    pair_coeff 20          20        0.3550  0.29288  
+    pair_coeff 21          21        0.2420  0.12552  
+    pair_coeff 22          22        0.2500  0.12552  
+    pair_coeff 23          23        0.2500  0.12552  
+    pair_coeff 24          24        0.3250  0.71128  
+
+#
+    bond_coeff 1  210.00 1.836 # P-C
+    bond_coeff 2  310.00 1.538 # C-C
+    bond_coeff 3  320.00 1.416 # C-O
+    bond_coeff 4  744.02 1.570 # S-N
+    bond_coeff 5  470.84 1.818 # C-S
+    bond_coeff 6  883.60 1.323 # C-F
+    bond_coeff 7 1274.14 1.442 # S-O
+    bond_coeff 8  0.1315   399200 # NA CR
+    bond_coeff 9  0.1378   357400 # NA CW
+    bond_coeff 10  0.1466   282000 # NA C1
+    bond_coeff 11  0.1080   284500 # CR HA
+    bond_coeff 12  0.1080   284500 # CW HA
+    bond_coeff 13  0.1341   435200 # CW CW
+    bond_coeff 14  0.1090   284500 # C1 H1
+    bond_coeff 15  0.1529   224200 # C1 CE
+    bond_coeff 16  0.1090   284500 # CE HC
+#
+    angle_coeff 1  50.00 109.46 # C-P-C
+    angle_coeff 2  75.00 115.92 # P-C-C
+    angle_coeff 3  50.00 105.42 # C-C-O
+    angle_coeff 4  60.00 113.59 # C-O-C
+    angle_coeff 5 165.87 111.80 # S-C-F
+    angle_coeff 6 195.03 100.20 # C-S-N
+    angle_coeff 7 160.37 125.60 # S-N-S
+    angle_coeff 8 165.87 111.80 # F-C-F
+    angle_coeff 9 207.93 102.60 # C-S-O
+    angle_coeff 10 188.58 113.60 # N-S-O
+    angle_coeff 11 207.93 102.60 # O-S-O
+    angle_coeff 12  109.8    585.8 # NA CR NA
+    angle_coeff 13  125.1    292.9 # NA CR HA
+    angle_coeff 14  122.0    292.9 # NA CW HA
+    angle_coeff 15  107.1    585.8 # NA CW CW
+    angle_coeff 16  110.7    313.8 # NA C1 H1
+    angle_coeff 17  112.7    488.3 # NA C1 CE
+    angle_coeff 16  110.7    313.8 # NA C1 H1
+    angle_coeff 18  108.0    585.8 # CW NA CR
+    angle_coeff 19  130.9    292.9 # CW CW HA
+    angle_coeff 20  126.4    585.8 # C1 NA CR
+    angle_coeff 21  107.8    276.1 # H1 C1 H1
+    angle_coeff 20  126.4    585.8 # C1 NA CR
+    angle_coeff 22  125.6    585.8 # C1 NA CW
+    angle_coeff 23  110.7    313.8 # C1 CE HC
+    angle_coeff 21  107.8    276.1 # H1 C1 H1
+    angle_coeff 24  110.7    313.8 # CE C1 H1
+    angle_coeff 25  107.8    276.1 # HC CE HC
+#
+    dihedral_coeff 1  0.0000  0.0000  0.2708  0.0000 # C-P-C-C
+    dihedral_coeff 2 -0.7763  0.2361 -0.1709  0.0000 # P-C-C-O
+    dihedral_coeff 3  0.6500 -0.2500  0.6700  0.0000 # C-C-O-C
+    dihedral_coeff 4  0.0000  0.0000  0.3160  0.0000 # N-S-C-F
+    dihedral_coeff 5  7.8329 -2.4904 -0.7636  0.0000 # C-S-N-S
+    dihedral_coeff 6  0.0000  0.0000  0.3468  0.0000 # O-S-C-F
+    dihedral_coeff 7  0.0000  0.0000 -0.0036  0.0000 # S-N-S-O
+    dihedral_coeff 8   0.000  44.980  0.000  0.000 # NA CW CW NA
+    dihedral_coeff 9   0.000   0.000  0.367  0.000 # NA C1 CE HC
+    dihedral_coeff 10   0.000  12.552  0.000  0.000 # CR NA CW HA
+    dihedral_coeff 11   0.000  12.552  0.000  0.000 # CR NA CW CW
+    dihedral_coeff 12   0.000   0.000  0.000  0.000 # CR NA C1 H1
+    dihedral_coeff 13  -5.2691  0.000  0.000  0.000 # CR NA C1 CE
+    dihedral_coeff 14   0.000  19.460  0.000  0.000 # CW NA CR NA
+    dihedral_coeff 15   0.000  19.460  0.000  0.000 # CW NA CR HA
+    dihedral_coeff 16   0.000   0.000  0.519  0.000 # CW NA C1 H1
+    dihedral_coeff 17  -7.1535  6.1064 0.7939 0.000 # CW NA C1 CE
+    dihedral_coeff 18   0.000  44.980  0.000  0.000 # HA CW CW NA
+    dihedral_coeff 19   0.000  44.980  0.000  0.000 # HA CW CW HA
+    dihedral_coeff 20   0.000  19.460  0.000  0.000 # C1 NA CR NA
+    dihedral_coeff 21   0.000  19.460  0.000  0.000 # C1 NA CR HA
+    dihedral_coeff 22   0.000  12.552  0.000  0.000 # C1 NA CW CW
+    dihedral_coeff 23   0.000  12.552  0.000  0.000 # C1 NA CW HA
+    dihedral_coeff 24   0.000   0.000  1.2552 0.000 # H1 C1 CE HC

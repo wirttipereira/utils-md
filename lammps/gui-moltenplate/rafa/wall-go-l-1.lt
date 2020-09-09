@@ -1,0 +1,19 @@
+import "force-field-gui.lt"
+
+wall-go-l-1 inherits ffGuiGO {
+
+  write("Data Atoms") {
+    $atom:W_1 $mol:wall1 @atom:W_ele 0.0000 0.0000 7.0000 -86.5000
+    $atom:W_2 $mol:wall1 @atom:W_ele 0.0000 3.4000 7.0000 -86.5000
+    $atom:W_3 $mol:wall1 @atom:W_ele 0.0000 6.8000 7.0000 -86.5000
+    $atom:W_4 $mol:wall1 @atom:W_ele 0.0000 10.2000 7.0000 -86.5000
+    $atom:W_5 $mol:wall1 @atom:W_ele 0.0000 13.6000 7.0000 -86.5000
+    $atom:W_6 $mol:wall1 @atom:W_ele 0.0000 17.0000 7.0000 -86.5000
+    $atom:W_7 $mol:wall1 @atom:W_ele 0.0000 20.4000 7.0000 -86.5000
+    $atom:W_8 $mol:wall1 @atom:W_ele 0.0000 23.8000 7.0000 -86.5000
+    $atom:W_9 $mol:wall1 @atom:W_ele 0.0000 27.2000 7.0000 -86.5000
+    $atom:W_10 $mol:wall1 @atom:W_ele 0.0000 30.6000 7.0000 -86.5000
+    $atom:W_11 $mol:wall1 @atom:W_ele 0.0000 34.0000 7.0000 -86.5000
+  }
+
+} # end of wall-go-l-1 definition

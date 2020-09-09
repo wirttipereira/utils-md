@@ -1,0 +1,51 @@
+
+units               real
+boundary            p p f
+atom_style          full
+bond_style          harmonic
+angle_style         harmonic
+dihedral_style      opls
+newton              off
+
+special_bonds lj/coul 0.0 0.0 0.5
+
+pair_style lj/cut/coul/long 12.0 12.0
+kspace_style pppm 1.0e-5
+kspace_modify slab 2.0
+
+#read_restart restart.lmp
+read_data    data.txt
+include      force-field-go.ff
+
+group cation type @{/atom:P_cation}:@{/atom:O_cation}
+group anion type @{/atom:C_anion}:@{/atom:F_anion}
+group sol type @{/atom:P_cation}:@{/atom:F_anion}
+group ele type @{/atom:C_c_ele}:@{/atom:H_h_ele}
+
+variable nsteps equal 1000000
+variable nprint equal 100
+variable ndump  equal 100
+variable nwrite equal 100000
+
+neighbor 2.0 bin
+timestep 2.0
+
+thermo_style custom etotal ke temp pe ebond eangle edihed eimp evdwl ecoul elong press density vol v_nsteps cpuremain
+thermo_modify flush yes line multi
+#thermo ${nprint}
+
+velocity all create 300.0 32156
+
+fix 0 ele setforce 0.0 0.0 0.0
+fix 1 sol nvt temp 400.0 400.0 100.0
+fix 2 all conp 1 1.015 601 602 603 -0.0 0.0 inv electrode.txt
+
+minimize 1.0e-4 1.0e-6 1000 1000
+
+#dump 1 all custom ${ndump} dump-new.xyz id element x y z q
+dump_modify 1 element P C C O C S N O F Cc Ce Co Oe Oh H sort id
+
+#restart ${nwrite} restart.lmp
+#run ${nsteps}
+write_restart restart.*.lmp
+write_dat data.*.lmp
