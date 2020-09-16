@@ -38,6 +38,7 @@ with open(arq_in) as f:
 			if(z<minimo):
 				minimo = z
 		else:
+			#aqui pode mudar de acordo com o residuo ...
 			residue=line_f[5:10]
 		#	print option, residue
 			if(option==residue):
