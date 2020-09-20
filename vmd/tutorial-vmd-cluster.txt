@@ -1,7 +1,9 @@
 ﻿Tutorial de instalação do VMD em cluster
 Rafael Guimarães – 20.9.2020
 
-0. Download do VMD (baixe a versão 1.9.3 aqui)
+0. Download do VMD (baixe a versão 1.9.3 no link: https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD)
+
+A versão estável é a 1.9.3
 vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
 
 1. descompactar o vmd
