@@ -1,0 +1,49 @@
+﻿Tutorial de instalação do VMD em cluster
+Rafael Guimarães – 20.9.2020
+
+0. Download do VMD (baixe a versão 1.9.3 aqui)
+vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
+
+1. descompactar o vmd
+
+> tar -xvf vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
+
+2. editar o arquivo ‘configure’
+
+>cd vmd-1.9.3
+>vi configure
+
+Edite as linhas 16 e 19, colocando o caminho para o seu diretório de execução de softwares.
+Eu criei o ~/exe/bin e ~/exe/lib.
+Ficou assim:
+
+# Directory where VMD startup script is installed, should be in users' paths.
+$install_bin_dir="/home/rafagp/exe/bin";   #"/usr/local/bin";
+
+# Directory where VMD files and executables are installed
+$install_library_dir="/home/rafagp/exe/lib/$install_name";   #"/usr/local/lib/$install_name";
+
+3. rodar o configure
+> ./configure
+
+Deve aparecer uma mensagem assim:
+
+(base) [rafagp@eniac vmd-1.9.3]$ ./configure 
+using configure.options: LINUXAMD64 OPENGL OPENGLPBUFFER FLTK TK ACTC CUDA IMD LIBSBALL XINERAMA XINPUT LIBOPTIX LIBOSPRAY LIBTACHYON VRPN NETCDF COLVARS TCL PYTHON PTHREADS NUMPY SILENT ICC
+
+4. entra pasta src
+> make install
+
+(base) [rafagp@eniac src]$ make install
+Make sure /home/rafagp/exe/bin/vmd is in your path.
+VMD installation complete.  Enjoy!
+
+
+5. Passo adicional para mac
+No Mac pode haver problema com o OpenGL.
+Segui as dicas do link https://www.ks.uiuc.edu/Research/vmd/mailing_list/vmd-l/28494.html e funcionou.
+
+Sair do XQuartz, no terminal local digitar:
+> defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+
+Reiniciar o XQuartz, entrar no cluster e agora deve funcionar.
