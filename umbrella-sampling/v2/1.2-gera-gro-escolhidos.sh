@@ -2,8 +2,8 @@
 
 
 ##--- SANTOS DUMONT
-#module load gromacs/5.1.5_openmpi_gnu
-#gmx="gmx_mpi
+module load gromacs/5.1.5_openmpi_gnu
+gmx="gmx_mpi"
 
 
 ##--- ENIAC
@@ -11,7 +11,7 @@
 
 
 
-file="escolhidos2.dat"
+file="escolhidos.dat"
 tpr="../topol.tpr"
 xtc="../traj_comp.xtc"
 #reseta arquivo de saida
