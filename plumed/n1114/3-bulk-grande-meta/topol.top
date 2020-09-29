@@ -6988,9 +6988,9 @@ co2           3
 
  [ molecules ]
  ; Compound       
-;eletr        1
-nc4          10
-ntf2         10
+eletr        1
+nc4          350
+ntf2         350
 ;co2          499 ;;;--> tirei uma molecula dos 500 e renomeei co2x para fazer o pull
 co2x	     1
 DUM	     1

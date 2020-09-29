@@ -1,0 +1,32 @@
+[ bondtypes ]
+;  i     j   func         b0            kb   
+  CF     FC     1     0.13230     184973.659   
+  CF     SO     1     0.18810     98566.0629 
+  SO     OS     1     0.14420     266728.463
+  NI     SO     1     0.15700     155753.982
+  
+
+
+[ angletypes ]
+;  i    j     k    func       th0         cth
+  FC   CF    FC       1     107.10      390.75
+  SO   CF    FC       1     111.80      347.21
+  CF   SO    OS       1     102.60      435.30
+  OS   SO    OS       1     118.50      484.83
+  OS   SO    NI       1     113.60      395.76
+  CF   SO    NI       1     100.20      408.25
+  SO   NI    SO       1     125.60      355.73
+  
+  
+[ dihedraltypes ]
+;  i    j    k    l   func     phi0       cp
+  FC   CF   SO   OS      9      0.000     0.72599111    3
+  SO   NI   SO   OS      9      0.000    -0.00753624    3
+  FC   CF   SO   NI      9      0.000     0.66151439    3
+  SO   NI   SO   CF      9      0.000    32.79478525    1
+  SO   NI   SO   CF      9      180.0   -10.42680650    2 
+  SO   NI   SO   CF      9      0.000   -3.197040434    3
+  
+  
+  
+; J. Phys. Chem. B, 18, 2007. 4867 - Maginn

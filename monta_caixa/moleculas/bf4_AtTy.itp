@@ -1,0 +1,9 @@
+
+ [ atomtypes ]
+; name       mass        charge   ptype       sigma    epsilon
+
+;bf4(-)
+  B          10.8110   0.7680      A  3.58000e-01  3.97500e-01
+  FB         18.9980  -0.3920      A  3.12000e-01  2.55200e-01
+
+

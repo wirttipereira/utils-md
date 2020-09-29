@@ -21,7 +21,7 @@ def mensagem():
 
 try:
 	arquivo=sys.argv[1]
-	zoffset=float(sys.argv[2])
+	offset=float(sys.argv[2])
 	#option=sys.argv[3]
 except:
 	mensagem()
@@ -30,7 +30,7 @@ except:
 
 
 #arquivo de saida
-file4 = open('out.gro','w')
+file4 = open('out_offset.dat','w')
 
 aux = 0
 
@@ -41,8 +41,9 @@ with open(arquivo) as f:  #'teste.gro'
     if (line.startswith('#') or line.startswith('@')):
     	a=0
     else:
-    	z = float(line[12:28])
-    	file4.writelines(line[0:11] + '  ' + str(z+zoffset)+ '\n')
+    	x = float(line[0:12])
+	y = float(line[13:28])
+    	file4.writelines(str(x+offset)+ '  ' + str(y)+ '\n')
     	#file4.writelines('{:>10}{:>5}{:>5}{:>8}{:>8}{:8.3f}\n'.format(line[0:10],line[10:15],line[16:20],line[21:28],line[29:36],z))
 
 file4.close()

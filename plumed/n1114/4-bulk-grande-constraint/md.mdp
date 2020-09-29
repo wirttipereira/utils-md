@@ -18,7 +18,7 @@ integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.002
-nsteps                   = 3500000;7ns
+nsteps                   = -1;10000
 ; For exact run continuation or redoing part of a run
 init_step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
@@ -67,7 +67,7 @@ compressed-x-precision   = 1000
 ; default, all atoms will be written.
 compressed-x-grps        = 
 ; Selection of energy groups
-energygrps               = nc4 ntf2  co2x
+energygrps               = nc4 ntf2 eletr co2x
 
 ; NEIGHBORSEARCHING PARAMETERS
 ; cut-off scheme (Verlet: particle based cut-offs, group: using charge groups)
@@ -155,10 +155,10 @@ nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
-tc-grps                  =  nc4 ntf2 co2x DUM;co2
+tc-grps                  = eletr nc4 ntf2 co2x DUM;co2
 ; Time constant (ps) and reference temperature (K)
-tau_t                    =  .10 .10 .10 .10 ;.10
-ref_t                    =  350. 350. 350. 350.; 350.
+tau_t                    = 1.0 .10 .10 .10 .10 ;.10
+ref_t                    = 350. 350. 350. 350. 350.; 350.
 ; pressure coupling     
 Pcoupl                   = no
 Pcoupltype               = isotropic
@@ -278,7 +278,7 @@ wall-ewald-zfac          = 3
 ;pull-coord1-vec          = 0.0 0.0 1.0 ; mudei aqui
 ;pull_coord1_start        = yes
 ;pull-coord1-init         = 0
-;pull_coord1_rate         = 0.001; 0.001nm/ps * 7000ps = 7nm (percurso, 15.1 a 22.1 nm)
+;pull_coord1_rate         = 0.001; 0.001nm/ps * 18000ps = 18nm (percurso, 15.1 a 3.1 nm)
 ;pull-coord1-k            = 1000
 ;pull-coord1-kB           = 1000
 
@@ -342,7 +342,7 @@ dh_hist_spacing          = 0.1
 ; Non-equilibrium MD stuff
 acc-grps                 = 
 accelerate               = 
-freezegrps               =  DUM
+freezegrps               = eletr DUM
 freezedim                = Y Y Y  Y Y Y
 cos-acceleration         = 0
 deform                   = 
