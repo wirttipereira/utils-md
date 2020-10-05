@@ -20,6 +20,13 @@ aux = [25,50,100,50,25]
 l = len(regioes)
 
 for i in range(len(regioes)-1):
+<<<<<<< HEAD
 	#print(i)
 	print((regioes[i+1]-regioes[0])*1000, aux[i])
 	
+=======
+        #print(i)
+        print((regioes[i+1]-regioes[0])*1000, aux[i])
+
+print('\n Agora vc pode transferir os intervalos para o gerador 1.1***\n')
+>>>>>>> 2f91f68936a9610ee44d86c7edb8734b7e53daba

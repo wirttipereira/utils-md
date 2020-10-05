@@ -1,0 +1,19 @@
+tolerance 2.50
+filetype xyz 
+output mistura.xyz
+#Rafael Guimaraes - 5.5.18
+#simulacao 8
+
+structure tma.xyz
+  number 1 
+  inside box 0. 0. 0.  50. 50. 50.
+end structure
+structure ntf2.xyz
+  number 2
+  inside box 0. 0. 0.  50. 50. 50.
+end structure
+structure emim.xyz
+  number 1
+  inside box 0. 0. 0.  50. 50. 50.
+end structure
+

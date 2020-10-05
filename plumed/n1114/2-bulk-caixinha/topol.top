@@ -1,0 +1,21 @@
+#include "forcefield.itp"
+#include "co2x_AtTy.itp"
+#include "DUM_AtTy.itp"
+
+#include "ntf2.itp"
+#include "tma.itp"
+#include "emim.itp"
+#include "co2x.itp"
+#include "DUM.itp"
+
+[ system ]
+(emim.tma)+(ntf2)-
+
+[ molecules ]
+
+tma	1	
+ntf2	2
+emim	1
+co2x	1
+DUM	1
+

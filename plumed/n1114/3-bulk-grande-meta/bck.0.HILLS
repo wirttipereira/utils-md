@@ -1,0 +1,4 @@
+#! FIELDS time d1 sigma_d1 height biasf
+#! SET multivariate false
+#! SET kerneltype gaussian
+     0.2000000094994903    0.09542508975097609                    0.2                    1.2                     -1

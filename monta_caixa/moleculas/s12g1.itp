@@ -1,0 +1,234 @@
+
+[ moleculetype ]
+; Name         nrexcl
+s12g1           3
+
+ [ atoms ]
+ ;   nr   type  resnr residue  atom  cgnr charge  mas
+    1 Sc             1 s12g1       Sc             1     0.10017     32.0000
+    2 Ca             1 s12g1       Ca             2    -0.19464     12.0000
+    3 Cb             1 s12g1       Cb             3     0.02374     12.0000
+    4 Cc             1 s12g1       Cc             4    -0.18843     12.0000
+    5 Cd             1 s12g1       Cd             5    -0.02698     12.0000
+    6 Ce             1 s12g1       Ce             6     0.19697     12.0000
+    7 O1             1 s12g1       O1             7    -0.33243     16.0000
+    8 Cf             1 s12g1       Cf             8     0.05146     12.0000
+    9 Ha             1 s12g1       Ha             9     0.12647     1.00000
+   10 Ha             1 s12g1       Ha            10     0.12647     1.00000
+   11 Ha             1 s12g1       Ha            11     0.12647     1.00000
+   12 Hb             1 s12g1       Hb            12     0.08439     1.00000
+   13 Hb             1 s12g1       Hb            13     0.08439     1.00000
+   14 Hc             1 s12g1       Hc            14     0.08818     1.00000
+   15 Hc             1 s12g1       Hc            15     0.08818     1.00000
+   16 Hc             1 s12g1       Hc            16     0.08818     1.00000
+   17 Hd             1 s12g1       Hd            17     0.08558     1.00000
+   18 Hd             1 s12g1       Hd            18     0.08558     1.00000
+   19 He             1 s12g1       He            19     0.01562     1.00000
+   20 He             1 s12g1       He            20     0.01562     1.00000
+   21 Hf             1 s12g1       Hf            21     0.05167     1.00000
+   22 Hf             1 s12g1       Hf            22     0.05167     1.00000
+   23 Hf             1 s12g1       Hf            23     0.05167     1.00000
+           
+ [ bonds ]
+ ;  ai    aj    xx    r0              k
+    1     2     1    0.18100      185769.6  ; S-C  opls gromacs
+    1     3     1    0.18100      185769.6  ; S-C  opls gromacs
+    1     5     1    0.18100      185769.6  ; S-C  opls gromacs
+    2     9     1    0.10900      284512.0  ; C-H  22 parameter file
+    2    10     1    0.10900      284512.0  ; C-H  22 parameter file
+    2    11     1    0.10900      284512.0  ; C-H  22 parameter file
+    3     4     1    0.15290      224262.4  ; C-C  22 parameter file   
+    3    12     1    0.10900      284512.0  ; C-H  22 parameter file
+    3    13     1    0.10900      284512.0  ; C-H  22 parameter file
+    4    14     1    0.10900      284512.0  ; C-H  22 parameter file
+    4    15     1    0.10900      284512.0  ; C-H  22 parameter file
+    4    16     1    0.10900      284512.0  ; C-H  22 parameter file
+    5     6     1    0.15290      224262.4  ; C-C  22 parameter file
+    5    17     1    0.10900      284512.0  ; C-H  22 parameter file
+    5    18     1    0.10900      284512.0  ; C-H  22 parameter file
+    6     7     1    0.14300      284512.0  ; OS - CT3 CHARM27 parameter file
+    6    19     1    0.10900      284512.0  ; C-H  22 parameter file
+    6    20     1    0.10900      284512.0  ; C-H  22 parameter file
+    7     8     1    0.14300      284512.0  ; OS - CT3 CHARM27 parameter file
+    8    21     1    0.10900      284512.0  ; C-H  22 parameter file
+    8    22     1    0.10900      284512.0  ; C-H  22 parameter file
+    8    23     1    0.10900      284512.0  ; C-H  22 parameter file
+ 
+  ; CT    HC      1    0.10900   284512.0   ; CHARMM 22 parameter file
+  ; CT    CT      1    0.15290   224262.4   ; CHARMM 22 parameter file
+
+ [ angles ]
+ ;  ai    aj    ak   nr   tetha           k_tetha
+    1     2     9    1    109.500     292.880   ; sch
+    1     2    10    1    109.500     292.880   ; sch
+    1     2    11    1    109.500     292.880   ; sch
+    1     3     4    1    108.600     418.400   ; scc  opls gromacs cys
+    1     3    12    1    109.500     292.880   ; sch
+    1     3    13    1    109.500     292.880   ; sch
+    1     5     6    1    108.600     418.400   ; scc  opls gromacs cys
+    1     5    17    1    109.500     292.880   ; sch
+    1     5    18    1    109.500     292.880   ; sch
+    2     1     3    1     98.900     518.816   ; csc MET(OL)
+    2     1     5    1     98.900     518.816   ; csc MET(OL)
+    3     1     5    1     98.900     518.816   ; csc MET(OL)
+    3     4    14    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    3     4    15    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    3     4    16    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    4     3    12    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    4     3    13    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    5     6     7    1    109.500     418.400   ; CT-CT-OS opls
+    5     6    19    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    5     6    20    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    6     5    17    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    6     5    18    1    110.700     313.800   ; cch CHARMM 22 parameter file
+    6     7     8    1    116.900     694.544   ; C-OS-CT opls
+    7     6    19    1    109.500     292.880   ; HC-CT-OS opls
+    7     6    20    1    109.500     292.880   ; HC-CT-OS opls
+    7     8    21    1    109.500     292.880   ; HC-CT-OS opls
+    7     8    22    1    109.500     292.880   ; HC-CT-OS opls
+    7     8    23    1    109.500     292.880   ; HC-CT-OS opls
+    9     2    10    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    9     2    11    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    10    2    11    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    12    3    13    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    14    4    15    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    14    4    16    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    15    4    16    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    17    5    18    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    19    6    20    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    21    8    22    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    21    8    23    1    107.800     276.144   ; hch CHARMM 22 parameter file
+    22    8    23    1    107.800     276.144   ; hch CHARMM 22 parameter file
+
+
+  ; CT     CT     HC      1   110.700    313.800   ; CHARMM 22 parameter file
+  ; HC     CT     HC      1   107.800    276.144   ; CHARMM 22 parameter file
+  ; HC     CT     S       1   109.500    292.880   ;
+  ; CT     S      CT      1    98.900    518.816   ; MET(OL)
+
+  ; HC     CT     OS      1   109.500    292.880   ; SUG
+  ; CT     CT     OS      1   109.500    418.400   ;
+  ; C      OS     CT      1   116.900    694.544   ; -idem-
+
+
+
+ [ dihedrals ]
+ ;  ai    aj    ak    al   nr  C1        C2      C3      C4        C5       C6
+    1     3     4    14    3      0.94559   2.83675   0.00000  -3.78234   0.00000   0.00000 ; scch thiol all-atom
+    1     3     4    15    3      0.94559   2.83675   0.00000  -3.78234   0.00000   0.00000 ; scch thiol all-atom
+    1     3     4    16    3      0.94559   2.83675   0.00000  -3.78234   0.00000   0.00000 ; scch thiol all-atom
+    1     5     6     7    3     -1.15060   1.15060   0.00000   0.00000   0.00000   0.00000 ; scco polyethers, crown ethers
+    1     5     6    19    3      0.94559   2.83675   0.00000  -3.78234   0.00000   0.00000 ; scch thiol all-atom
+    1     5     6    20    3      0.94559   2.83675   0.00000  -3.78234   0.00000   0.00000 ; scch thiol all-atom
+    2     1     3     4    3      0.94140   2.31375   2.40999  -5.66514   0.00000   0.00000 ; cscc sulfide all-atom
+    2     1     3    12    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    2     1     3    13    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    2     1     5     6    3      0.94140   2.31375   2.40999  -5.66514   0.00000   0.00000 ; cscc sulfide all-atom
+    2     1     5    17    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    2     1     5    18    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    3     1     5     6    3      0.94140   2.31375   2.40999  -5.66514   0.00000   0.00000 ; cscc sulfide all-atom
+    3     1     2     9    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    3     1     2    10    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    3     1     2    11    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    3     1     5    17    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    3     1     5    18    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    4     3     1     5    3      0.94140   2.31375   2.40999  -5.66514   0.00000   0.00000 ; cscc sulfide all-atom
+    5     1     2     9    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    5     1     2    10    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    5     1     2    11    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    5     1     3    12    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    5     1     3    13    3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; csch sulfide all-atom
+    5     6     7     8    3      1.71544   2.84512   1.04600  -5.60656   0.00000   0.00000 ; ccoc ethers AA
+    6     7     8    21    3      1.58992   4.76976   0.00000  -6.35968   0.00000   0.00000 ; coch ethers AA
+    6     7     8    22    3      1.58992   4.76976   0.00000  -6.35968   0.00000   0.00000 ; coch ethers AA
+    6     7     8    23    3      1.58992   4.76976   0.00000  -6.35968   0.00000   0.00000 ; coch ethers AA
+    7     6     5    17    3      0.97905   2.93716   0.00000  -3.91622   0.00000   0.00000 ; hcco alcohols, ethers AA
+    7     6     5    18    3      0.97905   2.93716   0.00000  -3.91622   0.00000   0.00000 ; hcco alcohols, ethers AA
+    8     7     6    19    3      1.58992   4.76976   0.00000  -6.35968   0.00000   0.00000 ; coch ethers AA
+    8     7     6    20    3      1.58992   4.76976   0.00000  -6.35968   0.00000   0.00000 ; coch ethers AA
+   12     3     4    14    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   12     3     4    15    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   12     3     4    16    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   13     3     4    14    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   13     3     4    15    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   13     3     4    16    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   17     5     6    19    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   17     5     6    20    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   18     5     6    19    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+   18     5     6    20    3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11
+
+  ; HC     CT_2   CT     S       3      0.94559   2.83675   0.00000  -3.78234   0.00000   0.00000 ; thiol all-atom
+  ; CT     S      CT     HC      3      1.35352   4.06057   0.00000  -5.41410   0.00000   0.00000 ; sulfide all-atom
+  ; CT     CT     S      CT      3      0.94140   2.31375   2.40999  -5.66514   0.00000   0.00000 ; sulfide all-atom
+  ; HC     CT     CT     HC      3      0.62760   1.88280   0.00000  -2.51040   0.00000   0.00000 ; hydrocarbon *new* 11/99
+  ; OS     CT     CT     OS      3     -1.15060   1.15060   0.00000   0.00000   0.00000   0.00000 ; polyethers, crown ethers
+  ; CT     OS     CT     HC      3      1.58992   4.76976   0.00000  -6.35968   0.00000   0.00000 ; ethers AA
+  ; HC     CT     CT     OS      3      0.97905   2.93716   0.00000  -3.91622   0.00000   0.00000 ; alcohols, ethers AA
+  ; CT     CT     OS     CT      3      1.71544   2.84512   1.04600  -5.60656   0.00000   0.00000 ; ethers AA
+
+ [ exclusions ]
+ ;  ai    aj
+    1     2   
+    1     3   
+    1     5   
+    2     9   
+    2    10   
+    2    11   
+    3     4   
+    3    12   
+    3    13   
+    4    14   
+    4    15   
+    4    16   
+    5     6   
+    5    17   
+    5    18   
+    6     7   
+    6    19   
+    6    20
+    7     8
+    8    21
+    8    22
+    8    23  
+    1     4    
+    1     6     
+    1     9    
+    1    10    
+    1    11    
+    1    12    
+    1    13    
+    1    17    
+    1    18    
+    2     3    
+    2     5
+    3     5
+    3    14    
+    3    15    
+    3    16    
+    4    12    
+    4    13
+    5     7
+    5    19    
+    5    20    
+    6     8    
+    6    17    
+    6    18    
+    7    19
+    7    20    
+    7    21    
+    7    22    
+    7    23    
+    9    10   
+    9    11    
+    10   11    
+    12   13    
+    14   15
+    14   16
+    15   16
+    17   18    
+    19   20    
+    21   22    
+    21   23
+    22   23   
+     1    7
+ 

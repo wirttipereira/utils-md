@@ -1,0 +1,14 @@
+;Rafael Guimaraes Pereira
+;7.5.18
+
+[ moleculetype ]
+;Name  xrexcl
+Gle	1
+[ atoms ]
+;nr	type	resnr	residue	residue	atom	charge		mass
+1	Cle	1	Gle	Cle	1	-0.00000	12.0000
+
+[ moleculetype ]
+Gri	1
+[ atoms ]
+1	Cri	1	Gri	Cri	1	+0.00000	12.000000

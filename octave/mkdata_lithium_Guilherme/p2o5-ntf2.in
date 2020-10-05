@@ -1,0 +1,121 @@
+units               real
+dimension           3
+boundary            p p f #f
+atom_style          full
+bond_style          harmonic
+angle_style         harmonic
+dihedral_style      opls 
+newton              off
+
+special_bonds lj/coul 0.0 0.0 0.5
+
+read_data           data.1000000.lmp
+
+pair_style lj/cut/coul/long 12.0 12.0
+kspace_style pppm 1.0e-5
+kspace_modify slab 2.0
+
+ pair_coeff           1           1  0.20000000       3.7418001
+ pair_coeff           1           2  0.15368800       3.8234000
+ pair_coeff           1           3  0.20351905       3.7584000
+ pair_coeff           1           4  0.18439089       3.3709002
+ pair_coeff           1           5  9.88938808E-02   3.6539001
+ pair_coeff           1           6  0.19641793       3.5809002
+ pair_coeff           1           7  0.17469975       3.4039001
+ pair_coeff           1           8  0.13468482       3.4119000
+ pair_coeff           1           9  0.10324728       3.3259001
+ pair_coeff           1          10  0.28284273       2.5709000
+ pair_coeff           1          11  0.11823705       3.6459000
+ pair_coeff           2           2  0.11810000       3.9050000
+ pair_coeff           2           3  0.15639217       3.8400002
+ pair_coeff           2           4  0.14169334       3.4524999
+ pair_coeff           2           5  7.59940147E-02   3.7354999
+ pair_coeff           2           6  0.15093538       3.6624999
+ pair_coeff           2           7  0.13424627       3.4854999
+ pair_coeff           2           8  0.10349720       3.4935000
+ pair_coeff           2           9  7.93393329E-02   3.4075000
+ pair_coeff           2          10  0.21734765       2.6524999
+ pair_coeff           2          11  9.08580795E-02   3.7275000
+ pair_coeff           3           3  0.20710000       3.7750001
+ pair_coeff           3           4  0.18763529       3.3875000
+ pair_coeff           3           5  0.10063394       3.6705000
+ pair_coeff           3           6  0.19987394       3.5975001
+ pair_coeff           3           7  0.17777362       3.4205000
+ pair_coeff           3           8  0.13705462       3.4285002
+ pair_coeff           3           9  0.10506393       3.3425002
+ pair_coeff           3          10  0.28781939       2.5875001
+ pair_coeff           3          11  0.12031745       3.6624999
+ pair_coeff           4           4  0.17000000       3.0000000
+ pair_coeff           4           5  9.11756530E-02   3.2830000
+ pair_coeff           4           6  0.18108837       3.2100000
+ pair_coeff           4           7  0.16106521       3.0330000
+ pair_coeff           4           8  0.12417327       3.0409999
+ pair_coeff           4           9  9.51892883E-02   2.9549999
+ pair_coeff           4          10  0.26076812       2.2000000
+ pair_coeff           4          11  0.10900918       3.2750001
+ pair_coeff           5           5  4.89000008E-02   3.5660000
+ pair_coeff           5           6  9.71226543E-02   3.4930000
+ pair_coeff           5           7  8.63836780E-02   3.3160000
+ pair_coeff           5           8  6.65975213E-02   3.3239999
+ pair_coeff           5           9  5.10526188E-02   3.2379999
+ pair_coeff           5          10  0.13985707       2.4830000
+ pair_coeff           5          11  5.84646054E-02   3.5580001
+ pair_coeff           6           6  0.19290000       3.4200001
+ pair_coeff           6           7  0.17157081       3.2430000
+ pair_coeff           6           8  0.13227256       3.2509999
+ pair_coeff           6           9  0.10139808       3.1650000
+ pair_coeff           6          10  0.27777690       2.4100001
+ pair_coeff           6          11  0.11611938       3.4850001
+ pair_coeff           7           7  0.15260001       3.0660000
+ pair_coeff           7           8  0.11764701       3.0739999
+ pair_coeff           7           9  9.01863649E-02   2.9879999
+ pair_coeff           7          10  0.24706276       2.2330000
+ pair_coeff           7          11  0.10327991       3.3080001
+ pair_coeff           8           8  9.07000005E-02   3.0820000
+ pair_coeff           8           9  6.95292056E-02   2.9960001
+ pair_coeff           8          10  0.19047309       2.2409999
+ pair_coeff           8          11  7.96236768E-02   3.3160000
+ pair_coeff           9           9  5.33000007E-02   2.9100001
+ pair_coeff           9          10  0.14601369       2.1550000
+ pair_coeff           9          11  6.10382669E-02   3.2300000
+ pair_coeff          10          10  0.40000001       1.4000000
+ pair_coeff          10          11  0.16721244       2.4749999
+ pair_coeff          11          11  0.00000000       3.5500000
+
+group anion type 5 6 7 8 9
+group cation type 1 2 3 4
+group lithium type 10
+group sol type 1 2 3 4 5 6 7 8 9 10
+group ele type 11
+
+variable nsteps    equal 1250000
+variable nprint    equal 100
+variable nenrg     equal 100
+
+
+variable ndump equal 50
+
+neighbor            2.0 bin
+timestep            4. 
+
+thermo_style multi
+thermo ${nprint}
+
+run_style           verlet
+
+velocity sol create 400.0 32156
+
+fix 0 ele setforce 0.0 0.0 0.0
+fix e all conp 1 1.015 601 602 -0. 0. inv electrode.txt
+
+fix 1 sol nvt temp 400.0 400.0 100.0
+
+#minimize 1.0e-4 1.0e-6 100 1000
+
+dump dCONF all custom ${ndump} dump-new.xyz id element  x y z q
+dump_modify dCONF element P C C O C S N O F Li H sort id
+
+
+run ${nsteps}
+write_restart restart.*.lmp
+write_data data.*.lmp
