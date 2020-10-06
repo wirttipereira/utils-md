@@ -6,6 +6,9 @@
 set xrange [15:33] 
 set yrange [-10:60]
 
+set arrow from 17.,-1.7 to 17.75,-1.46
+set arrow from 20.05,6 to 21.05,6.5
+
 #set title 'Umbrella histograms - 100 bins'
 set xlabel 'Distance / nm'
 set ylabel 'PMF / KJ/mol'
