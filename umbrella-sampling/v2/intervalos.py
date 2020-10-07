@@ -15,18 +15,12 @@
 #
 #Percurso: 18nm em 18ns (1nm/ns)
 
-regioes = [14.78, 16.67, 19.96, 27.21, 30.51, 32.79]
+regioes = [15.1, 17.2, 20.5, 28., 31.3, 33.1]
 aux = [25,50,100,50,25]
 l = len(regioes)
 
 for i in range(len(regioes)-1):
-<<<<<<< HEAD
-	#print(i)
-	print((regioes[i+1]-regioes[0])*1000, aux[i])
-	
-=======
         #print(i)
         print((regioes[i+1]-regioes[0])*1000, aux[i])
 
 print('\n Agora vc pode transferir os intervalos para o gerador 1.1***\n')
->>>>>>> 2f91f68936a9610ee44d86c7edb8734b7e53daba

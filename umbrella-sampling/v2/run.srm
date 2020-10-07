@@ -3,7 +3,7 @@
 #SBATCH --ntasks-per-node=24           #Numero de tarefas por Nó
 #SBATCH --ntasks=24     	       #Numero total de tarefas MPI
 #SBATCH -p cpu_small                   #Fila (partition) a ser utilizada
-#SBATCH -J 16-XX            #Nome job
+#SBATCH -J 17-XX            #Nome job
 #SBATCH --time=02:00:00                #Altera o tempo limit HH:MM:SS
 #SBATCH --exclusive                    #Utilização exclusiva dos nós durante a execução do job
 # #SBATCH --mail-type=BEGIN,END
