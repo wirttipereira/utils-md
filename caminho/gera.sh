@@ -3,7 +3,14 @@
 >temp
 >dados
 
-gmx='/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx'
+##########
+## SD
+module load gromacs/5.1.5_openmpi_gnu
+gmx=/scratch/app/gromacs/5.1.5_openmpi_gnu/bin/gmx_mpi
+## ENIAC
+#gmx='/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx'
+###########
+
 passo=200
 
 $gmx trjconv -nice 0 -f ../traj_comp.xtc -skip $passo -o caminho.gro -s ../topol.tpr<<+
