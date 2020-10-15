@@ -1,0 +1,8 @@
+20.2.2020
+
+Sobre ACF:
+
+https://en.wikipedia.org/wiki/Autocorrelation
+http://rinterested.github.io/statistics/acf_pacf.html
+http://rinterested.github.io/statistics/acf_pacf.html
+
