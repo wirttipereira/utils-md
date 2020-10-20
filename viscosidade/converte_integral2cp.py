@@ -8,6 +8,7 @@
 ################################################################
 
 import sys
+import json
 
 def mensagem():
 	print '##############################################################'
@@ -16,23 +17,18 @@ def mensagem():
 	print '##############################################################'
 
 
-try:
-	integral=float(sys.argv[1])
-except:
-	mensagem()
-	sys.exit("arguments missing\n\n")
+with open('config.json','r') as file_json:
+    data = json.load(file_json)
+    integral = data['integral']
+    temperatura = data['temperatura_K']
+    xmed = data['xmed_nm']
+    ymed = data['ymed_nm']
+    zmed = data['zmed_nm']
 
-
-xmed = 3.97082
-ymed = 3.97082
-zmed = 5.15206
-
-vol_med_cx 	= xmed * ymed * zmed * 1E-27   	#m3, volume medio da caixa
-print(vol_med_cx)
-temperatura = 400 							#K
-conv 	    = integral/100
-kB			= 1.3806503E-23					#cte de Bolzman
-visc1		= (vol_med_cx * conv) / (kB * temperatura)
-visc2		= visc1 * 1000
-print('Kg/(m.s)', visc1)
-print('cP', visc2)
+    vol_med_cx 	= xmed * ymed * zmed * 1E-27   	#m3, volume medio da caixa
+    conv 	    = integral/100
+    kB			= 1.3806503E-23					#cte de Bolzman
+    visc1		= (vol_med_cx * conv) / (kB * temperatura)
+    visc2		= visc1 * 1000
+    print('Kg/(m.s)', visc1)
+    print('cP', visc2)
