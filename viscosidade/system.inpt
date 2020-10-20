@@ -1,0 +1,9 @@
+400                   N, number of ions
+3                     nspec, number of species
+140                   esp1, n moleculas 
+17                    esp1, n at
+60                    esp2, n moleculas
+19                    esp2, n at
+200                   esp3, n moleculas
+15                    esp3, n at
+45.5               box 

@@ -1,0 +1,34 @@
+#RAFAEL GUIMARAES - 27.4.19
+#revisao 12.5.19
+#
+VISCOSIDADE
+===========
+Criar diretório "visc"
+Programa "do_acf_stress.f", precisa do system.inpt e control.inpt
+Compilar o programa fortran e nomear "acf" 
+Criar o arquivo "pressure.dat":
+$gmx energy -nice 0 -f ener.edr -o pressure -b 5000
+Selecione Pres XY, Pres XZ e Pres YZ
+Editar o arquivo .xvg de saída, deixar somente os dados e renomear para "pressure.dat"
+Configurar os arquivos "system.inpt" e "control.inpt" conforme instruções dentro dos próprios arquivos
+Rodar "$./acf"
+OU rodar o "roda-omp.sh", neste caso várias operações descritas aqui são automatizadas
+Renomear o arquivo de saída acf_stress_all.out para saida.out
+Plotar a saída no xmgrace
+$xmgrace saida.out
+> integra as curvas
+> pega o valor médio do platô?
+> converte unidades para cP no arquivo XXXX do excel
+
+
+
+COMPILAR O PROGRAMA (single core)
+===================
+
+gfortran -O3 do_acf_stress.f
+
+#12.5.19
+#Desenvolvi versão paralelizada
+#acf-omp
+#
+#
