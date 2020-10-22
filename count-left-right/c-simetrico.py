@@ -67,14 +67,14 @@ def correct_matrix(rawM):
 		right=0
 		gas=0
 		for j in range(colunas):
-			if((rawM[i,j]+rawM[i-1,j])==3): #se um co2 que entrou por um lado entrou no outro lado
+			if((rawM[i,j]+rawM[i-1,j])==3): #se o co2 passou direto de 1 para 2 ou 2 para 1, volta ao status anterior
 				#print "XXXXX"
 				#print rawM[i,j], rawM[i-1,j]
 				rawM[i,j] = rawM[i-1,j]
 				#print rawM[i,j], rawM[i-1,j]
 
 			if(rawM[i,j]==9): #se esta no bulk
-				rawM[i,j]=rawM[i-1,j]
+				rawM[i,j]=rawM[i-1,j]		#retorna ao valor anterior para não perder o rastro de qual fenda veio
 				if(rawM[i-1,j]==1):
 					left = left + 1
 				elif(rawM[i-1,j]==2):
@@ -85,6 +85,8 @@ def correct_matrix(rawM):
 		#i*100 pois esta na escala de ps
 		#print i*100, left, right, left+right, gas, left+right+gas
 		print i*intervalo, left/cx_vol_bulk/3, right/cx_vol_bulk/3, (left+right)/cx_vol_bulk/3, gas/cx_vol_bulk/3, (left+right+gas)/cx_vol_bulk/3
+		#divide pelo volume para normalizar
+		#divide por 3 pois o co2 tem 3 atomos, assim fica ponderado 'por molecula de co2'
 
 	return rawM
 
