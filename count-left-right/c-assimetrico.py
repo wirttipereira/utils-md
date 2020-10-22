@@ -43,13 +43,13 @@ def build_raw_matrix(arq_in):
 		for line_fa in data_fa[2:len(data_fa)-1]:
 			try:
 	  	  		z = float(line_fa[37:44])
-	  	  		y = float(line_fa[])
+	  	  		y = float(line_fa[29:36])
 	  	  		if ((z<zr[1]) or (z>zr[4])): 		#fase gas
 	  	  			label = 0
 	  	  		elif ((z>=zr[1]) and (z<=zr[2])):	#eletrodo esquerdo
 					#label = 1
 					#
-					if ((y<0.75) or ((y>=2.25) and (y<3))): #condição das fendas pequenas
+					if ((y<0.75) or ((y>=2.25) and (y<3))): #condicao das fendas pequenas
 						label = 1 #fenda esq pequena
 					else:
 						label = 2 #fenda esq grande
@@ -57,7 +57,7 @@ def build_raw_matrix(arq_in):
 		  		elif ((z>=zr[3]) and (z<=zr[4])):	#eletrodo direita
 					#label = 2
 					#
-					if ((y<0.75) or ((y>=2.25) and (y<3))): #condição das fendas pequenas
+					if ((y<0.75) or ((y>=2.25) and (y<3))): #condicao das fendas pequenas
 						label = 3 #fenda dir pequena
 					else:
 						label = 4 #fenda dir grande 
@@ -86,11 +86,11 @@ def correct_matrix(rawM):
 			if(aux>=4 and aux<=6): #se o co2 passou direto do eletrodo da esq para dir (ou vice-versa), volta ao status anterior
 				#print "XXXXX"
 				#print rawM[i,j], rawM[i-1,j]
-				rawM[i,j] = rawM[i-1,j]		#retorna ao valor anterior para não perder o rastro de qual fenda veio
+				rawM[i,j] = rawM[i-1,j]		#retorna ao valor anterior para nao perder o rastro de qual fenda veio
 				#print rawM[i,j], rawM[i-1,j]
 
 			if(rawM[i,j]==9): #se esta no bulk
-				rawM[i,j]=rawM[i-1,j]		#retorna ao valor anterior para não perder o rastro de qual fenda veio
+				rawM[i,j]=rawM[i-1,j]		#retorna ao valor anterior para nao perder o rastro de qual fenda veio
 				
 				if(rawM[i-1,j]==1):
 					left_small 	= left_small + 1
