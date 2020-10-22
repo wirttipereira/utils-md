@@ -105,7 +105,7 @@ def correct_matrix(rawM):
 			
 		#i*100 pois esta na escala de ps
 		#print i*100, left, right, left+right, gas, left+right+gas
-		print i*intervalo, left/cx_vol_bulk/3, right/cx_vol_bulk/3, (left+right)/cx_vol_bulk/3, gas/cx_vol_bulk/3, (left+right+gas)/cx_vol_bulk/3
+		print i*intervalo, left_small/cx_vol_bulk/3, left_big/cx_vol_bulk/3, right_small/cx_vol_bulk/3, right_big/cx_vol_bulk/3, gas/cx_vol_bulk/3
 		#divide pelo volume para normalizar
 		#divide por 3 pois o co2 tem 3 atomos, assim fica ponderado 'por molecula de co2'
 
