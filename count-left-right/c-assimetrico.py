@@ -76,25 +76,32 @@ def correct_matrix(rawM):
 	#print linhas, colunas #as linhas sao os diferentes tempos (ou configuracoes). As colunas sao os atom dentro de cada config
 	
 	for i in range(linhas):
-		left=0
-		right=0
+		left_small=0
+		left_big=0
+		right_small=0
+		right_big=0
 		gas=0
 		for j in range(colunas):
 			aux = rawM[i,j]+rawM[i-1,j]
 			if(aux>=4 and aux<=6): #se o co2 passou direto do eletrodo da esq para dir (ou vice-versa), volta ao status anterior
 				#print "XXXXX"
 				#print rawM[i,j], rawM[i-1,j]
-				rawM[i,j] = rawM[i-1,j]
+				rawM[i,j] = rawM[i-1,j]		#retorna ao valor anterior para não perder o rastro de qual fenda veio
 				#print rawM[i,j], rawM[i-1,j]
 
 			if(rawM[i,j]==9): #se esta no bulk
 				rawM[i,j]=rawM[i-1,j]		#retorna ao valor anterior para não perder o rastro de qual fenda veio
+				
 				if(rawM[i-1,j]==1):
-					left = left + 1
+					left_small 	= left_small + 1
 				elif(rawM[i-1,j]==2):
-					right = right + 1
+					left_big 	= left_big 	 + 1
+				elif(rawM[i-1,j]==3):
+					right_small = right_small+ 1
+				elif(rawM[i-1,j]==4):
+					right_big 	= right_big  + 1
 				elif(rawM[i-1,j]==0):
-					gas = gas + 1
+					gas 		= gas        + 1
 			
 		#i*100 pois esta na escala de ps
 		#print i*100, left, right, left+right, gas, left+right+gas
