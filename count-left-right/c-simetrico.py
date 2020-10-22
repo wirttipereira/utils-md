@@ -8,8 +8,8 @@
 ### CONFIGURAR #############################################
 # vetor com dimensoes da caixa
 #zr=[0,16.62,19.94,28.18,31.49,48.5] #sulfonio
-#zr=[0,17.23,20.52,28.00,31.28,48.5] #amonio
-zr=[0, 16.06, 19.37, 29.07, 32.35, 48.5] #fosfonio
+zr=[0,17.23,20.52,28.00,31.28,48.5] #amonio
+#zr=[0, 16.06, 19.37, 29.07, 32.35, 48.5] #fosfonio
 offset_gas=2  #nm que fase gas avanca para dentro do eletrodo
 offset_bulk=0.5 #nm que bulk recua da face inerna do eletrodo
 caixa_dx=3.42 #dimensao x da caixa
@@ -74,7 +74,7 @@ def correct_matrix(rawM):
 				#print rawM[i,j], rawM[i-1,j]
 
 			if(rawM[i,j]==9): #se esta no bulk
-				rawM[i,j]=rawM[i-1,j]		#retorna ao valor anterior para não perder o rastro de qual fenda veio
+				rawM[i,j]=rawM[i-1,j]		#retorna ao valor anterior para nao perder o rastro de qual fenda veio
 				if(rawM[i-1,j]==1):
 					left = left + 1
 				elif(rawM[i-1,j]==2):
@@ -84,7 +84,11 @@ def correct_matrix(rawM):
 			
 		#i*100 pois esta na escala de ps
 		#print i*100, left, right, left+right, gas, left+right+gas
-		print i*intervalo, left/cx_vol_bulk/3, right/cx_vol_bulk/3, (left+right)/cx_vol_bulk/3, gas/cx_vol_bulk/3, (left+right+gas)/cx_vol_bulk/3
+		
+		#print i*intervalo, left/cx_vol_bulk/3, right/cx_vol_bulk/3, (left+right)/cx_vol_bulk/3, gas/cx_vol_bulk/3, (left+right+gas)/cx_vol_bulk/3
+		print i*intervalo, left/cx_vol_bulk, right/cx_vol_bulk, (left+right)/cx_vol_bulk, gas/cx_vol_bulk, (left+right+gas)/cx_vol_bulk
+		#print i*intervalo, left, right, (left+right), gas
+		
 		#divide pelo volume para normalizar
 		#divide por 3 pois o co2 tem 3 atomos, assim fica ponderado 'por molecula de co2'
 
