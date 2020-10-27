@@ -3,10 +3,10 @@
  #ls *.tpr > tpr-files.dat
  #ls *pullf*.xvg > pullf-files.dat
 
-#module load gromacs/5.1.5_openmpi_gnu
+module load gromacs/5.1.5_openmpi_gnu
 
-#gmx="gmx_mpi"
-gmx="/home/victorval/exe/gromacs-5.1.4/bin/gmx"
+gmx="gmx_mpi"
+#gmx="/home/rafagp/exe/gromacs-5.1.4/build/bin/gmx"
 
 #for i in{40 100 250 500 1000}
 #do
