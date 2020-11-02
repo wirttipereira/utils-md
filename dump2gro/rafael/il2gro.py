@@ -12,7 +12,7 @@ Nat2 = 15
 Nmol2 = 350
 name2 = 'ntf2'
 
-zoffset=24.3105
+zoffset= ((7.191) - (-7.31))/2 - 7.191 + 48.5/2
 
 Ntotal = Nat1*Nmol1 + Nat2*Nmol2
 print Ntotal
@@ -50,29 +50,30 @@ with open(arquivo) as f:  #'teste.gro'
 
     if (aux<=Nat1*Nmol1):
         residuo = name1
-        # Cn, Nq, Cn, Cn, C2, C3, C4, Ct
+        # Cn, Nq, Cn, Cn, C2, C3, C4, Ct //nomenclatura do FF Magin (Leo)
+        ## FF Padua (customizado nosso), abaixo: Cnx, N4x, C2x, C3x, C4x e Ctx
         if(aux2==1):
-            at_label = 'Cn'
+            at_label = 'Cnx'
         if(aux2==2):
-            at_label = 'Nq'
+            at_label = 'N4x'
         if(aux2==3):
-            at_label = 'Cn'
+            at_label = 'Cnx'
         if(aux2==4):
-            at_label = 'Cn'
+            at_label = 'Cnx'
         if(aux2==5):
-            at_label = 'C2'
+            at_label = 'C2x'
         if(aux2==6):
-            at_label = 'C3'
+            at_label = 'C3x'
         if(aux2==7):
-            at_label = 'C4'
+            at_label = 'C4x'
         if(aux2==8):
-            at_label = 'Ct'
+            at_label = 'Ctx'
     else:
         residuo = name2
 
-
-
-
+# Antigo: C, S, N, S, C, O, O, O, O, F, F, F, F, F, F
+# Novo:   CBT,SBT,NBT,SBT,CBT,OBT,OBT,OBT,OBT,F1,F1,F1,F1,F1,F1,
+# por hora vou fazer o VI que eh mais facil
 
 
     #.gro
