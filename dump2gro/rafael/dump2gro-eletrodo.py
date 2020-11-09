@@ -7,7 +7,8 @@ MASSA = '12.011'
 POT = 'lj'
 SIGMA = '3.5500'
 EPSILON = '0.29288'
-zoffset=24.3105
+zoffset= ((7.191) - (-7.31))/2 - 7.191 + 48.5/2
+print (zoffset)
 
 #numero_atomo = int(sys.argv[2]) 
 
@@ -21,9 +22,9 @@ file.writelines('ATOMS')
 file2.writelines(str(N)+'\n')
 file2.writelines('eletrodo  eletrodo.ff')
 #escreve as linhas do arquivo .sh
-file3.writelines('fftool 1 eletrodo.xyz -b 1000 #gera pack.inp\n')
-file3.writelines('packmol < pack.inp\n')
-file3.writelines('fftool 1 eletrodo.xyz -b 1000 -g #gera run.mdp, field.top e config.pdb\n')
+file3.writelines('./fftool 1 eletrodo.xyz -b 1000 #gera pack.inp\n')
+file3.writelines('./packmol < pack.inp\n')
+file3.writelines('./fftool 1 eletrodo.xyz -b 1000 -g #gera run.mdp, field.top e config.pdb\n')
 #primeiras 2 linhas do .gro
 file4.writelines('RGP - dump_2_eletrodo.py\n')
 file4.writelines(str(N)+'\n')
@@ -54,7 +55,9 @@ with open(arquivo) as f:  #'teste.gro'
     #print(at,tipo,MASSA,q,POT,SIGMA,EPSILON)
 
     #.ff
-    file.writelines('\n{:<6}{:<2}{:6}{:>11.9s}{:>3}{:>8.6}{:>8.7}'.format('e'+str(aux),tipo,MASSA,str(q),POT,SIGMA,EPSILON))
+    #file.writelines('\n{:<6}{:<2}{:6}{:>11.9s}{:>3}{:>8.6}{:>8.7}'.format('e'+str(aux),tipo,MASSA,str(q),POT,SIGMA,EPSILON))
+    file.writelines('\n{:<6}{:<2}{:6}{:>11.7f}{:>3}{:>8.6}{:>8.7}'.format('e'+str(aux),tipo,MASSA,(q),POT,SIGMA,EPSILON))
+    
     #.xyz
     file2.writelines('\n{:<7}{:>10.8} {:>10.8} {:>10.8}'.format('e'+str(aux),parts[2],parts[3],parts[4]))
     #.gro
