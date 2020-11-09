@@ -1,0 +1,173 @@
+######################################################################################################
+Lammps: montagem de caixa com eletrodo à partir de bulk previamente equilibrado e dump contendo o eletrodo.
+Pedro Henrique, Rafael Guimarães Pereira
+15.10.2020
+######################################################################################################
+
+Pré-requisitos:
+- ftool
+- packmol
+- scripts e programas desenvolvidos em nosso grupo de pesquisa
+
+Melhor é adicioná-los à sua área de trabalho clonando o repositório Github deles.
+
+
+###############
+mkdir conf
+###############
+
+
+1. Calcular a densidade média do bulk, depois de ter estabilizado na simulação NVT do bulk (2ns) 
+
+2. O meu eletrodo tem 3.4868 x 4.50000 x .... Vamos deixar um espaço interno, entre os eletrodos, de 8nm. 
+
+3. Calcular o volume do bulk e poros, deixando o espaço de 0.25A para o eletrodo. Com isto, calcular o numero de pares ionicos que vamos colocar na caixa
+
+=========
+
+
+4. 'fftool' >P> 'data.lmp' 'in.lmp' 
+
+(script 1-gera-caixa.sh)
+
+Rodar o fftool. Configurar e rodar o script '1-gera-caixa.sh'
+- Nota, vamos colocar os limites em z de -70 a +70 (140nm) para depois ir apertando até chegarmos em 80 no bulk.
+- Agora vamos fazer esta caixa somente com o IL, o eletrodo vamos colocar de outra forma daqui há pouco
+- na 3a parte do script, colocar o tamanho da caixa como o a maior coordenada z que está nas condicoes periodicas de contorno da caixa exemplo que o Leo forneceu (eletrodo-com-il-0V.lammpstrj). Neste caso eh 223A
+
+5. 'data.lmp' >P> 'cond-period.txt'
+Guardar as condicoes periodicas de contorno, que estao dentro do 'data.lmp', linhas 11, 12 e 13 em arquivo chamado 'cond-period.txt'
+ 0.000000 34.868000 xlo xhi
+ 0.000000 45.000000 ylo yhi
+ -220.000000 220.000000 zlo zhi
+
+6. 'data.lmp' >P> 'positions.dat'
+Guardar as coordenadas dos atomos que estao no 'data.lmp', linha aprox 58, em um arquivo separado nomeado de 'positions.dat'. NAO colocar o numero de atomos na primeira linha.
+Cuidar para não pegar as linhas abaixo do Atoms. O número de linhas você calcula antes.
+Ex: 390 emim + 390 ntf2 => 390*17 + 390*15 = 13260 atomos e tb linhas
+
+8. 'eletrodo-dump.lammpstrj' >P> 'ele-misto.txt'
+Pegar o arquivo de eletrodo (que o Leo deu) e extrair somente a parte do eletrodo. Nomear de W a parede e T o eletrodo mesmo. Arrumar o numero de atomos e salvar em arquivo 'ele-misto.txt'. Adicionar o numero de atomos na primeira linha.
+
+9. 'congif.x' {'config.f90',['positions.dat','ele-misto.txt']} >P> 'new-positions.dat'
+Agora vamos rodar o programa 'config.f90' que vai juntar o IL com o eletrodo. Antes de compilar, tem que revisar o programa dentro pois tem parametros 'hard coded'.
+- linha 13, numero de atomos do arquivo 'positions.dat'
+- linha 26 em diante tem que ajustar os offsets para eletrodo e parede
+
+Compilar o config.f90: $gfortran config.f90
+Rodar: ./a.out 
+
+O arquivo gerado será o 'new-positions.dat'.
+
+
+10. 'data.lmp' 
+Alterar o 'data.lmp'
+- Arrumar o número de átomos na linha 3, somando agora o IL e o eletrodo. Se estiver correto, o numero de linhas do 'new-positions.dat' deve ser a soma de todos os atomos. No meu caso aqui vai ficar agora com 17848. 
+- Arrumar o número de atom types na linha 7: aqui vamos somar +2 tipos (W e T)
+?- Dar uma linha de espaço somente entre esta primeira seção e as condições periódicas de contorno
+- Adicionar os atom-types na seção 'Masses', logo abaixo das condições periódicas de contorno.
+--   No final da seção, imediatamente após a última linha. Numerar a primeira coluna sequencialmente.  
+    9    1.000  # ELE
+   10    1.000  # Wall
+-- As linhas da seção 'Atoms', substituir pelas linhas do arquivo 'new-positions.txt' que foi gerado no passo anterior. Como referência pode-se utilizar a próxima seção 'Bonds'.
+
+No VIM para deletar, exemplo:
+:1,100d (apaga da linha 1 até a 100)
+
+Para adicionar, posicione o cursor onde quer iniciar e:
+:r arquivo.txt
+
+11. 'in.lmp' >P> 'pair_coeff.dat'  
+Montar o novo arquivo 'pair_coeff.dat' à partir dos coeficientes do arquivo 'in.lmp'.
+Mais ou menos na linha 20 vai estar lá e é só extrair as colunas 2, 5 e 6.
+Adicionar os coeficientes para o eletrodo e parede conforme exemplo abaixo (linhas 9 e 10).
+Adicionar na primeira linha do novo arquivo o número de linhas de coeficientes.
+
+  10
+  1     0.170000     3.250000  # N4 N4
+  2     0.065999     3.500000  # C1 C1
+  3     0.030000     2.500000  # H1 H1
+  4     0.065999     3.500000  # CBT CBT
+  5     0.061042     3.118000  # F1 F1
+  6     0.250000     3.550000  # SBT SBT
+  7     0.170000     3.250000  # NBT NBT
+  8     0.200134     3.150000  # OBT OBT
+  9     0.069900     3.550000  # T - ele  ADICIONAR ESTA LINHA
+  10    0.069900     3.550000  # W - ele  ADICIONAR ESTA LINHA
+
+12. 'pair.x' ['pair_coeff.dat'] >P> 'pair_lj.txt'
+Rodar o ./pair.x e o arquivo de saída é o 'pair_lj.txt'.
+
+13. 'lammps.in' ['pair_lj.txt']  
+Copiar um arquivo mais próprio para a equilibração, o lammps.in. Dentro dele faremos modificações, usando inclusive os dados gerados pelo fftools no in.lmp.
+
+- Colar o 'pair_lj.txt' dentro do 'lammps.in'
+NOTA! zerar os coeficientes das linhas de interação do ELE x ELE, ELE x WAL e WAL x WAL. Vai estar em números. Se e eletrodo for o atom type 9 e a Wal o atom type 10, as seguintes linhas devem ser retiradas:
+
+pair_coeff           9           9   6.98999986E-02   3.54999995
+pair_coeff           9          10   6.98999986E-02   3.54999995
+pair_coeff          10          10   6.98999986E-02   3.54999995
+
+Fica:
+
+pair_coeff           9           9  0.                0.
+pair_coeff           9          10  0.                0.
+pair_coeff          10          10  0.                0.
+
+
+- Arrumar os grupos, aqui vai um exemplo ()
+ group sol  type 1 2 3 4 5 6 7 8 	#IL
+ group ele  type 9					#ele
+ group wall type 10					#wall
+
+- temperatura vamos deixar alta pois é um passo somente de minimize que vamos fazer, ex: 500
+ fix 0 sol nvt temp 500.0  500.0  500.0
+
+- ajustar as forças de eletrodo e parede para ZERO
+ fix 1 ele setforce 0.0 0.0 0.0
+ fix wall wall setforce 0.0 0.0 0.0
+
+- copiar o SHAKE do que foi gerado no 'fftool'
+ fix SHAKE all shake 0.0001 20 0 b 2
+
+- adicionar o dump conforme o 'fftool' porém tem que adicionar os tipo T e W do eletrodo. Veja o exemplo:
+ dump TRAJ all custom 1000 dump.lammpstrj id mol type element q x y z ix iy iz
+ dump_modify TRAJ element N C H C F S N O T W sort id
+
+- comentar as linhas de 'restart' no final, pois para a próxima etapa de 'apertar a caixa' não vamos usar o restart
+
+	
+###############
+mkdir eq
+###############
+
+
+14. Criar um diretório para equilibração e copiar do ./conf os seguintes arquivos iniciais
+- data.lmp
+- lammps.in
+- positions.dat (é uma cópia do new-positions do ./conf)
+
+Você vai precisar também dos seguintes programas:
+- open-close.f90
+- fecha.sh
+
+15. 'data.lmp' > 'data1.txt'
+Copia 'data.lmp' em 'data1.txt', um arquivo auxiliar.
+
+16. 'data1.txt' >P> 'positions.dat'
+-Extrai as posições do arquivo 'data1.txt' que neste caso vai estar aproximadamente na linha 61 a 17908
+
+17. 'open-close.f90' >P> 'close.x' OU o programa novo que fiz 'aperta-lammps.py'
+-Editar o open-close.f90. Ajustar as seguintes variáveis:
+ fname = 'positions.dat'
+ natms = 17848
+-Compilar o programa: gfortran open-close.f90 -o close.x
+
+18. 'close.x' ['positions.dat'] > 'fort.21'
+-Executa o programa 'close.x' e obtém o arquivo fort.21.
+
+19. 'data1.txt' ['fort.21'] >P
+-Substitui as linhas de posição (Atoms) pelo conteúdo do arquivo 'fort.21'
+
+20. roda 1 passo do lammps
+mpirun -np 6 lmp_mpi < lammps.in
