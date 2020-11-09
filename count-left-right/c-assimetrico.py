@@ -26,11 +26,31 @@ zr[4]=zr[4]-offset_gas
 zr[2]=zr[2]+offset_bulk
 zr[3]=zr[3]-offset_bulk
 
-print zr
+#print zr
 
 cx_vol_bulk= caixa_dx * caixa_dy * (zr[3]-zr[2])
 #print(cx_vol_bulk)
-print ('tempo left_small left_big ls+lr right_small right_big 4gas')
+#print ('tempo left_small left_big left_sum right_small right_big right_sum gas all') #9 fields
+
+print('@    title "CO\s2\N adsorption over time"')
+print('@    xaxis  label "Time / ps"')
+print('@    yaxis  label "CO\s2\N number . nm\S-3"')
+print('@TYPE nxy')
+#@ view 0.15, 0.15, 0.75, 0.85
+print('@ legend on')
+print('@ legend box on')
+print('@ legend loctype view')
+print('@ legend 0.78, 0.8')
+print('@ legend length 2')
+print('@ s0 legend "left_small"')
+print('@ s1 legend "left_big"')
+print('@ s2 legend "left_sum"')
+print('@ s3 legend "right_small"')
+print('@ s4 legend "right_big"')
+print('@ s5 legend "right_sum"')
+print('@ s6 legend "gas"')
+print('@ s7 legend "all"')
+
 ultima_linha="   3.42600   4.50000  48.50000"
 
 
@@ -111,13 +131,15 @@ def correct_matrix(rawM):
 		#print i*100, left, right, left+right, gas, left+right+gas
 		
 		#print i*intervalo, left_small/cx_vol_bulk/3, left_big/cx_vol_bulk/3, right_small/cx_vol_bulk/3, right_big/cx_vol_bulk/3, gas/cx_vol_bulk/3
-		print 	i*intervalo,\
-				left_small/cx_vol_bulk,\
-				left_big/cx_vol_bulk,\
-				(left_small+left_big)/cx_vol_bulk,\
-				right_small/cx_vol_bulk,\
-				right_big/cx_vol_bulk,\
-		 	    gas/cx_vol_bulk
+		print 	        i*intervalo,\
+				left_small/cx_vol_bulk/3,\
+				left_big/cx_vol_bulk/3,\
+				(left_small+left_big)/cx_vol_bulk/3,\
+				right_small/cx_vol_bulk/3,\
+				right_big/cx_vol_bulk/3,\
+				(right_small+right_big)/cx_vol_bulk/3,\
+		 	        gas/cx_vol_bulk/3,\
+				(left_small+left_big+right_small+right_big+gas)/cx_vol_bulk/3
 		#print i*intervalo, left_small, left_big, (left_small+left_big), right_small, right_big, (right_small+right_big),gas
 		
 		#divide pelo volume para normalizar
