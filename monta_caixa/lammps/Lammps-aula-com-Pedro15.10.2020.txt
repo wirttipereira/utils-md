@@ -19,12 +19,11 @@ mkdir conf
 
 1. Calcular a densidade média do bulk, depois de ter estabilizado na simulação NVT do bulk (2ns) 
 
-2. O meu eletrodo tem 3.4868 x 4.50000 x .... Vamos deixar um espaço interno, entre os eletrodos, de 8nm. 
+2. O meu eletrodo tem 3.4268 x 4.50000 x .... Vamos deixar um espaço interno, entre os eletrodos, de 8nm. 
 
 3. Calcular o volume do bulk e poros, deixando o espaço de 0.25A para o eletrodo. Com isto, calcular o numero de pares ionicos que vamos colocar na caixa
 
 =========
-
 
 4. 'fftool' >P> 'data.lmp' 'in.lmp' 
 
@@ -47,7 +46,8 @@ Cuidar para não pegar as linhas abaixo do Atoms. O número de linhas você calc
 Ex: 390 emim + 390 ntf2 => 390*17 + 390*15 = 13260 atomos e tb linhas
 
 8. 'eletrodo-dump.lammpstrj' >P> 'ele-misto.txt'
-Pegar o arquivo de eletrodo (que o Leo deu) e extrair somente a parte do eletrodo. Nomear de W a parede e T o eletrodo mesmo. Arrumar o numero de atomos e salvar em arquivo 'ele-misto.txt'. Adicionar o numero de atomos na primeira linha.
+Pegar o arquivo de eletrodo (que o Leo deu) e extrair somente a parte do eletrodo. Nomear de W a parede e T o eletrodo mesmo. Arrumar o numero de atomos e salvar em arquivo 'ele-misto.txt'. 
+>> Adicionar o numero de atomos na primeira linha.
 
 9. 'congif.x' {'config.f90',['positions.dat','ele-misto.txt']} >P> 'new-positions.dat'
 Agora vamos rodar o programa 'config.f90' que vai juntar o IL com o eletrodo. Antes de compilar, tem que revisar o programa dentro pois tem parametros 'hard coded'.
@@ -161,6 +161,11 @@ Copia 'data.lmp' em 'data1.txt', um arquivo auxiliar.
 -Editar o open-close.f90. Ajustar as seguintes variáveis:
  fname = 'positions.dat'
  natms = 17848
+ 
+ O numero dos residuos de eletrodo esquerda, direita e wall.
+ Neste exemplo serão o : 825, 826 e 827.
+ Isto vc pode ver nas ultimas linhas do new-positions.dat, referentes ao eletrodo e parede.
+
 -Compilar o programa: gfortran open-close.f90 -o close.x
 
 18. 'close.x' ['positions.dat'] > 'fort.21'

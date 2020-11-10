@@ -21,7 +21,7 @@ open(10,file='p1M.dat', status='old')
 open(50,file='out.dat', status='unknown')
     !Le o arquivo de entrada
     aux=0
-	  do k=1,n
+    do k=1,n
       read(10,*) linha(k), p(k)
       !print *, p(k)
       aux=aux+p(k)
@@ -40,7 +40,8 @@ open(50,file='out.dat', status='unknown')
     aux=0
 
 ! !$omp parallel do
-!dir$ simd
+
+!$omd simd
     do i=1, lag
       aux=0
       aux=produto_vetor(i)
@@ -48,6 +49,8 @@ open(50,file='out.dat', status='unknown')
       r(i)=s(i)/variancia0 !ACF
       write(50,*) linha(i), r(i)
     end do
+!$omd end simd
+ 
 !  !omp end parallel do
 
 contains
