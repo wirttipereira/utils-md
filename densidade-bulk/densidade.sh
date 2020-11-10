@@ -7,8 +7,8 @@
 # fizemos a calculo da densidade em Python.
 ################################################################
 
-linhas=17857			#quantas linhas tem uma configuracao
-amostras=5			#quantas configuracoes queremos amostrar
+linhas=16717			#quantas linhas tem uma configuracao dump, incluindo cabecalho 
+amostras=50			#quantas configuracoes queremos amostrar
 arquivo='dump.lammpstrj'	#nome do arquivo de trajetoria
 arquivo_out='out.json'		#arquivo de saida para o programa Python
 dx=3.4886			#dimensao x
@@ -21,6 +21,7 @@ n=$(($linhas*amostras))
 #echo $n
 #prepara o arquivo .xyz
 tail -$n $arquivo > temp.lammpstrj
+tail -$linhas $arquivo > t1.lammpstrj 
 
 ### >>> Editar aqui abaixo o intervalo em Z
 cat temp.lammpstrj |awk '($8>-20)&&($8<20) {print $4,$6,$7,$8}' > temp.xyz

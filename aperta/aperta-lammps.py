@@ -21,7 +21,7 @@ total_at = "14400" 	         #total de atomos no arquivo
 offset= 2.  		         #dimensao do aperto de cada lado em nm
 #------------------
 
-file4 = open('out.gro','w')
+file4 = open('fort.21','w')
 
 aux = 0
 
@@ -39,7 +39,7 @@ with open(arquivo) as f:  #'teste.gro'
     n_at = line[0:5]
     #print(n_at)
     mol  = int(line[6:11])
-    print(mol)
+    #print(mol)
     tipo  = line[12:15]
     carga = float(line[16:24])
     x = float(line[25:34])
@@ -88,3 +88,4 @@ for at in sp.atom:
                             sp.name[0:5], at.name, 1, at.q))
                     i += 1
 '''
+
