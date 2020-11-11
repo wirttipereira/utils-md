@@ -15,7 +15,7 @@
 
 import json
 
-nav = 6.02E23
+nav = 6.02214076E23
 #mm: massa molar
 mm_B = 10.81
 mm_C = 12.01
