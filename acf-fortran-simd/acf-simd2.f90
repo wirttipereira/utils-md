@@ -41,7 +41,7 @@ open(50,file='out.dat', status='unknown')
 
 ! !$omp parallel do
 
-!$omd simd
+!$OMP SIMD SIMDLEN(8)
     do i=1, lag
       aux=0
       aux=produto_vetor(i)
@@ -49,8 +49,7 @@ open(50,file='out.dat', status='unknown')
       r(i)=s(i)/variancia0 !ACF
       write(50,*) linha(i), r(i)
     end do
-!$omd end simd
- 
+!  !$omp end simd
 !  !omp end parallel do
 
 contains
