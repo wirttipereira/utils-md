@@ -25,10 +25,11 @@ zr[4]=zr[4]-offset_gas
 #aplica offset no bulk
 zr[2]=zr[2]+offset_bulk
 zr[3]=zr[3]-offset_bulk
-
 #print zr
-
 cx_vol_bulk= caixa_dx * caixa_dy * (zr[3]-zr[2])
+cx_normalizacao=1 #cx_vol_bulk/3
+
+
 #print(cx_vol_bulk)
 #print ('tempo left_small left_big left_sum right_small right_big right_sum gas all') #9 fields
 
@@ -132,14 +133,14 @@ def correct_matrix(rawM):
 		
 		#print i*intervalo, left_small/cx_vol_bulk/3, left_big/cx_vol_bulk/3, right_small/cx_vol_bulk/3, right_big/cx_vol_bulk/3, gas/cx_vol_bulk/3
 		print 	        i*intervalo,\
-				left_small/cx_vol_bulk/3,\
-				left_big/cx_vol_bulk/3,\
-				(left_small+left_big)/cx_vol_bulk/3,\
-				right_small/cx_vol_bulk/3,\
-				right_big/cx_vol_bulk/3,\
-				(right_small+right_big)/cx_vol_bulk/3,\
-		 	        gas/cx_vol_bulk/3,\
-				(left_small+left_big+right_small+right_big+gas)/cx_vol_bulk/3
+				left_small/cx_normalizacao,\
+				left_big/cx_normalizacao,\
+				(left_small+left_big)/cx_normalizacao,\
+				right_small/cx_normalizacao,\
+				right_big/cx_normalizacao,\
+				(right_small+right_big)/cx_normalizacao,\
+		 	        gas/cx_normalizacao,\
+				(left_small+left_big+right_small+right_big+gas)/cx_normalizacao
 		#print i*intervalo, left_small, left_big, (left_small+left_big), right_small, right_big, (right_small+right_big),gas
 		
 		#divide pelo volume para normalizar
