@@ -1,0 +1,67 @@
+#!/bin/bash
+#SBATCH --nodes=32                  #Numero de Nós
+#SBATCH --ntasks-per-node=24           #Numero de tarefas por Nó
+#SBATCH --ntasks=768             #Numero total de tarefas MPI
+#SBATCH -p cpu                         #Fila (partition) a ser utilizada
+#SBATCH -J RNEMD_C2C1ImBF4       #Nome job
+#SBATCH --time=72:00:00                #Altera o tempo limit HH:MM:SS
+#SBATCH --exclusive                    #Utilização exclusiva dos nós durante a execução do job
+#SBATCH --mail-type=BEGIN,END
+#SBATCH --mail-user=kalil.bernardino@gmail.com
+#Exibe os nós alocados para o Job
+echo $SLURM_JOB_NODELIST
+nodeset -e $SLURM_JOB_NODELIST
+
+cd $SLURM_SUBMIT_DIR
+
+#Configura os compiladores
+#bullxmpi com Intel
+#source /scratch/app/modulos/intel-psxe-2016.2.062.sh
+#module load bullxmpi
+
+#ou
+#bullxmpi com GNU
+#module load gcc-5
+#module load bullxmpi_gnu
+
+#ou
+#intel MPI
+source /scratch/app/modulos/intel-psxe-2017.sh
+module load cmake/3.12
+module load openmpi/icc/2.0.4.2
+module load gcc/6.5
+
+#module load gromacs/5.1.2_intel
+
+#Configura o executavel
+EXEC=/scratch/il_nemd/kalil.bernardino2/lmp
+
+#exibe informações sobre o executável
+/usr/bin/ldd $EXEC
+
+#srun -n $SLURM_NTASKS $EXEC mdrun
+cd swap10
+pwd
+srun --resv-ports --nodes 8 --ntasks 192 $EXEC  -sf opt -in in.prod.lmp &
+cd .. 
+
+
+cd swap16 
+pwd
+srun --resv-ports --nodes 8 --ntasks 192 $EXEC  -sf opt -in in.prod.lmp &
+cd ..
+
+cd swap20 
+pwd
+srun --resv-ports --nodes 8 --ntasks 192 $EXEC  -sf opt -in in.prod.lmp &
+cd ..
+
+cd swap40 
+pwd
+srun --resv-ports --nodes 8 --ntasks 192 $EXEC  -sf opt -in in.prod.lmp &
+cd ..
+
+date
+
+wait
+date

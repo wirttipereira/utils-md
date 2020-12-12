@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --nodes=3                      #Numero de Nós
+#SBATCH --ntasks-per-node=24           #Numero de tarefas por Nó
+#SBATCH --ntasks=72                    #Numero total de tarefas MPI
+#SBATCH -p cpu_dev                  #Fila (partition) a ser utilizada
+#SBATCH -J 19_teste            #Nome job
+#SBATCH --time=00:20:00                #Altera o tempo limit HH:MM:SS
+#SBATCH --exclusive                    #Utilização exclusiva dos nós durante a execução do job
+# #SBATCH --mail-type=BEGIN,END
+# #SBATCH --mail-user=wirttipereira@hotmail.com
+#Exibe os nós alocados para o Job
+echo $SLURM_JOB_NODELIST
+nodeset -e $SLURM_JOB_NODELIST
+
+cd $SLURM_SUBMIT_DIR
+
+# carrega o complicador Intel
+source /scratch/app/modulos/intel-psxe-2017.sh
+
+module load gromacs/5.1.5_openmpi_gnu #gromacs/5.1.2_intel
+
+#Configura o executavel
+EXEC=/scratch/app/gromacs/5.1.5_openmpi_gnu/bin/gmx_mpi
+
+#exibe informações sobre o executável
+/usr/bin/ldd $EXEC
+
+#srun -n $SLURM_NTASKS $EXEC mdrun  -s confXX.tpr -deffnm confXX 
+#srun --resv-ports --nodes 8 --ntasks 192 $EXEC  -sf opt -in in.prod.lmp &
+srun --resv-ports --nodes 1 --ntasks 24 $EXEC  mdrun -s conf14875.tpr -deffnm conf14875 &
+srun --resv-ports --nodes 1 --ntasks 24 $EXEC  mdrun -s conf15125.tpr -deffnm conf15125 &
+srun --resv-ports --nodes 1 --ntasks 24 $EXEC  mdrun -s conf15375.tpr -deffnm conf15375 &
+date
+
+wait
+date

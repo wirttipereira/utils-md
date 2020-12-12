@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH --nodes=1   	               #Numero de Nós
+#SBATCH --ntasks-per-node=24           #Numero de tarefas por Nó
+#SBATCH --ntasks=24     	       #Numero total de tarefas MPI
+#SBATCH -p cpu_dev                   #Fila (partition) a ser utilizada
+#SBATCH -J 8e9meta-AN0B-Umbrella            #Nome job
+#SBATCH --time=00:20:00                #Altera o tempo limit HH:MM:SS
+#SBATCH --exclusive                    #Utilização exclusiva dos nós durante a execução do job
+# #SBATCH --mail-type=BEGIN,END
+# #SBATCH --mail-user=wirttipereira@hotmail.com
+#Exibe os nós alocados para o Job
+echo $SLURM_JOB_NODELIST
+nodeset -e $SLURM_JOB_NODELIST
+
+cd $SLURM_SUBMIT_DIR
+
+# carrega o complicador Intel
+source /scratch/app/modulos/intel-psxe-2017.sh
+
+#module load gromacs/5.1.5_openmpi_gnu #gromacs/5.1.2_intel
+module load gromacs/2018.8_openmpi_gnu+plumed
+
+#Configura o executavel
+#EXEC=/scratch/app/gromacs/5.1.5_openmpi_gnu/bin/gmx_mpi
+EXEC=/scratch/app/gromacs/2018.8_openmpi_gnu/bin/gmx_mpi
+#exibe informações sobre o executável
+/usr/bin/ldd $EXEC
+
+srun -n $SLURM_NTASKS $EXEC mdrun -plumed plumed.dat
+date
+
+wait
+date
