@@ -5,6 +5,15 @@
 # O que fizemos foi criar uma copia do arquivo, retirando o cabecalho e o rodape
 ##################################################################################
 
-cp saida.log saida-sem-header.log
 # tirar o cabecalho e rodape
-tail -100 saida-sem-header.log | awk '{sum += $12} END {print sum/100}'
+head -n -50 saida.log|tail -n +107 >aux
+#captura numero de linhas
+N=$(wc aux |awk '{print $1}') # >N
+echo $N
+#pega a metade das linhas
+metade=$(($N/2))
+#faz a media da densidade ($12) para todas as linhas
+echo $metade
+tail -$metade aux | awk -v var="$metade" '{sum += $12} END {print sum/var}' > dens.out
+cat dens.out
+#rm aux
