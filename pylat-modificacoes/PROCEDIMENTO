@@ -1,0 +1,6 @@
+14.1.2021 - RGP
+
+1. copiar 2plot.py para /PyLAT/
+2. cp /PyLAT/calcCOM.py /PyLAT/bk.calcCOM.py
+3. cp modcalcCOM.py /PyLAT/calcCOM.py
+--fim--
