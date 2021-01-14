@@ -177,7 +177,7 @@ class calcCOM:
         
     def comprep(self, mol, n, atype, atommass, num_timesteps):
         #creates arrays to prepare for center of mass calculations
-	nummol = int(max(mol))
+		nummol = int(max(mol))
         comx = [[0 for x in range(nummol)]for x in range(num_timesteps)]
         comy = [[0 for x in range(nummol)]for x in range(num_timesteps)]
         comz = [[0 for x in range(nummol)]for x in range(num_timesteps)]
@@ -201,30 +201,30 @@ class calcCOM:
         comy[count] += comyt
         comz[count] += comzt
         count += 1
-	#Escrever o arquivo de trajetoria do COM
-	fname = open('COM.lammpstrj', 'w')
-	posicaox = []
-	posicaoy = []
-	posicaoz = []
-	elemento = []
-	IDD = []
-	d = 0
-	b = 0
-	a = 0
-	xx = 0
-	yy = 0
-	zz = 0
+		#Escrever o arquivo de trajetoria do COM
+		fname = open('COM.lammpstrj', 'w')
+		posicaox = []
+		posicaoy = []
+		posicaoz = []
+		elemento = []
+		IDD = []
+		d = 0
+		b = 0
+		a = 0
+		xx = 0
+		yy = 0
+		zz = 0
         g = 0
         c = count-1
         fname.write('ITEM: TIMESTEP\n')
-	fname.write(str(count))
-	fname.write('\nITEM: NUMBER OF ATOMS\n')
-	fname.write(str(nummol))
-	fname.write('\nITEM: BOX BOUNDS pp pp pp\n')
-	fname.write(str(Lx2)+' '+str(Lx)+'\n')
-	fname.write(str(Ly2)+' '+str(Ly)+'\n')
-	fname.write(str(Lz2)+' '+str(Lz))
-	fname.write('\nITEM: ATOMS id type x y z\n')  
+		fname.write(str(count))
+		fname.write('\nITEM: NUMBER OF ATOMS\n')
+		fname.write(str(nummol))
+		fname.write('\nITEM: BOX BOUNDS pp pp pp\n')
+		fname.write(str(Lx2)+' '+str(Lx)+'\n')
+		fname.write(str(Ly2)+' '+str(Ly)+'\n')
+		fname.write(str(Lz2)+' '+str(Lz))
+		fname.write('\nITEM: ATOMS id type x y z\n')  
         #for ID,xx,yy,zz in comxt, 
         while (a < nummol):
 		d = a + 1
@@ -247,5 +247,5 @@ class calcCOM:
 	np.savetxt(fname, np.c_[IDD,elemento,posicaox,posicaoy,posicaoz],fmt='%4d  %1d  %1.4f  %1.4f  %1.4f')
 		
 	fname.close()
-        return (comx, comy, comz, count)
+    return (comx, comy, comz, count)
 
