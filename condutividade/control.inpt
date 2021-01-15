@@ -1,0 +1,7 @@
+50000          READ (40,*) nstep
+1000e-15          READ (40,*) dt
+100          READ (40,*) isave
+1          READ (40,*) iacf
+5000          READ (40,*) nacf
+0000.00       READ (40,*) BOX olhar dump original
+
