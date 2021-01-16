@@ -1,7 +1,25 @@
-c gfortran -fopenmp -O3 do* -o acf-omp
+c Programa original: Leonardo Siqueira
+c Ultima modificacao 15.1.21 - Rafael Guimaraes
+c 
+c-------------------------------------
+c #     ion-ion     arquivo
+c-------------------------------------
+c 1     1-1     self_cont.out
+c 2     2-2     self_cont.out
+c 3     3-3     self_cont.out
+c 4     1-1     distinct_1.out
+c 5     1-2     distinct_1.out
+c 6     1-3     distinct_1.out
+c 7     2-2     distinct_2.out
+c 8     2-3     distinct_2.out
+c 9     3-3     distinct_2.out
+c-------------------------------------
+c
+c COMPILAR: gfortran -fopenmp -O3 do_self_distinct_coll.f -o do_self_distinct_coll_omp.mac
+c 
 
 
-       PROGRAM DO_DIFF_BMIM
+       PROGRAM DO_SELF_DISTINCT_COLL !DO_DIFF_BMIM
 
 !$use omp lib
 
@@ -26,6 +44,7 @@ c gfortran -fopenmp -O3 do* -o acf-omp
      3              rxn(600), ryn(600), rzn(600)
 *
        INTEGER      N, nspec, isp(4), nsr(4), spi
+       REAL         carga1, carga2
        REAL         box 
 *
        INTEGER      nbond(4), bonda(4,20),bondb(4,20)
@@ -63,13 +82,13 @@ c gfortran -fopenmp -O3 do* -o acf-omp
         read(55,1002)text
         read(55,*)b
         read(55,1002)text
-        read(55,1003)m
+        read(55,1003)m !numero de moleculas
         read(55,1002)text
         read(55,*)xx,box
         read(55,*)boxy,yy
         read(55,*)boxz,zz
         read(55,1002)text
-         N=m
+         N=m     !ele pega o N (numero de moleculas) do proprio arquivo 
          do 11 i=1,N
          READ (55,*)a,k,rcmx(i),rcmy(i),rcmz(i)
          rcmx(i)=rcmx(i)
@@ -151,6 +170,8 @@ c  21         CONTINUE
           READ (40,*) isave
           READ (40,*) iacf
           READ (40,*) nacf
+          READ (40,*) carga1
+          READ (40,*) carga2
        CLOSE (40)
 *
        RETURN
@@ -431,14 +452,18 @@ c         if(i.gt.isp(1)+isp(2)) spi=3
          ior = 1
        ENDIF
 *
+c
+c CHECAR AS CARGAS ABAIXO (padrão 0.8 scaled MAS cuidar o sinal para 
+c colocar o anion/cation na mesma ordem do dump.
+c
        DO 10 i=1,N
          dax(i,ior) = rxn(i)
          day(i,ior) = ryn(i)
          daz(i,ior) = rzn(i)
-         IF(i.le.200)then
-           ch(i)=-0.8
+         IF(i.le.(N/2))then
+           ch(i)=carga1 !-0.8
          else
-           ch(i)=0.8
+           ch(i)=carga2 !0.8
          endif
          
    10  CONTINUE
@@ -477,7 +502,7 @@ c            if(i.gt.350) spi=3
               spj=1
               if(j.gt.200.and.j.le.400) spj=2
 
-* anion  - anion
+* ion1 - ion1
               if (spi.eq.1.and.spj.eq.1) then
               if (i.eq.j) then
 *             self-contribution
@@ -507,7 +532,7 @@ c            if(i.gt.350) spi=3
               acf(4,jor) = acf(4,jor) + coll
               endif
               endif
-* anion-cation
+* ion1 - ion2
               if ((spi.eq.1.and.spj.eq.2).or.
      1               (spi.eq.2.and.spj.eq.1)) then
               xtxo = rxn(i) - dax(i,is)
@@ -522,7 +547,7 @@ c            if(i.gt.350) spi=3
               coll = coll *ch(i)*ch(j)
               acf(5,jor) = acf(5,jor) + coll
               endif
-* anion - Li (segundo anion ou cation)
+* ion1 - ion3
               if ((spi.eq.1.and.spj.eq.3).or.
      1                (spi.eq.3.and.spj.eq.1)) then
               xtxo = rxn(i) - dax(i,is)
@@ -537,7 +562,7 @@ c            if(i.gt.350) spi=3
               coll = coll *ch(i)*ch(j)
               acf(6,jor) = acf(6,jor) + coll
               endif
-* cation - cation
+* ion2 - ion2
               if (spi.eq.2.and.spj.eq.2) then
               if (i.eq.j) then
 * self contribution
@@ -567,7 +592,7 @@ c            if(i.gt.350) spi=3
               acf(7,jor) = acf(7,jor) + coll
               endif
               endif
-* cation - Li 
+* ion2 - ion3 
               if ((spi.eq.2.and.spj.eq.3).or.
      1             (spi.eq.3.and.spj.eq.2)) then
               xtxo = rxn(i) - dax(i,is)
@@ -582,7 +607,7 @@ c            if(i.gt.350) spi=3
               coll = coll *ch(i)*ch(j)
               acf(8,jor) = acf(8,jor) + coll
               endif
-* Li - Li terceira especie 
+* ion3 - ion3
               if (spi.eq.3.and.spj.eq.3) then
               if (i.eq.j) then
 * self contribution
