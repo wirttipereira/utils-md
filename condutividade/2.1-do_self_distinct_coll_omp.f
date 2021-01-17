@@ -21,9 +21,17 @@ c Modificações:
 c 1. inclusão de paralelização
 c 2. inclusão de comentários explicativos
 c 3. adicao de parametros ao control (carga1, carga2), para evitar 'hard coding'
+c
+c x0 : 200 ntf2, 200 emim e 0   tma. auxA=200 e auxB=400 e comentar a linha da esp3
+c x25: 200 ntf2, 150 emim e 50  tma. auxA=200 e auxB=350
+c x50: 200 ntf2, 100 emim e 100 tma. auxA=200 e auxB=300
+c x75: 200 ntf2, 50  emim e 150 tma. auxA=200 e auxB=250
+c x1 : 200 ntf2, 0   emim e 200 tma. auxA=200 e auxB=400 e comentar a linha da esp3
+c
+c Producar por 'editar' para verificar quais os campos para editar diretamente no docido
+c
 
-
-       PROGRAM DO_SELF_DISTINCT_COLL !DO_DIFF_BMIM
+       PROGRAM DO_DIFF_BMIM
 
 !$use omp lib
 
@@ -48,10 +56,6 @@ c 3. adicao de parametros ao control (carga1, carga2), para evitar 'hard coding'
      3              rxn(600), ryn(600), rzn(600)
 *
        INTEGER      N, nspec, isp(4), nsr(4), spi
-c RAFAEL inicio
-       REAL         carga1, carga2
-       INTEGER      num_especies, mol_esp1, mol_esp2, mol_esp3
-c RAFAEL fim
        REAL         box 
 *
        INTEGER      nbond(4), bonda(4,20),bondb(4,20)
@@ -74,6 +78,7 @@ c RAFAEL fim
        CHARACTER    typ(4),label(400)
        REAL         boxx,boxy,boxz
        CHARACTER    text
+c       
 ******
 1000  format(i5,2a5,i5,3f8.3)
 1001  format(3f10.5)
@@ -89,14 +94,13 @@ c RAFAEL fim
         read(55,1002)text
         read(55,*)b
         read(55,1002)text
-        read(55,1003)m !numero de moleculas
+        read(55,1003)m
         read(55,1002)text
         read(55,*)xx,box
         read(55,*)boxy,yy
         read(55,*)boxz,zz
         read(55,1002)text
-         N=m     !ele pega o N (numero de moleculas) do proprio arquivo 
-         print *, num_especies 
+         N=m
          do 11 i=1,N
          READ (55,*)a,k,rcmx(i),rcmy(i),rcmz(i)
          rcmx(i)=rcmx(i)
@@ -178,12 +182,6 @@ c  21         CONTINUE
           READ (40,*) isave
           READ (40,*) iacf
           READ (40,*) nacf
-          READ (40,*) carga1
-          READ (40,*) carga2
-          READ (40,*) num_especies
-          READ (40,*) mol_esp1
-          READ (40,*) mol_esp2
-          READ (40,*) mol_esp3
        CLOSE (40)
 *
        RETURN
@@ -454,6 +452,11 @@ c         if(i.gt.isp(1)+isp(2)) spi=3
 **
        INTEGER is, jor, i, j, k,spi,spj
        REAL xtxo,ytyo,ztzo,rtro,xtxa,ytya,ztza,ch(400)
+*
+       INTEGER auxA, auxB
+       auxA = 200 !editar
+       auxB = 250 !editar
+
 ******
        nor = nor+1
        IF (nor.GT.nacf) THEN
@@ -464,18 +467,17 @@ c         if(i.gt.isp(1)+isp(2)) spi=3
          ior = 1
        ENDIF
 *
-c
-c CHECAR AS CARGAS ABAIXO (padrão 0.8 scaled MAS cuidar o sinal para 
-c colocar o anion/cation na mesma ordem do dump.
-c
        DO 10 i=1,N
          dax(i,ior) = rxn(i)
          day(i,ior) = ryn(i)
          daz(i,ior) = rzn(i)
-         IF(i.le.(N/2))then
-           ch(i)=carga1 !-0.8
+
+c Rafael
+c  Cargas / scalled. Na ordem do dump. Neste caso o anion estah primeiro entao vai -0.8 (scalled)  
+         IF(i.le.200)then !editar 
+           ch(i)=-0.8     !editar
          else
-           ch(i)=carga2 !0.8
+           ch(i)=0.8      !editar
          endif
          
    10  CONTINUE
@@ -500,26 +502,32 @@ c   12  CONTINUE
          nto = nto + 1
        ENDIF
 *
-c      RAFAEL
+c      RAFAEL, fim paralelizacao
 !$omp parallel do
+
+
+c spi eh a especie. Quando soh tem um anion e um cation so vai ter spi=1 e spi=2
        DO 20 is=1,nor
          jor = it+1-nst(is)
          IF (jor.LE.nacf) THEN
 *
           DO 30 i=1,N !isp(1)+isp(2)+isp(3)i
             spi=1
-*
-c --- RAFAEL - modificacao 16.1.21 - inicio
-            if(i.gt.200.and.i.le.350) spi=2
-            if(i.gt.350) spi=3
-*
+c            if(i.gt.200.and.i.le.350) spi=2
+c            if(i.gt.350) spi=3
+c            DO 31 j=1,N !isp(1)+isp(2)+isp(3)
+c              spj=1
+c              if(j.gt.200.and.j.le.350) spj=2
+c              if(j.gt.350) spi=3
+c
+            if(i.gt.200.and.i.le.250) spi=2
+            if(i.gt.250) spi=3 !se soh tiver 2 especies, pode comentar
             DO 31 j=1,N !isp(1)+isp(2)+isp(3)
               spj=1
-              if(j.gt.200.and.j.le.350) spj=2
-              if(j.gt.350) spj = 3
-c --- RAFAEL - modificacao 16.1.21 - final
-*
-* ion1 - ion1
+              if(j.gt.200.and.j.le.250) spj=2
+              if(j.gt.250) spi=3 !se soh tiver 2 especies, pode comentar
+              
+* anion  - anion
               if (spi.eq.1.and.spj.eq.1) then
               if (i.eq.j) then
 *             self-contribution
@@ -549,7 +557,7 @@ c --- RAFAEL - modificacao 16.1.21 - final
               acf(4,jor) = acf(4,jor) + coll
               endif
               endif
-* ion1 - ion2
+* cation - anion
               if ((spi.eq.1.and.spj.eq.2).or.
      1               (spi.eq.2.and.spj.eq.1)) then
               xtxo = rxn(i) - dax(i,is)
@@ -564,7 +572,7 @@ c --- RAFAEL - modificacao 16.1.21 - final
               coll = coll *ch(i)*ch(j)
               acf(5,jor) = acf(5,jor) + coll
               endif
-* ion1 - ion3
+* anion - Li (segundo anion ou cation)
               if ((spi.eq.1.and.spj.eq.3).or.
      1                (spi.eq.3.and.spj.eq.1)) then
               xtxo = rxn(i) - dax(i,is)
@@ -579,7 +587,7 @@ c --- RAFAEL - modificacao 16.1.21 - final
               coll = coll *ch(i)*ch(j)
               acf(6,jor) = acf(6,jor) + coll
               endif
-* ion2 - ion2
+* cation - cation
               if (spi.eq.2.and.spj.eq.2) then
               if (i.eq.j) then
 * self contribution
@@ -609,7 +617,7 @@ c --- RAFAEL - modificacao 16.1.21 - final
               acf(7,jor) = acf(7,jor) + coll
               endif
               endif
-* ion2 - ion3 
+* anion - Li 
               if ((spi.eq.2.and.spj.eq.3).or.
      1             (spi.eq.3.and.spj.eq.2)) then
               xtxo = rxn(i) - dax(i,is)
@@ -624,7 +632,7 @@ c --- RAFAEL - modificacao 16.1.21 - final
               coll = coll *ch(i)*ch(j)
               acf(8,jor) = acf(8,jor) + coll
               endif
-* ion3 - ion3
+* Li - Li terceira especie 
               if (spi.eq.3.and.spj.eq.3) then
               if (i.eq.j) then
 * self contribution

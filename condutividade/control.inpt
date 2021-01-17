@@ -4,6 +4,11 @@
 1             READ (40,*) iacf
 5000          READ (40,*) nacf
 0000.00       READ (40,*) BOX olhar dump original
--0.8          carga1, carga das moleculas da 1a metade do dump
-+0.8          carga2, carga das moleculas da 2a metade do dump
 
+Teste daqui para diante
+-0.8          READ (40,*) carga1; carga1, carga das moleculas da 1a metade do dump
++0.8          READ (40,*) carga2; carga2, carga das moleculas da 2a metade do dump
+3             READ (40,*) num_especies, numero de especies diferentes
+200           READ (40,*) mol_esp1, numero moleculas especie 1 - ntf2
+150           READ (40,*) mol_esp2, numero moleculas especie 2 - tma
+50            READ (40,*) mol_esp3, numero moleculas especie 3 - emim
