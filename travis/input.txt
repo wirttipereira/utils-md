@@ -1,0 +1,41 @@
+! TRAVIS input file
+! Created with TRAVIS version compiled at Aug 14 2020 17:45:44
+! Source code version: May 4 2020 (may the force (-: ) HF2
+! Input file written at Tue Jan 19 08:59:13 2021.
+! Use the advanced mode until the analysis selection menu (y/n)? [no] 
+
+! Are the 3 cell vectors of the same size (yes/no)? [yes] 
+
+! Enter length of cell vector in pm: 
+
+! Invalid input. Enter a real number.
+! Enter length of cell vector in pm: 
+4500
+! Create images of the structural formulas (y/n)? [no] 
+
+! Accept these molecules (y) or change something (n)? [yes] 
+
+! Which functions to compute (comma separated)?
+sfac
+! Use the advanced mode for the main part (y/n)? [no] 
+
+! Compute structure factor of specific atom groups (y/n)? [no] 
+
+! Enter maximum RDF distance to observe (pm): [2200] 
+2100
+! Enter RDF binning resolution: [4400] 
+4200
+! Enter maximum wave vector modulus (nm^-1): [100] 
+
+! Enter Structure Factor resolution: [1000] 
+
+! Which factor to use? [1] 
+
+! Apply Lorch type window function (y/n)? [no] 
+
+! In which trajectory frame to start processing the trajectory? [1] 
+
+! How many trajectory frames to read (from this position on)? [all] 
+
+! Use every n-th read trajectory frame for the analysis: [1] 
+
